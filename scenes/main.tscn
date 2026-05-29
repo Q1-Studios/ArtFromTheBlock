@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://fn42vyv1hxlq"]
 
 [ext_resource type="PackedScene" uid="uid://bjjyd6apwtscb" path="res://scenes/sealskater.tscn" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://c5hl0wna16l0g" path="res://scenes/rail.tscn" id="2_0wfyh"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sgp6g"]
 
@@ -12,6 +13,8 @@ size = Vector3(100, 1, 100)
 
 [node name="Node3D" type="Node3D" unique_id=1409937124]
 
+[node name="Rail" parent="." unique_id=261477281 instance=ExtResource("2_0wfyh")]
+
 [node name="Florr" type="StaticBody3D" parent="." unique_id=330852359]
 physics_material_override = SubResource("PhysicsMaterial_sgp6g")
 
@@ -19,6 +22,7 @@ physics_material_override = SubResource("PhysicsMaterial_sgp6g")
 shape = SubResource("BoxShape3D_o5qli")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Florr" unique_id=1876577474]
+transform = Transform3D(0.9999939, -0.00058296666, -0.0034437638, 0.0005923743, 0.99999607, 0.0027290485, 0.0034421582, -0.0027310736, 0.99999034, -0.061145782, 0.14846611, 0.0021195412)
 mesh = SubResource("BoxMesh_sgp6g")
 
 [node name="Sealskater" parent="." unique_id=1529588113 instance=ExtResource("1_o5qli")]

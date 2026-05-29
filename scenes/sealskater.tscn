@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bjjyd6apwtscb"]
 
+[ext_resource type="Script" uid="uid://ch2f2vldy5q0l" path="res://scripts/skater.gd" id="1_6give"]
 [ext_resource type="PackedScene" uid="uid://dry6f4nwbpwbw" path="res://assets/skateboard/skateboard.glb" id="1_205dp"]
 [ext_resource type="PackedScene" uid="uid://c6mad0mwcbdsj" path="res://assets/sealplush/seal.glb" id="2_u21eb"]
 
@@ -7,11 +8,11 @@
 height = 1.762207
 radius = 1.4926758
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6give"]
-radius = 1.0307617
-height = 4.579834
+[sub_resource type="BoxShape3D" id="BoxShape3D_u21eb"]
+size = Vector3(2, 1, 4)
 
-[node name="Sealskater" type="RigidBody3D" unique_id=1529588113]
+[node name="Sealskater" type="RigidBody3D" unique_id=1095653448]
+script = ExtResource("1_6give")
 
 [node name="skateboard" parent="." unique_id=747438127 instance=ExtResource("1_205dp")]
 
@@ -22,8 +23,7 @@ transform = Transform3D(0.010484888, 0, 0.05907679, 0, 0.06, 0, -0.05907679, 0, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.282959, 0)
 shape = SubResource("CylinderShape3D_u21eb")
 
-[node name="GrindDetector" type="Area3D" parent="." unique_id=1690810548]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GrindDetector" unique_id=1018102069]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.2745713, 0.11364746)
-shape = SubResource("CapsuleShape3D_6give")
+[node name="GrindShapeCast" type="ShapeCast3D" parent="." unique_id=1047026119]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7249311, 0)
+shape = SubResource("BoxShape3D_u21eb")
+collision_mask = 2
