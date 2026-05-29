@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bjjyd6apwtscb"]
+
+[ext_resource type="PackedScene" uid="uid://dry6f4nwbpwbw" path="res://assets/skateboard/skateboard.glb" id="1_205dp"]
+[ext_resource type="PackedScene" uid="uid://c6mad0mwcbdsj" path="res://assets/sealplush/seal.glb" id="2_u21eb"]
+
+[node name="Sealskater" type="Node3D" unique_id=1564823773]
+
+[node name="skateboard" parent="." unique_id=747438127 instance=ExtResource("1_205dp")]
+
+[node name="seal" parent="." unique_id=1311813028 instance=ExtResource("2_u21eb")]
+transform = Transform3D(0.010484888, 0, 0.05907679, 0, 0.06, 0, -0.05907679, 0, 0.010484888, 0.070656896, 1.1358153, -0.20509052)
