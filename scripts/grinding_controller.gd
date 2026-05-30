@@ -110,12 +110,11 @@ func update_player_camera():
 func update_player_position():
 	player.global_position = rail_grind_node.global_position
 	
-	#vertical rotation
-	var path_vertical: Vector3 = -rail_grind_node.global_transform.basis.x
-	print("Path vertical: {0}".format([path_vertical]))
-	var vert_rotation_angle = PI / 2
-	var direction = path_vertical.rotated(Vector3.RIGHT, vert_rotation_angle)
-	player_model.global_transform = player_model.global_transform.looking_at(player_model.global_position + direction, Vector3.UP)
+	var rail_basis = rail_grind_node.global_transform.basis
+	var rail_up = rail_basis.y # -> perpendiculr to rail
+	var path_forward = -rail_basis.z * rail_grind_node.progress_direction 
+	var target_basis = Basis.looking_at(-path_forward, rail_up) # -> face pls forwards, body pls down
+	player_model.global_transform.basis = target_basis
  
 func detach_from_rail():
 	grind_particles_emitter.emitting = false
