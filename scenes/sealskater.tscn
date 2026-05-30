@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c6mad0mwcbdsj" path="res://assets/sealplush/seal.glb" id="2_u21eb"]
 [ext_resource type="Script" uid="uid://dgnaomu2hn4qf" path="res://scripts/movement_controller.gd" id="3_6give"]
 [ext_resource type="Script" uid="uid://ch2f2vldy5q0l" path="res://scripts/grinding_controller.gd" id="4_xwg03"]
+[ext_resource type="Script" uid="uid://cgkvem2x6eets" path="res://scripts/trick_mode_controller.gd" id="6_vuft4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xwg03"]
 radius = 0.979
@@ -58,5 +59,6 @@ player_model = NodePath("../../seal")
 skateboard_model = NodePath("../../skateboard")
 
 [node name="TrickModeController" type="Node" parent="Controller" unique_id=643593822]
+script = ExtResource("6_vuft4")
 
 [connection signal="toggle_grinding" from="Controller/GrindingController" to="Controller/MovementController" method="_on_toggle_grinding"]
