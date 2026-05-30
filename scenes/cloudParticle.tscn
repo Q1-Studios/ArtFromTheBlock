@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://c7gdodt7x6vqq"]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/pollen_sprite.png" id="1_kas85"]
+[ext_resource type="Script" path="res://scripts/fuelBar.gd" id="2_44bbb"]
+
+[node name="Control" type="Control" unique_id=33227842]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=1843863687]
+layout_mode = 0
+offset_right = 73.0
+offset_bottom = 420.0
+fill_mode = 3
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=585795591]
+visible = false
+scale = Vector2(0.001, 0.001)
+amount = 10
+texture = ExtResource("1_kas85")
+lifetime = 0.79
+explosiveness = 0.69
+randomness = 0.45
+direction = Vector2(2, 2)
+spread = 180.0
+gravity = Vector2(0, 0.2)
+initial_velocity_min = 211.22
+initial_velocity_max = 323.57
+angular_velocity_min = 579.71
+angular_velocity_max = 720.0
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1016657007]
+layout_mode = 0
+offset_right = 36.0
+offset_bottom = 215.0
+fill_mode = 3
+script = ExtResource("2_44bbb")
