@@ -29,6 +29,7 @@ var won = false
 var generated = false
 
 signal trick_sequence_success()
+signal trick_sequence_failure()
 signal leave_trick_mode()
 
 func _ready() -> void:
@@ -80,7 +81,6 @@ func _handle_failure() -> void:
 	sequence_input_index = 0
 	failed = false
 	print("Failed sequence")
-	
 
 func _evaluate_input() -> void:
 	var input_vector = Input.get_vector("LEFT", "RIGHT", "UP", "DOWN")
@@ -186,6 +186,7 @@ func resetModulate() -> void:
 	getSprites()
 
 func startMistakeTimer() -> void:
+	trick_sequence_failure.emit()
 	wrongInputTimer.start()
 
 func deactivate() -> void:
