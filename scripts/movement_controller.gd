@@ -86,7 +86,6 @@ func _handle_player_turning(player: CharacterBody3D, delta: float) -> void:
 	var sanitized_turn_amount = ((raw_turn * -1.0) + 1.0) / 2
 	var steer_amount = clampf(sanitized_turn_amount, 0.0, 1.0)
 	last_steer_amount = lerpf(last_steer_amount, steer_amount, STEER_SPEED * delta)
-	print("steer amount: {0}".format([last_steer_amount]))
 	player_model.setSteer(last_steer_amount)
 	
 	if not allow_sliding:
