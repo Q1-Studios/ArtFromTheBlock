@@ -52,7 +52,6 @@ scale = Vector2(1.199375, 1.234104)
 texture = ExtResource("3_r8pki")
 
 [node name="Backdrop" type="Sprite2D" parent="." unique_id=845880016]
-visible = false
 z_index = -2
 position = Vector2(961.99994, 540.25006)
 scale = Vector2(1.1987501, 1.2433527)
