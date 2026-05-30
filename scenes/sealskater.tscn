@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://ch2f2vldy5q0l" path="res://scripts/grinding_controller.gd" id="4_xwg03"]
 [ext_resource type="Script" uid="uid://cgkvem2x6eets" path="res://scripts/trick_mode_controller.gd" id="6_n4d43"]
 [ext_resource type="PackedScene" uid="uid://dwvfoe6b1lusu" path="res://scenes/FuelBarScene2.tscn" id="6_vuft4"]
-[ext_resource type="PackedScene" uid="uid://beikiclpngb51" path="res://scenes/trick_sequence_display.tscn" id="8_ew7ux"]
+[ext_resource type="PackedScene" path="res://scenes/trick_sequence_display.tscn" id="8_ew7ux"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xwg03"]
 radius = 0.979

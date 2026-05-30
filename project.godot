@@ -15,6 +15,10 @@ run/main_scene="uid://fn42vyv1hxlq"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://assets/sprites/icon.svg"
 
+[autoload]
+
+ScoreManager="*uid://j8t84ltgxkwp"
+
 [display]
 
 window/size/viewport_width=1920
