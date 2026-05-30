@@ -3,6 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://cydyk5wtccnix" path="res://assets/sprites/pollen_sprite.png" id="1_ottwj"]
 [ext_resource type="Script" uid="uid://oswifvis47vt" path="res://scripts/cpu_particles_2d.gd" id="2_slrn2"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_slrn2"]
+bg_color = Color(0.6, 0.6, 0.6, 0.6392157)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f2pik"]
+bg_color = Color(0, 1, 0, 0.74509805)
+
 [node name="ProgressBar" type="ProgressBar" unique_id=1585925086]
 anchors_preset = 8
 anchor_left = 0.5
@@ -18,6 +24,8 @@ grow_vertical = 2
 rotation = 3.1415927
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_slrn2")
+theme_override_styles/fill = SubResource("StyleBoxFlat_f2pik")
 fill_mode = 2
 show_percentage = false
 
