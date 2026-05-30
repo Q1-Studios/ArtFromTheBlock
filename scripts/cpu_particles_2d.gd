@@ -22,4 +22,4 @@ func _process(delta: float) -> void:
 
 func calcPositionOffset() -> void:
 	$".".global_position.x = (barPosition.x -25)
-	$".".global_position.y = (barPosition.y - currentFill * 2)
+	$".".global_position.y = (barPosition.y - currentFill * 2.2)
