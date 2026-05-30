@@ -3,7 +3,8 @@
 [ext_resource type="Script" uid="uid://bkyou3m2ics3d" path="res://scripts/sealskater.gd" id="1_vef6s"]
 [ext_resource type="Script" uid="uid://dgnaomu2hn4qf" path="res://scripts/movement_controller.gd" id="3_6give"]
 [ext_resource type="Script" uid="uid://ch2f2vldy5q0l" path="res://scripts/grinding_controller.gd" id="4_xwg03"]
-[ext_resource type="Script" uid="uid://caegxoxovyfi4" path="res://scripts/camera_controller.gd" id="5_ew7ux"]
+[ext_resource type="Script" path="res://scripts/vibration_controller.gd" id="5_ew7ux"]
+[ext_resource type="Script" uid="uid://caegxoxovyfi4" path="res://scripts/camera_controller.gd" id="6_ew7ux"]
 [ext_resource type="Script" uid="uid://cgkvem2x6eets" path="res://scripts/trick_mode_controller.gd" id="6_n4d43"]
 [ext_resource type="PackedScene" uid="uid://dwvfoe6b1lusu" path="res://scenes/FuelBarScene2.tscn" id="6_vuft4"]
 [ext_resource type="PackedScene" uid="uid://bpj7o4myywyq7" path="res://scenes/bertmodel.tscn" id="7_n4d43"]
@@ -111,6 +112,9 @@ one_shot = true
 
 [node name="CameraController" type="Node" parent="Controller" unique_id=1556265909]
 unique_name_in_owner = true
+script = ExtResource("6_ew7ux")
+
+[node name="VibrationController" type="Node" parent="Controller" unique_id=259008055]
 script = ExtResource("5_ew7ux")
 
 [node name="GrindUpdateSprayCanTimer" type="Timer" parent="." unique_id=498531919]
@@ -160,6 +164,9 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0
 [connection signal="landed" from="Controller/MovementController" to="." method="_on_movement_controller_landed"]
 [connection signal="toggle_grinding" from="Controller/GrindingController" to="." method="_on_toggle_grinding"]
 [connection signal="toggle_grinding" from="Controller/GrindingController" to="Controller/MovementController" method="_on_toggle_grinding"]
+[connection signal="toggle_grinding" from="Controller/GrindingController" to="Controller/VibrationController" method="_on_toggle_grinding"]
 [connection signal="leave_trick_mode" from="Controller/TrickModeController" to="." method="_on_trick_mode_controller_leave_trick_mode"]
+[connection signal="trick_sequence_success" from="Controller/TrickModeController" to="." method="_on_trick_sequence_success"]
+[connection signal="trick_sequence_success" from="Controller/TrickModeController" to="Controller/VibrationController" method="_on_trick_mode_controller_trick_sequence_success"]
 [connection signal="timeout" from="Controller/WrongInputTimer" to="Controller/TrickModeController" method="_on_wrong_input_timer_timeout"]
 [connection signal="timeout" from="GrindUpdateSprayCanTimer" to="." method="_on_grind_update_graffiti_timer_timeout"]
