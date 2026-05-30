@@ -18,7 +18,6 @@ func setSteer(f: float) -> void:
 	if(f>1 or f<0):
 		print(\"DO NOT THE CAT\")
 	anim_tree[\"parameters/boardBlendMichael/blend_amount\"] = f
-
 "
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_72fff"]
@@ -37,7 +36,7 @@ animation = &"bertAnimationLibrary/BoardSteerLeft"
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_72fff"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_6pu0d"]
-graph_offset = Vector2(-699.3542, -242.19966)
+graph_offset = Vector2(-343.91565, -76.02818)
 nodes/output/position = Vector2(546.6667, 26.666666)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_wfo8j")
 nodes/Animation/position = Vector2(-213.33333, 26.666666)

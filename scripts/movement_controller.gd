@@ -30,6 +30,9 @@ extends Node
 @export var coyote_time := 0.15
 @export var gravity := -30.0
 
+
+@onready var player_model: Node3D = %PlayerModel
+
 # config var - no export
 var ahead = Vector3.RIGHT # Front of player, change es necessary
 
@@ -68,6 +71,10 @@ func _handle_player_turning(player: CharacterBody3D, delta: float) -> void:
 	var turn_amount = raw_turn * turn_speed * delta
 	player.rotate(Vector3.UP, turn_amount)
 	
+	# Play steer animation
+	var steer_amount = clampf(raw_turn * -1.0, 0.0, 1.0) if abs(raw_turn) > 0 else 0.5
+	player_model.setSteer(steer_amount)
+	
 	if not allow_sliding:
 		player.velocity = player.velocity.rotated(Vector3.UP, turn_amount)
 		
@@ -77,8 +84,8 @@ func _handle_forward_movement(player: CharacterBody3D, delta: float) -> void:
 	
 	var forward_speed = -player.velocity.dot(player.global_basis.z)
 	var velocity_percent = clamp(forward_speed / max_speed, 0.0, 1.0)
-	var acceleration_penalty = _calculate_acceleration_acceleration_penalty(velocity_percent)
-	var scaled_acceleration = acceleration * acceleration_penalty
+	var final_acceleration_penalty = _calculate_acceleration_acceleration_penalty(velocity_percent)
+	var scaled_acceleration = acceleration * final_acceleration_penalty
 	
 	var xz_velocity = player.velocity * (Vector3.ONE - Vector3.UP)
 	
@@ -97,7 +104,7 @@ func _handle_forward_movement(player: CharacterBody3D, delta: float) -> void:
 	current_speed = player.velocity.length()
 	
 	
-func _handle_jump(player: CharacterBody3D, delta: float) -> void:
+func _handle_jump(player: CharacterBody3D, _delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and is_grounded:
 		player.velocity.y = jump_force
 

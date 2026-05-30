@@ -91,13 +91,33 @@ environment = SubResource("Environment_6w6d5")
 [node name="MovementController" type="Node" parent="Controller" unique_id=1305322326]
 unique_name_in_owner = true
 script = ExtResource("3_6give")
+max_speed = null
+acceleration = null
+deceleration = null
+air_deceleration = null
+air_acceleration = null
+coasting = null
+threshhold = null
+acceleration_penalty = null
+max_acceleration_penalty = null
+low_speed_slope = null
+high_speed_slope = null
+high_speed_punishment = null
+low_speed_limit_factor = null
+min_turning_factor = null
+allow_for_air_turning = null
+air_turning_factor = null
+allow_sliding = null
+jump_force = null
+coyote_time = null
+gravity = null
 
 [node name="GrindingController" type="Node" parent="Controller" unique_id=1515660716 node_paths=PackedStringArray("grind_ray", "player", "player_model")]
 unique_name_in_owner = true
 script = ExtResource("4_xwg03")
 grind_ray = NodePath("../../GrindShapeCast")
 player = NodePath("../..")
-player_model = NodePath("../../Bertmodel")
+player_model = NodePath("../../PlayerModel")
 
 [node name="TrickModeController" type="Node" parent="Controller" unique_id=643593822]
 unique_name_in_owner = true
@@ -149,7 +169,8 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.0944757)
 texture = SubResource("ViewportTexture_ew7ux")
 
-[node name="Bertmodel" parent="." unique_id=966477376 instance=ExtResource("7_n4d43")]
+[node name="PlayerModel" parent="." unique_id=966477376 instance=ExtResource("7_n4d43")]
+unique_name_in_owner = true
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 
 [connection signal="toggle_grinding" from="Controller/GrindingController" to="." method="_on_toggle_grinding"]
