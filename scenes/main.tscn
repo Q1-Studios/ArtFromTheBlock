@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://b6i2qqvv0tcf0" path="res://scripts/paintingMinigame/sub_viewport.gd" id="5_tefeu"]
 [ext_resource type="PackedScene" uid="uid://lx8fk8dr7hpn" path="res://scenes/Trick_mode.tscn" id="6_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://bahem50vx1k2y" path="res://scenes/paintMinigame.tscn" id="8_tipki"]
+[ext_resource type="PackedScene" uid="uid://ul7ls8r6exsn" path="res://scenes/pointsHUD.tscn" id="9_85g3d"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sgp6g"]
 
@@ -63,6 +64,8 @@ texture = SubResource("ViewportTexture_tipki")
 
 [node name="Node2D" parent="PaintingMinigame" unique_id=973804300 instance=ExtResource("8_tipki")]
 visible = false
+
+[node name="HUD" parent="." unique_id=785558833 instance=ExtResource("9_85g3d")]
 
 [connection signal="spray_can_amount_consumed_for_points" from="Sealskater" to="." method="_on_sealskater_spray_can_amount_consumed_for_points"]
 [connection signal="spray_can_amount_updated" from="Sealskater" to="." method="_on_sealskater_graffiti_fuel_updated"]
