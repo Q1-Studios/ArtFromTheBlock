@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://c7gdodt7x6vqq"]
+[gd_scene format=3 uid="uid://cmbp6f8jrss3g"]
 
-[ext_resource type="Texture2D" path="res://assets/sprites/pollen_sprite.png" id="1_kas85"]
-[ext_resource type="Script" path="res://scripts/fuelBar.gd" id="2_44bbb"]
+[ext_resource type="Texture2D" uid="uid://cydyk5wtccnix" path="res://assets/sprites/pollen_sprite.png" id="1_kas85"]
+[ext_resource type="Script" uid="uid://t5f0vkvaf3gg" path="res://scripts/fuelBar.gd" id="2_44bbb"]
 
 [node name="Control" type="Control" unique_id=33227842]
 layout_mode = 3
