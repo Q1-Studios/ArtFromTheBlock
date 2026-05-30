@@ -9,7 +9,7 @@ extends CharacterBody3D
 @export var max_spray_can_amount: float = 100.0
 @export_range(1.0, 100.0, 1.0) var spray_can_grind_reward: float = 8.0
 
-var spray_can_amount: float = max_spray_can_amount
+var spray_can_amount: float = 0.0
 
 signal spray_can_amount_updated(amount: float)
 
