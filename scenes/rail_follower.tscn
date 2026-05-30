@@ -7,3 +7,4 @@ loop = false
 script = ExtResource("1_gd7m1")
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=309486162]
+visible = false
