@@ -34,8 +34,7 @@ func handle_grinding():
 		
 		if rail_grind_node.detach and grinding:
 			# jump of the rail at the ends
-			Input.action_press("accelerate")
-			Input.action_press("jump")
+			simulate_jump_off_rail()
 
 		if Input.is_action_just_pressed("jump"):
 			detach_from_rail()
@@ -46,7 +45,14 @@ func is_colliding_with_rail() -> bool:
 		
 	var collider = grind_ray.get_collider(0)
 	return collider and collider.is_in_group("Rail")
- 
+
+func simulate_jump_off_rail():
+	Input.action_press("accelerate")
+	Input.action_press("jump")
+	await get_tree().create_timer(0.2).timeout
+	Input.action_release("accelerate")
+	Input.action_release("jump")
+
 func should_start_grinding() -> bool:
 	return not player.is_on_floor() and can_grind and not grinding and is_colliding_with_rail()
 
