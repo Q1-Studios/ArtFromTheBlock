@@ -16,6 +16,7 @@ size = Vector3(100, 1, 100)
 [node name="Node3D" type="Node3D" unique_id=1409937124]
 
 [node name="Rail" parent="." unique_id=261477281 instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.388403, 0, 0)
 
 [node name="Florr" type="StaticBody3D" parent="." unique_id=330852359]
 physics_material_override = SubResource("PhysicsMaterial_sgp6g")
@@ -38,6 +39,3 @@ transform = Transform3D(0.36489025, 0.42124525, 0.83030576, -0.3436225, -0.76790
 
 [node name="Stairs_sample" parent="." unique_id=1527351871 instance=ExtResource("3_sugp2")]
 transform = Transform3D(0.71637505, 0, -0.6977154, 0, 1, 0, 0.6977154, 0, 0.71637505, 6.654236, 5.087315, -33.18016)
-
-[node name="Rail2" parent="." unique_id=1940228433 instance=ExtResource("2_0wfyh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.75756, 0.87068653, 0)

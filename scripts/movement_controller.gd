@@ -27,6 +27,7 @@ extends Node
 
 # config var - no export
 var ahead = Vector3.RIGHT # Front of player, change es necessary
+var is_grinding: bool = false
 
 
 # script controlled vars
@@ -47,7 +48,9 @@ func handle_movement(player: CharacterBody3D) -> void:
 	else:
 		is_grounded = false
 	
-	_handle_player_turning(player, delta)
+	if not is_grinding:
+		_handle_player_turning(player, delta)
+	
 	_handle_forward_movement(player, delta)
 	_handle_gravity(player, delta)
 	_handle_jump(player, delta)
@@ -102,3 +105,7 @@ func _calculate_AngularVelocity(velocity: float) -> float:
 func _calculate_acceleration_acceleration_penalty(velocity_percent: float) -> float:
 	var scaled_velocity_percent = velocity_percent * max_acceleration_penalty
 	return 2**(-(acceleration_penalty*scaled_velocity_percent))
+
+
+func _on_toggle_grinding(_is_grinding: bool) -> void:
+	is_grinding = _is_grinding

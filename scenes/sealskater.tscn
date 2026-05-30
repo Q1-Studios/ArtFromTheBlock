@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://bjjyd6apwtscb"]
 
-[ext_resource type="Script" uid="uid://ch2f2vldy5q0l" path="res://scripts/skater.gd" id="1_6give"]
 [ext_resource type="PackedScene" uid="uid://dry6f4nwbpwbw" path="res://assets/skateboard/skateboard.glb" id="1_205dp"]
-[ext_resource type="Script" uid="uid://bkyou3m2ics3d" path="res://scenes/sealskater.gd" id="1_xwg03"]
+[ext_resource type="Script" uid="uid://bkyou3m2ics3d" path="res://scripts/sealskater.gd" id="1_vef6s"]
 [ext_resource type="PackedScene" uid="uid://c6mad0mwcbdsj" path="res://assets/sealplush/seal.glb" id="2_u21eb"]
 [ext_resource type="Script" uid="uid://dgnaomu2hn4qf" path="res://scripts/movement_controller.gd" id="3_6give"]
+[ext_resource type="Script" uid="uid://ch2f2vldy5q0l" path="res://scripts/grinding_controller.gd" id="4_xwg03"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_u21eb"]
 height = 2.057495
@@ -16,7 +16,7 @@ size = Vector3(2, 1, 4)
 [sub_resource type="SphereShape3D" id="SphereShape3D_6give"]
 
 [node name="Sealskater" type="CharacterBody3D" unique_id=833053730]
-script = ExtResource("1_xwg03")
+script = ExtResource("1_vef6s")
 
 [node name="skateboard" parent="." unique_id=747438127 instance=ExtResource("1_205dp")]
 
@@ -28,13 +28,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.135315, 0)
 shape = SubResource("CylinderShape3D_u21eb")
 
 [node name="GrindShapeCast" type="ShapeCast3D" parent="." unique_id=1047026119]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7249311, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.18692029, 0)
 shape = SubResource("BoxShape3D_u21eb")
 collision_mask = 2
 
 [node name="MovementController" type="Node" parent="." unique_id=1305322326]
 unique_name_in_owner = true
 script = ExtResource("3_6give")
+
+[node name="GrindingController" type="Node" parent="." unique_id=1515660716 node_paths=PackedStringArray("grind_ray", "player")]
+unique_name_in_owner = true
+script = ExtResource("4_xwg03")
+grind_ray = NodePath("../GrindShapeCast")
+player = NodePath("..")
 
 [node name="CameraPivot" type="Node3D" parent="." unique_id=1431441008]
 transform = Transform3D(1, 0, 0, 0, 0.7682947, 0.6400963, 0, -0.6400963, 0.7682947, 0, 0, 0)
@@ -44,3 +50,5 @@ transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
 shape = SubResource("SphereShape3D_6give")
 
 [node name="PlayerCamera" type="Camera3D" parent="CameraPivot/SpringArm3D" unique_id=1638251071]
+
+[connection signal="toggle_grinding" from="GrindingController" to="MovementController" method="_on_toggle_grinding"]
