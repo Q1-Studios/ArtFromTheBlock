@@ -41,8 +41,7 @@ var coyote_timer = 0.0
 var current_speed = 0.0
 
 
-func handle_movement(player: CharacterBody3D) -> void:
-	var delta = player.get_physics_process_delta_time()
+func handle_movement(player: CharacterBody3D, delta: float) -> void:
 	if player.is_on_floor():
 		is_grounded = true
 		coyote_timer = coyote_time
@@ -123,9 +122,9 @@ func _calculate_acceleration_acceleration_penalty(velocity_percent: float) -> fl
 	var scaled_velocity_percent = velocity_percent * max_acceleration_penalty
 	return 2**(-(acceleration_penalty*scaled_velocity_percent))
 
-func is_about_to_land(player: CharacterBody3D, timeframe: float) -> bool:
+func is_about_to_land(player: CharacterBody3D, timeframe: float, return_true_on_ground: bool) -> bool:
 	if is_grounded:
-		return true
+		return return_true_on_ground
 		
 	var world_state = player.get_world_3d().direct_space_state
 	var gravity_vector = Vector3.UP * gravity

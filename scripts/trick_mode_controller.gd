@@ -1,11 +1,13 @@
 class_name TrickController
 extends Node
 
-@export var time_for_tricks := 0.5
+@export var time_for_tricks := 2.0
 
 
 @onready var movementController := %MovementController
 var character_body: CharacterBody3D
+var slow_mo: float
+var slow_mo_is_active: bool
 
 var sequence_length = 4
 var rng = RandomNumberGenerator.new()	
@@ -20,7 +22,11 @@ signal trick_sequence_success()
 
 func _process(delta: float) -> void:
 	if is_active:
-		if (movementController.is_about_to_land(character_body, time_for_tricks)):
+		var time_needed_for_tricks = time_for_tricks
+		if slow_mo_is_active:
+			time_needed_for_tricks = time_for_tricks / slow_mo
+		
+		if (movementController.is_about_to_land(character_body, time_needed_for_tricks, false)):
 			is_active = false
 			_reset()
 			print("Trick Mode over")
@@ -32,8 +38,9 @@ func _process(delta: float) -> void:
 		else:
 			_evaluate_input()	
 
-func instanciate(player: CharacterBody3D) -> void:
+func instanciate(player: CharacterBody3D, slow_mo_factor: float) -> void:
 	character_body = player
+	slow_mo = slow_mo_factor
 
 func _handle_success() -> void:
 	is_active = false
@@ -97,3 +104,5 @@ func _reset() -> void:
 	failed = false
 	won = false
 	
+func toggle_slow_mo(is_active: bool) -> void:
+	slow_mo_is_active = is_active
