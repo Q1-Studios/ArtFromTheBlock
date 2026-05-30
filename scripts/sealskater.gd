@@ -1,6 +1,7 @@
 extends CharacterBody3D
 @onready var movementController := %MovementController
 @onready var grindingController := %GrindingController
+@onready var trick_mode_controller := %TrickModeController
 @onready var grind_update_timer = %GrindUpdateSprayCanTimer
 @onready var healthBar = $SprayFuelSubviewPort/ProgressBar
 
@@ -8,21 +9,33 @@ extends CharacterBody3D
 @export var max_spray_can_amount: float = 100.0
 @export_range(1.0, 100.0, 1.0) var spray_can_grind_reward: float = 8.0
 
-var spray_can_amount: float = max_spray_can_amount
+var spray_can_amount: float = 0.0
 
 signal spray_can_amount_updated(amount: float)
+
+var slow_mo = false
+var slow_mo_factor: float = 4.0
 
 func _ready() -> void:
 	spray_can_amount_updated.emit(spray_can_amount)
 	healthBar.value = 0
 	healthBar.max_value = max_spray_can_amount
 	spray_can_amount = 0
+	trick_mode_controller.instanciate(self, slow_mo_factor)
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	grindingController.handle_grinding()
-	movementController.handle_movement(self)
+	movementController.handle_movement(self, delta)
 	move_and_slide()
 	
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("debugButtonTODORemoveLater"):
+		trick_mode_controller.create_goal_sequence()
+		slow_mo = !slow_mo
+		if (slow_mo):
+			_on_enter_slow_mode()
+		else:
+			_on_exit_slow_mode()
 
 func _on_toggle_grinding(_is_grinding: bool) -> void:
 	if _is_grinding:
@@ -39,3 +52,15 @@ func _on_grind_update_graffiti_timer_timeout() -> void:
 
 func _update_fuel_ui() -> void:
 	healthBar.value = spray_can_amount
+
+func _on_enter_slow_mode():
+	Engine.time_scale = 1.0 / slow_mo_factor 
+	# trickAnimationPlayer.speed_scale = slow_mo_factor 
+	# animationPlayerForStuffNotRelatedToTricks.speed_scale = 1.0 
+	trick_mode_controller.toggle_slow_mo(true)
+
+func _on_exit_slow_mode():
+	Engine.time_scale = 1.0
+	# trickAnimationPlayer.speed_scale = 1.0
+	# animationPlayerForStuffNotRelatedToTricks.speed_scale = 1.0 
+	trick_mode_controller.toggle_slow_mo(false)

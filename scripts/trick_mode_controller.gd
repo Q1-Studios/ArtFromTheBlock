@@ -1,6 +1,14 @@
 class_name TrickController
 extends Node
 
+@export var time_for_tricks := 2.0
+
+
+@onready var movementController := %MovementController
+var character_body: CharacterBody3D
+var slow_mo: float
+var slow_mo_is_active: bool
+
 @onready var trickInputUI = $"../../TrickInputSubviewPort/TrickSequenceDisplay"
 var trickSprites: Array
 var upImg = load("res://assets/sprites/arrowUp.png")
@@ -22,19 +30,32 @@ var won = false
 signal trick_sequence_success()
 
 func _ready() -> void:
-	_create_goal_sequence()
+	create_goal_sequence()
 	getSprites()
 	setSprites()
 
 func _process(delta: float) -> void:
-	if is_active && wrongInputTimer.time_left <= 0 :
+	if is_active && wrongInputTimer.time_left <= 0:
+		var time_needed_for_tricks = time_for_tricks
+		if slow_mo_is_active:
+			time_needed_for_tricks = time_for_tricks / slow_mo
+		
+		if (movementController.is_about_to_land(character_body, time_needed_for_tricks, false)):
+			#is_active = false
+			#_reset()
+			print("Trick Mode over")
+		
 		if (sequence_input_index >= sequence_length and not failed) or won:
 			_handle_success()
 		elif failed:
 			_handle_failure()
 		else:
 			_evaluate_input()	
-	
+
+func instanciate(player: CharacterBody3D, slow_mo_factor: float) -> void:
+	character_body = player
+	slow_mo = slow_mo_factor
+
 func _handle_success() -> void:
 	is_active = false
 	_reset()
@@ -44,7 +65,7 @@ func _handle_success() -> void:
 func _handle_failure() -> void:
 	sequence_input_index = 0
 	failed = false
-	print("LOST")
+	print("Failed sequence")
 	
 
 func _evaluate_input() -> void:
@@ -96,7 +117,7 @@ func _evaluate_input() -> void:
 			mistakeModulate()
 			failed = true
 
-func _create_goal_sequence() -> void:
+func create_goal_sequence() -> void:
 	_reset()
 	for i in range(sequence_length):
 		sequence.append(input[rng.randi_range(0, 3)])
@@ -112,6 +133,8 @@ func _reset() -> void:
 	won = false
 	resetModulate()
 	
+func toggle_slow_mo(is_active: bool) -> void:
+	slow_mo_is_active = is_active
 
 func displayTrickSequence() -> void:
 	trickInputUI.set_visible(true)

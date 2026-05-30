@@ -23,6 +23,27 @@ viewport_path = NodePath("SprayFuelSubviewPort")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ew7ux"]
 viewport_path = NodePath("TrickInputSubviewPort")
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vef6s"]
+lifetime_randomness = 0.2
+emission_shape = 3
+emission_box_extents = Vector3(0.6, 0.1, 0.1)
+spread = 15.0
+flatness = 1.0
+initial_velocity_min = 20.0
+initial_velocity_max = 20.0
+angular_velocity_min = -1.6093254e-05
+angular_velocity_max = -1.6093254e-05
+color = Color(0.8883462, 0.29223514, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n4d43"]
+albedo_color = Color(1, 0, 0, 1)
+emission_enabled = true
+emission = Color(0.972549, 0.1882353, 0, 1)
+emission_energy_multiplier = 16.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ew7ux"]
+material = SubResource("StandardMaterial3D_n4d43")
+size = Vector2(0.4, 0.03)
 
 [node name="Sealskater" type="CharacterBody3D" unique_id=833053730]
 script = ExtResource("1_vef6s")
@@ -67,6 +88,7 @@ player_model = NodePath("../../seal")
 skateboard_model = NodePath("../../skateboard")
 
 [node name="TrickModeController" type="Node" parent="Controller" unique_id=643593822]
+unique_name_in_owner = true
 script = ExtResource("6_n4d43")
 
 [node name="WrongInputTimer" type="Timer" parent="Controller" unique_id=1057629774]
@@ -87,6 +109,18 @@ size = Vector2i(1920, 1080)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9124289, 2.143414, 0)
 billboard = 1
 texture = SubResource("ViewportTexture_n4d43")
+
+[node name="GrindParticlesEmitter" type="GPUParticles3D" parent="." unique_id=1149918129]
+unique_name_in_owner = true
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0.38783646, 0)
+emitting = false
+amount = 64
+lifetime = 0.09999999999999999
+randomness = 0.6
+local_coords = true
+trail_lifetime = 0.01
+process_material = SubResource("ParticleProcessMaterial_vef6s")
+draw_pass_1 = SubResource("PlaneMesh_ew7ux")
 
 [node name="TrickInputSubviewPort" type="SubViewport" parent="." unique_id=850402150]
 disable_3d = true
