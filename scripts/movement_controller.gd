@@ -30,6 +30,9 @@ extends Node
 @export var coyote_time := 0.15
 @export var gravity := -30.0
 
+signal landed
+
+
 # config var - no export
 var ahead = Vector3.RIGHT # Front of player, change es necessary
 
@@ -39,10 +42,14 @@ var is_grounded = true
 var previous_direction = 0
 var coyote_timer = 0.0
 var current_speed = 0.0
+var was_on_floor = false
 
 
 func handle_movement(player: CharacterBody3D, delta: float) -> void:
 	if player.is_on_floor():
+		if !was_on_floor:
+			landed.emit()
+			was_on_floor = true
 		is_grounded = true
 		coyote_timer = coyote_time
 		
@@ -50,6 +57,7 @@ func handle_movement(player: CharacterBody3D, delta: float) -> void:
 		coyote_time -= delta
 	else:
 		is_grounded = false
+		was_on_floor = false
 	
 	if not is_grinding:
 		_handle_player_turning(player, delta)
