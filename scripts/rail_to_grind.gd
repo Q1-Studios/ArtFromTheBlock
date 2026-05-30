@@ -5,6 +5,7 @@ class_name Rail
  
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	curve = curve.duplicate()
 	add_child(create_rail_follower())
 	
 func _process(_delta):

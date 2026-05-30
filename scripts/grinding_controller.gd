@@ -87,13 +87,13 @@ func start_grinding():
 	emit_signal("toggle_grinding", true)
 	
 func rotate_player_for_grinding():
-	# Turn player 45 degrees to the rail
+	var model_scale := player_model.scale
+	# horizontal rotation
 	var path_forward: Vector3 = -rail_grind_node.global_transform.basis.z
 	var rotation_angle = 0.0 if rail_grind_node.progress_direction < 0.0 else PI
 	var perpendicular = path_forward.rotated(Vector3.UP, rotation_angle) 
-	
-	var model_scale := player_model.scale
 	player_model.global_transform = player_model.global_transform.looking_at(player_model.global_position + perpendicular, Vector3.UP)
+
 	# must reset model_scale if it is not 1.0 by default 
 	player_model.scale = model_scale
 	
@@ -109,6 +109,13 @@ func update_player_camera():
 
 func update_player_position():
 	player.global_position = rail_grind_node.global_position
+	
+	#vertical rotation
+	var path_vertical: Vector3 = -rail_grind_node.global_transform.basis.x
+	print("Path vertical: {0}".format([path_vertical]))
+	var vert_rotation_angle = PI / 2
+	var direction = path_vertical.rotated(Vector3.RIGHT, vert_rotation_angle)
+	player_model.global_transform = player_model.global_transform.looking_at(player_model.global_position + direction, Vector3.UP)
  
 func detach_from_rail():
 	grind_particles_emitter.emitting = false

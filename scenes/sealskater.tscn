@@ -3,12 +3,12 @@
 [ext_resource type="Script" uid="uid://bkyou3m2ics3d" path="res://scripts/sealskater.gd" id="1_vef6s"]
 [ext_resource type="Script" uid="uid://dgnaomu2hn4qf" path="res://scripts/movement_controller.gd" id="3_6give"]
 [ext_resource type="Script" uid="uid://ch2f2vldy5q0l" path="res://scripts/grinding_controller.gd" id="4_xwg03"]
-[ext_resource type="Script" path="res://scripts/vibration_controller.gd" id="5_ew7ux"]
+[ext_resource type="Script" uid="uid://bsp1lsaj5rlrg" path="res://scripts/vibration_controller.gd" id="5_ew7ux"]
 [ext_resource type="Script" uid="uid://caegxoxovyfi4" path="res://scripts/camera_controller.gd" id="6_ew7ux"]
 [ext_resource type="Script" uid="uid://cgkvem2x6eets" path="res://scripts/trick_mode_controller.gd" id="6_n4d43"]
 [ext_resource type="PackedScene" uid="uid://dwvfoe6b1lusu" path="res://scenes/FuelBarScene2.tscn" id="6_vuft4"]
 [ext_resource type="PackedScene" uid="uid://bpj7o4myywyq7" path="res://scenes/bertmodel.tscn" id="7_n4d43"]
-[ext_resource type="PackedScene" path="res://scenes/trick_sequence_display.tscn" id="8_ew7ux"]
+[ext_resource type="PackedScene" uid="uid://beikiclpngb51" path="res://scenes/trick_sequence_display.tscn" id="8_ew7ux"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_n4d43"]
 radius = 1.1640625

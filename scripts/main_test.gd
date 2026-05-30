@@ -18,12 +18,10 @@ func _on_sealskater_graffiti_fuel_updated(amount: float) -> void:
 
 func _on_sealskater_spray_can_amount_consumed_for_points(points: float) -> void:
 	playerPoints += points
-	print("Player Points: ", playerPoints)
 	pointsHUD.text = str(int(playerPoints))
 
 func _on_node_2d_pass_points(points: float) -> void:
 	playerPoints += points
-	print("Player Points: ", playerPoints)
 	pointsHUD.text = str(int(playerPoints))
 
 
