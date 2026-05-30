@@ -4,7 +4,7 @@
 
 [sub_resource type="Curve3D" id="Curve3D_yunk7"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 21.320292, 1.1619501, 8.999237, 0, 0, 0, 0, 0, 0, -36.99639, -0.39713264, -13.152038),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -1.2077694, 1.1619501, 8.999237, 0, 0, 0, 0, 0, 0, -0.7781067, -0.39713264, -43.337563),
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2

@@ -31,6 +31,7 @@ func rail_grinding(delta):
 			rail_grind_node.forward = player_is_facing_same_direction_as(rail_grind_node)
 			rail_grind_node.direction_selected = true
 		update_player_position(delta)
+		print(rail_grind_node.detach)
 		if rail_grind_node.detach or Input.is_action_pressed("Jump"):
 			detach_from_rail()
  
@@ -40,7 +41,6 @@ func is_colliding_with_rail() -> bool:
 		return false
 		
 	var collider = grind_ray.get_collider(0)
-	print(collider)
 	if collider and collider.is_in_group("Rail"):
 		print("Collided with rail")
 		return true
@@ -52,12 +52,16 @@ func start_grinding(delta):
 	emit_signal("toggle_grinding", true)
 	var grind_rail = grind_ray.get_collider(0).get_parent()
 	rail_grind_node = find_nearest_rail_follower(global_position, grind_rail)
-	# Calculate angle to the normal
-	var normal = rail_grind_node.global_position
-	var target_transform = transform.looking_at(global_position - normal, Vector3.UP)
-	transform.basis = transform.basis.slerp(target_transform.basis, 0.1)
+	#rotate_player_for_grinding()
 	update_player_position(delta)
- 
+
+func rotate_player_for_grinding():
+	# Turn player 90 degrees to the rail
+	var path_forward = -rail_grind_node.global_transform.basis.z
+	# Rotate the forward vector 90 degrees around Y axis
+	var perpendicular = path_forward.rotated(Vector3.UP, PI / 4)
+	global_transform = global_transform.looking_at(global_position + perpendicular, Vector3.UP)
+	
 func update_player_position(delta):
 	if position and rail_grind_node:
 		position = lerp(position, rail_grind_node.position, delta * lerp_speed)
@@ -98,7 +102,7 @@ func grind_timer(delta):
 				grind_timer_complete = true
 				start_grind_timer = false
  
-func find_nearest_rail_follower(player_position, rail_node):
+func find_nearest_rail_follower(player_position, rail_node) -> RailFollower:
 	var nearest_node = null
 	var min_distance = INF
 	for node in rail_node.get_children():
@@ -107,6 +111,7 @@ func find_nearest_rail_follower(player_position, rail_node):
 			if distance < min_distance:
 				min_distance = distance
 				nearest_node = node
-	return nearest_node
+				
+	return nearest_node as RailFollower
  
 #END GRINDING

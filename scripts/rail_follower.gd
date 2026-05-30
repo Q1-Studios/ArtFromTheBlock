@@ -1,4 +1,8 @@
 extends PathFollow3D
+class_name RailFollower
+
+const UPPER_PROGRESS_BOUND: float = 0.999
+const LOWER_PROGRESS_BOUND: float = 0.002
  
 @onready var path_follow_3d = $"."
 @onready var path_3d = $".."
@@ -18,19 +22,16 @@ func _ready():
 	origin_point = path_follow_3d.progress
  
 func _process(delta):
-	
 	if grinding:
 		if forward:
 			path_follow_3d.progress += move_speed * delta
 		elif !forward:
 			path_follow_3d.progress -= move_speed * delta
  
-		if path_follow_3d.get_progress_ratio() >= 0.99:
-			detach = true
-			grinding = false
-			direction_selected = false
+		var current_progress_ratio = path_follow_3d.get_progress_ratio()
+		print(progress_ratio)
 		
-		if path_follow_3d.get_progress_ratio() <= 0.002:
+		if current_progress_ratio <= LOWER_PROGRESS_BOUND or current_progress_ratio >= UPPER_PROGRESS_BOUND:
 			detach = true
 			grinding = false
 			direction_selected = false
