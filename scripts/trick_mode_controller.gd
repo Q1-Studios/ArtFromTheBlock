@@ -132,7 +132,7 @@ func _evaluate_input() -> void:
 			failed = true
 
 func create_goal_sequence() -> void:
-	if is_active:
+	if is_active or generated:
 		return
 	
 	_reset()

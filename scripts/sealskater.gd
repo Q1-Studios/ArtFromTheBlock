@@ -47,7 +47,7 @@ func _process(delta: float) -> void:
 		spray_can_amount_consumed_for_points.emit(spray_drain_per_second * delta)
 		
 	if Input.is_action_just_pressed("enter_trick_mode"):
-		trick_mode_controller.create_goal_sequence()
+		enter_trick_mode()
 
 func _can_spray_paint() -> bool:
 	return Input.is_action_pressed("spray") and !is_grinding and is_on_floor() and spray_can_amount > 0.0
