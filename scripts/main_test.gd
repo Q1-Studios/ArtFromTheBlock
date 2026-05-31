@@ -52,8 +52,6 @@ func _on_game_timer_timeout() -> void:
 func _on_minigame_orb_signal_game_level() -> void:
 	print("signal recieved in game level")
 	
-	
-	
 
 func _on_painting_minigame_pass_points_to_parent_signal(pointsRecieved: int) -> void:
 	print("Points have arrived!!!!!!!!")

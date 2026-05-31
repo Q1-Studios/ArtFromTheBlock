@@ -33,7 +33,7 @@
 [ext_resource type="PackedScene" uid="uid://c5hl0wna16l0g" path="res://scenes/rail.tscn" id="28_etdju"]
 [ext_resource type="PackedScene" uid="uid://dy2ssres8kaye" path="res://scenes/mini_map.tscn" id="29_458yb"]
 [ext_resource type="Texture2D" uid="uid://butrv7t3x2ugw" path="res://assets/menu/tutorial.png" id="30_458yb"]
-[ext_resource type="PackedScene" uid="uid://bf8auo6wa3n7f" path="res://scenes/minigame_orb.tscn" id="31_bbg3d"]
+[ext_resource type="PackedScene" path="res://scenes/minigame_orb.tscn" id="31_bbg3d"]
 [ext_resource type="Script" uid="uid://bha4vi35xtrag" path="res://scripts/painting_minigame_3d_scene.gd" id="35_j1fq8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j3elx"]
@@ -296,7 +296,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 76, 81)
 light_energy = 1.553
 shadow_enabled = true
 
-[node name="Sealskater" parent="." unique_id=82202706 instance=ExtResource("12_dvate")]
+[node name="Sealskater" parent="." unique_id=833053730 instance=ExtResource("12_dvate")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 4, 81)
 
 [node name="360_rail" parent="." unique_id=234146169 instance=ExtResource("13_dvate")]
@@ -389,21 +389,53 @@ metadata/_edit_use_anchors_ = true
 transform = Transform3D(17.32, 0, 0, 0, 17.32, 0, 0, 0, 17.32, 5.2626095, 29.910278, 20.855902)
 mesh = SubResource("QuadMesh_66iu7")
 
-[node name="minigameOrb" parent="." unique_id=2139912438 instance=ExtResource("31_bbg3d")]
+[node name="orbs" type="Node3D" parent="." unique_id=1440905646]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.058301, 78.930176)
+
+[node name="minigameOrb" parent="orbs" unique_id=2139912438 instance=ExtResource("31_bbg3d")]
+
+[node name="minigameOrb2" parent="orbs" unique_id=1489866929 instance=ExtResource("31_bbg3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 173.27538, 0, 0)
+
+[node name="minigameOrb3" parent="orbs" unique_id=245570791 instance=ExtResource("31_bbg3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 178.06586, 0, -111.69311)
+
+[node name="minigameOrb4" parent="orbs" unique_id=1867861090 instance=ExtResource("31_bbg3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -200.19788, 0, 0)
+
+[node name="minigameOrb5" parent="orbs" unique_id=976941726 instance=ExtResource("31_bbg3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -159.213, 11.348396, -44.22268)
+
+[node name="minigameOrb14" parent="orbs" unique_id=1712270889 instance=ExtResource("31_bbg3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -162.96466, 6.8562965, -170.39502)
+
+[node name="minigameOrb6" parent="orbs" unique_id=1401502868 instance=ExtResource("31_bbg3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -253.65596, 0.7423825, -124.6626)
+
+[node name="minigameOrb7" parent="orbs" unique_id=1335076722 instance=ExtResource("31_bbg3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 97.547646, 108.62554, -246.74318)
+
+[node name="minigameOrb8" parent="orbs" unique_id=1676152408 instance=ExtResource("31_bbg3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 122.23857, 57.70882, -63.92057)
+
+[node name="minigameOrb9" parent="orbs" unique_id=1369195818 instance=ExtResource("31_bbg3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 131.2983, 53.549408, -189.53697)
+
+[node name="minigameOrb10" parent="orbs" unique_id=468059839 instance=ExtResource("31_bbg3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 131.2983, 0.40722847, -310.56146)
+
+[node name="minigameOrb11" parent="orbs" unique_id=525415162 instance=ExtResource("31_bbg3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.46712, 4.9337606, -44.22268)
+
+[node name="minigameOrb12" parent="orbs" unique_id=1296627616 instance=ExtResource("31_bbg3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.46712, 19.556023, -275.10913)
+
+[node name="minigameOrb13" parent="orbs" unique_id=1336817227 instance=ExtResource("31_bbg3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.370281, 20.737446, -221.95009)
 
 [node name="PaintingMinigame" type="Node3D" parent="." unique_id=1969793251]
 visible = false
 script = ExtResource("35_j1fq8")
-
-[node name="minigameOrb2" parent="." unique_id=1489866929 instance=ExtResource("31_bbg3d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 173.27538, 4.058301, 78.930176)
-
-[node name="minigameOrb3" parent="." unique_id=245570791 instance=ExtResource("31_bbg3d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 178.06586, 4.058301, -32.76293)
-
-[node name="minigameOrb4" parent="." unique_id=1867861090 instance=ExtResource("31_bbg3d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -200.19788, 4.058301, 78.930176)
 
 [node name="Rail14" type="Node3D" parent="." unique_id=673953715]
 
@@ -2036,36 +2068,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 575.0314, 31.93, 382.43268)
 [node name="house271" parent="Node3D3" unique_id=121887414 instance=ExtResource("4_xd5kv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 628.5404, 37.936996, 382.43268)
 
-[node name="minigameOrb5" parent="." unique_id=976941726 instance=ExtResource("31_bbg3d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -159.213, 15.406697, 34.707497)
-
-[node name="minigameOrb14" parent="." unique_id=1712270889 instance=ExtResource("31_bbg3d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -162.96466, 10.9145975, -91.46484)
-
-[node name="minigameOrb6" parent="." unique_id=1401502868 instance=ExtResource("31_bbg3d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -253.65596, 4.8006835, -45.73242)
-
-[node name="minigameOrb7" parent="." unique_id=1335076722 instance=ExtResource("31_bbg3d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 97.547646, 112.683846, -167.813)
-
-[node name="minigameOrb8" parent="." unique_id=1676152408 instance=ExtResource("31_bbg3d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 122.23857, 61.76712, 15.009605)
-
-[node name="minigameOrb9" parent="." unique_id=1369195818 instance=ExtResource("31_bbg3d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 131.2983, 57.607708, -110.6068)
-
-[node name="minigameOrb10" parent="." unique_id=468059839 instance=ExtResource("31_bbg3d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 131.2983, 4.4655294, -231.6313)
-
-[node name="minigameOrb11" parent="." unique_id=525415162 instance=ExtResource("31_bbg3d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.46712, 8.992062, 34.707497)
-
-[node name="minigameOrb12" parent="." unique_id=1296627616 instance=ExtResource("31_bbg3d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.46712, 23.614325, -196.17894)
-
-[node name="minigameOrb13" parent="." unique_id=1336817227 instance=ExtResource("31_bbg3d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.370281, 24.795746, -143.01991)
-
-[connection signal="signalGameLevel" from="minigameOrb" to="." method="_on_minigame_orb_signal_game_level"]
-[connection signal="signalGameLevel" from="minigameOrb" to="PaintingMinigame" method="_on_minigame_orb_signal_game_level"]
 [connection signal="passPointsToParentSignal" from="PaintingMinigame" to="." method="_on_painting_minigame_pass_points_to_parent_signal"]

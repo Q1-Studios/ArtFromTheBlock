@@ -1,14 +1,22 @@
 extends Node3D
 
 @onready var minigameScene: PackedScene = load("res://scenes/paintingMinigame3D.tscn")
+
+var orbArray: Array
+
 var tempScene
 
+var miniGame
 signal passPointsToParentSignal
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	orbArray = get_node("../orbs").get_children()
+	connectSignals()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+func connectSignals() -> void:
+	for each in orbArray:
+		each.signalGameLevel.connect(_on_minigame_orb_signal_game_level)
+		
 #func _process(delta: float) -> void:
 	#if Input.is_action_just_pressed("spawnSceneDeleteLater"):
 		#addMinigameScene()
@@ -18,6 +26,7 @@ func addMinigameScene() -> void:
 	tempScene = minigameScene.instantiate()
 	add_child(tempScene)
 	tempScene.gameOver.connect(removeMinigameScene)
+	print("gameover signal recievbed")
 	tempScene.passPoints.connect(passPointsToParent)
 
 func removeMinigameScene() -> void:
