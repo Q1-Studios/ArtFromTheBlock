@@ -17,10 +17,10 @@ config/icon="res://assets/sprites/icon.svg"
 
 [autoload]
 
+GameManger="*uid://buiefn4ulvuf6"
 ScoreManager="*uid://j8t84ltgxkwp"
 Draw3D="*uid://dtifbqlxmp4i"
 FloorPainter="*res://scripts/floor_painter.gd"
-GameManger="*uid://buiefn4ulvuf6"
 
 [display]
 

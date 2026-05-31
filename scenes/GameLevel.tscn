@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://denrg47s3u5ga"]
 
 [ext_resource type="AudioStream" uid="uid://cescxuswuctkh" path="res://assets/music/main_theme_loop.ogg" id="1_458yb"]
+[ext_resource type="Script" uid="uid://8emk0fh3xi4d" path="res://scripts/main_test.gd" id="1_bbg3d"]
 [ext_resource type="PackedScene" uid="uid://dro4faqsft6sa" path="res://assets/3DModles_ENV/house4.tscn" id="1_u3x7g"]
 [ext_resource type="PackedScene" uid="uid://dodkyb8bh41gx" path="res://assets/3DModles_ENV/AAU.tscn" id="2_oiyxv"]
 [ext_resource type="PackedScene" uid="uid://cd7dnrfk5yynk" path="res://assets/3DModles_ENV/house1.tscn" id="3_mdcd8"]
@@ -30,6 +31,7 @@
 [ext_resource type="Material" uid="uid://c8v47cdlwjhpl" path="res://assets/skateboard/skemtboard.tres" id="27_kc7oj"]
 [ext_resource type="PackedScene" uid="uid://c5hl0wna16l0g" path="res://scenes/rail.tscn" id="28_etdju"]
 [ext_resource type="PackedScene" uid="uid://dy2ssres8kaye" path="res://scenes/mini_map.tscn" id="29_458yb"]
+[ext_resource type="Texture2D" uid="uid://butrv7t3x2ugw" path="res://assets/menu/tutorial.png" id="30_458yb"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_bggjr"]
 
@@ -129,7 +131,15 @@ _data = {
 }
 point_count = 4
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bbg3d"]
+albedo_texture = ExtResource("30_458yb")
+
+[sub_resource type="QuadMesh" id="QuadMesh_66iu7"]
+material = SubResource("StandardMaterial3D_bbg3d")
+size = Vector2(1.92, 1.08)
+
 [node name="GameLevel" type="Node2D" unique_id=1256743737]
+script = ExtResource("1_bbg3d")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1391134174]
 stream = ExtResource("1_458yb")
@@ -1941,3 +1951,8 @@ curve = SubResource("Curve3D_x207a")
 [node name="Rail13" parent="." unique_id=890569321 instance=ExtResource("28_etdju")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 76.399994, 54.300003, -70.8)
 curve = SubResource("Curve3D_r1v6r")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=1167729493]
+transform = Transform3D(17.32, 0, 0, 0, 17.32, 0, 0, 0, 17.32, 5.2626095, 29.910278, 20.855902)
+mesh = SubResource("QuadMesh_66iu7")
+
