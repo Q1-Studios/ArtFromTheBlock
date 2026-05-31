@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dodkyb8bh41gx" path="res://assets/3DModles_ENV/AAU.tscn" id="2_oiyxv"]
 [ext_resource type="PackedScene" uid="uid://ul7ls8r6exsn" path="res://scenes/pointsHUD.tscn" id="3_143lm"]
 [ext_resource type="PackedScene" uid="uid://cd7dnrfk5yynk" path="res://assets/3DModles_ENV/house1.tscn" id="3_mdcd8"]
+[ext_resource type="AudioStream" uid="uid://d32qmm4nej21a" path="res://assets/sounds/point_influx/point_influx_loop.ogg" id="4_j1fq8"]
 [ext_resource type="PackedScene" uid="uid://b15jx3roy5s5y" path="res://assets/3DModles_ENV/house2.tscn" id="4_xd5kv"]
 [ext_resource type="PackedScene" uid="uid://dmyqa4uwusbvy" path="res://assets/3DModles_ENV/house3.tscn" id="5_ruh5v"]
 [ext_resource type="PackedScene" uid="uid://kmoqesnl5rmw" path="res://assets/3DModles_ENV/house5.tscn" id="6_10wqe"]
@@ -211,6 +212,11 @@ stream = ExtResource("1_458yb")
 volume_db = -5.0
 autoplay = true
 parameters/looping = true
+
+[node name="PointsSFX" type="AudioStreamPlayer" parent="." unique_id=1596708565]
+stream = ExtResource("4_j1fq8")
+volume_db = -10.0
+bus = &"SFX"
 
 [node name="HUD" parent="." unique_id=785558833 instance=ExtResource("3_143lm")]
 offset = Vector2(-17, 200)

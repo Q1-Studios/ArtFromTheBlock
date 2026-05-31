@@ -1,9 +1,15 @@
 extends Node2D
 
-var playerPoints = 0
+var playerPoints: float = 0
+var currentlyDisplayedPoints: float = 0
+
+@export var pointLabelSpeed: float = 20
+
 @onready var pointsHUD = $HUD/PointsAmount
 @onready var game_timer = %GameTimer
 @onready var game_timer_label = %timerLabel
+
+@onready var points_sfx: AudioStreamPlayer = $PointsSFX
 
 var sandbox = false
 
@@ -17,10 +23,21 @@ func _ready() -> void:
 	if not sandbox:
 		game_timer.start(GameManger.game_time)
 		
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	if not sandbox:
 		game_timer_label.text = str(int(round(game_timer.time_left)))
+	
+	if not playerPoints == currentlyDisplayedPoints:
+		if not points_sfx.playing:
+			points_sfx.play()
 		
+		currentlyDisplayedPoints += delta * pointLabelSpeed
+		if currentlyDisplayedPoints > playerPoints:
+			currentlyDisplayedPoints = playerPoints
+		
+		pointsHUD.text = str(int(currentlyDisplayedPoints))
+	else: 
+		points_sfx.stop()
 
 func _input(event: InputEvent) -> void:
 	if  Input.is_key_pressed(KEY_ESCAPE):
@@ -35,12 +52,10 @@ func _on_sealskater_graffiti_fuel_updated(amount: float) -> void:
 
 func _on_sealskater_spray_can_amount_consumed_for_points(points: float) -> void:
 	playerPoints += points
-	pointsHUD.text = str(int(playerPoints))
 
 func _on_node_2d_pass_points(pointsReached: int) -> void:
 	print("parent in 3d recieved points: ", pointsReached)
 	playerPoints += pointsReached
-	pointsHUD.text = str(int(playerPoints))
 
 
 func _on_game_timer_timeout() -> void:
