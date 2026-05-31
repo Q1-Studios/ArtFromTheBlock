@@ -4,7 +4,6 @@ class_name GrindingController
  
 #--RAIL GRINDING VARIABLES--
 @onready var rail_grind_node: RailFollower = null
-@onready var camera = %PlayerCamera as Camera3D
 @onready var camera_pivot = %CameraPivot as Node3D
 @onready var grind_particles_emitter = %GrindParticlesEmitter as GPUParticles3D
 
@@ -45,6 +44,7 @@ func handle_grinding():
 
 		if Input.is_action_just_pressed("jump"):
 			detach_from_rail()
+			player.velocity.z += (-rail_grind_node.grind_speed * rail_grind_node.progress_direction)
 			grind_loop_sfx.stop()
 			
 func is_colliding_with_rail() -> bool:
