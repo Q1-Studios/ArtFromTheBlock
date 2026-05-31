@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cd7dnrfk5yynk"]
 
 [ext_resource type="PackedScene" uid="uid://b42euf8eh66n0" path="res://assets/3DModles_ENV/house1.fbx" id="1_1"]
-[ext_resource type="Texture2D" uid="uid://dq1ngdnnjwutp" path="res://assets/bert/bert_bertclaw.png" id="2_ls5xg"]
+[ext_resource type="Texture2D" uid="uid://b2wrnysnw6xhh" path="res://assets/Ground.png" id="2_ls5xg"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_2m8wk"]
 data = PackedVector3Array(-0.01, 0.01, 0.01, -0.01, -0.01, 0.01, -0.01, -0.01, -0.01, -0.01, -0.01, -0.01, -0.01, 0.01, -0.01, -0.01, 0.01, 0.01, 0.01, 0.01, 0.01, -0.01, 0.01, 0.01, -0.01, 0.01, -0.01, -0.01, 0.01, -0.01, 0.01, 0.01, -0.01, 0.01, 0.01, 0.01, 0.01, -0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, -0.01, 0.01, 0.01, -0.01, 0.01, -0.01, -0.01, 0.01, -0.01, 0.01, -0.01, -0.01, 0.01, 0.01, -0.01, 0.01, 0.01, -0.01, -0.01, 0.01, -0.01, -0.01, -0.01, -0.01, -0.01, -0.01, -0.01, 0.01, 0.01, -0.01, -0.01, 0.01, 0.01, -0.01, -0.01, 0.01, -0.01, -0.01, 0.01, -0.01, -0.01, -0.01, -0.01, 0.01, -0.01, -0.01, -0.01, -0.01, 0.01, -0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, -0.01, 0.01, -0.01, -0.01, 0.01)
@@ -70,7 +70,7 @@ shape = SubResource("ConcavePolygonShape3D_yjskx")
 shape = SubResource("ConcavePolygonShape3D_2vmm7")
 
 [node name="Sprite3D" type="Sprite3D" parent="." index="9" unique_id=1645309668]
-transform = Transform3D(10, 0, 0, 0, -1.7484555e-07, 15, 0, -4, -6.556708e-07, 0, 5, 0)
+transform = Transform3D(5, 0, 0, 0, -8.742278e-08, 7.5, 0, -2, -3.278354e-07, 0, 5, 0)
 layers = 4
-modulate = Color(0.12671542, 0.12538496, 0.12736478, 1)
+modulate = Color(0.8340312, 0.3399448, 0.28775948, 1)
 texture = ExtResource("2_ls5xg")
