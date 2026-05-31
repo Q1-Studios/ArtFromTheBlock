@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://c6mt6xbn78xoy"]
+
+[ext_resource type="PackedScene" uid="uid://cl7ftd06g7h8f" path="res://assets/3DModles_ENV/skate_features/mini_ramp.fbx" id="1_1"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_tsly0"]
+data = PackedVector3Array(-0.005, 0, 0, -0.005, -0.005, 0.005, -0.005, -0.005, -0.005, -0.005, -0.005, -0.005, -0.005, 0.005, -0.005, -0.005, 0, 0, 0.005, 0, 0, -0.005, 0, 0, -0.005, 0.005, -0.005, -0.005, 0.005, -0.005, 0.005, 0.005, -0.005, 0.005, 0, 0, 0.005, 0, 0, 0.005, -0.005, 0.005, -0.005, -0.005, 0.005, -0.005, -0.005, 0.005, -0.005, 0, 0, 0.005, 0, 0, 0.005, -0.005, -0.005, 0.005, -0.005, 0.005, 0.005, 0, 0, 0.005, 0, 0, 0.005, 0.005, -0.005, 0.005, -0.005, -0.005, -0.005, -0.005, 0.005, 0.005, -0.005, 0.005, 0.005, -0.005, -0.005, 0.005, -0.005, -0.005, -0.005, -0.005, -0.005, -0.005, -0.005, 0.005, 0.005, -0.005, -0.005, 0.005, 0.005, -0.005, -0.005, 0.005, -0.005, -0.005, 0.005, -0.005, -0.005, -0.005, -0.005, 0.005, -0.005, -0.005)
+
+[node name="mini_ramp" unique_id=693216236 instance=ExtResource("1_1")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube_005" parent_id_path=PackedInt32Array(448089094) index="0" unique_id=344647920]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_005/StaticBody3D" index="0" unique_id=135266839]
+shape = SubResource("ConcavePolygonShape3D_tsly0")

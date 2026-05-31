@@ -1,4 +1,6 @@
+class_name Bert
 extends CharacterBody3D
+
 @onready var movementController := %MovementController
 @onready var grindingController := %GrindingController
 @onready var trick_mode_controller := %TrickModeController
@@ -8,16 +10,28 @@ extends CharacterBody3D
 
 @export_category("Spray Can")
 @export var max_spray_can_amount: float = 100.0
-@export_range(1.0, 100.0, 1.0) var spray_can_grind_reward: float = 8.0
+@export_range(1.0, 100.0, 1.0) var spray_can_grind_reward: float = 5.0
+@export var spray_color: Color = Color.RED
+@export var spray_brush_radius: float = 0.5
+@export var spray_drain_per_second: float = 20.0
+
+@export_category("Tricks")
+@export_range(1.0, 100.0, 1.0) var spray_can_trick_reward: float = 25.0
 
 var spray_can_amount: float = 0.0
 
 signal spray_can_amount_updated(amount: float)
+signal spray_can_amount_consumed_for_points(points: float)
 
 var slow_mo = false
 var slow_mo_factor: float = 4.0
+var can_trick = true
+var is_grinding: bool = false
+var base_wrong_input_time: float 
 
 func _ready() -> void:
+	base_wrong_input_time = wrong_input_timer.wait_time 
+	
 	spray_can_amount_updated.emit(spray_can_amount)
 	healthBar.value = 0
 	healthBar.max_value = max_spray_can_amount
@@ -29,16 +43,23 @@ func _physics_process(delta: float) -> void:
 	movementController.handle_movement(self, delta)
 	move_and_slide()
 	
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("debugButtonTODORemoveLater"):
-		trick_mode_controller.create_goal_sequence()
-		slow_mo = !slow_mo
-		if (slow_mo):
-			_on_enter_slow_mode()
-		else:
-			_on_exit_slow_mode()
+func _process(delta: float) -> void:
+	if _can_spray_paint():
+		FloorPainter.paint(global_position, spray_color, spray_brush_radius)
+		spray_can_amount = max(0.0, spray_can_amount - spray_drain_per_second * delta)
+		spray_can_amount_updated.emit(spray_can_amount)
+		_update_fuel_ui()
+		spray_can_amount_consumed_for_points.emit(spray_drain_per_second * delta)
+		
+	if Input.is_action_just_pressed("enter_trick_mode") and can_trick:
+		enter_trick_mode()
+		can_trick = false
+
+func _can_spray_paint() -> bool:
+	return Input.is_action_pressed("spray") and !is_grinding and is_on_floor() and spray_can_amount > 0.0
 
 func _on_toggle_grinding(_is_grinding: bool) -> void:
+	is_grinding = _is_grinding
 	if _is_grinding:
 		grind_update_timer.start()
 	else:
@@ -54,16 +75,48 @@ func _on_grind_update_graffiti_timer_timeout() -> void:
 func _update_fuel_ui() -> void:
 	healthBar.value = spray_can_amount
 
-func _on_enter_slow_mode():
+func _enter_slow_mode():
+	if slow_mo: 
+		return 
+	slow_mo = true
+	
 	Engine.time_scale = 1.0 / slow_mo_factor 
 	# trickAnimationPlayer.speed_scale = slow_mo_factor 
 	# animationPlayerForStuffNotRelatedToTricks.speed_scale = 1.0 
 	trick_mode_controller.toggle_slow_mo(true)
-	wrong_input_timer.wait_time /= slow_mo_factor
+	
+	wrong_input_timer.wait_time = base_wrong_input_time / slow_mo_factor
 
-func _on_exit_slow_mode():
+func _exit_slow_mode():
+	if not slow_mo: 
+		return 
+	slow_mo = false
+	
 	Engine.time_scale = 1.0
 	# trickAnimationPlayer.speed_scale = 1.0
 	# animationPlayerForStuffNotRelatedToTricks.speed_scale = 1.0 
 	trick_mode_controller.toggle_slow_mo(false)
-	wrong_input_timer.wait_time *= slow_mo_factor
+	
+	wrong_input_timer.wait_time = base_wrong_input_time
+	
+func enter_trick_mode():
+	_enter_slow_mode()
+	trick_mode_controller.create_goal_sequence()
+
+func leave_trick_mode():
+	_exit_slow_mode()
+	trick_mode_controller.deactivate()
+
+func _on_movement_controller_landed() -> void:
+	leave_trick_mode()
+	can_trick = true
+	
+func _on_trick_mode_controller_leave_trick_mode() -> void:
+	_exit_slow_mode()
+
+func _on_trick_sequence_success() -> void:
+	# update graffiti fuel gained through tricks
+	var new_amount: float = min(spray_can_amount + spray_can_trick_reward, max_spray_can_amount)
+	spray_can_amount = new_amount
+	spray_can_amount_updated.emit(spray_can_amount)
+	_update_fuel_ui()

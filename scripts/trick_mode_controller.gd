@@ -3,7 +3,6 @@ extends Node
 
 @export var time_for_tricks := 2.0
 
-
 @onready var movementController := %MovementController
 var character_body: CharacterBody3D
 var slow_mo: float
@@ -26,15 +25,17 @@ var sequence = []
 var sequence_input_index = 0
 var failed = false
 var won = false
+var generated = false
 
 signal trick_sequence_success()
+signal trick_sequence_failure()
+signal leave_trick_mode()
 
 func _ready() -> void:
 	getSprites()
-	create_goal_sequence()
 
 func _process(delta: float) -> void:
-	if is_active && wrongInputTimer.time_left <= 0:
+	if is_active:
 		var time_needed_for_tricks = time_for_tricks
 		if slow_mo_is_active:
 			time_needed_for_tricks = time_for_tricks / slow_mo
@@ -42,14 +43,26 @@ func _process(delta: float) -> void:
 		if (movementController.is_about_to_land(character_body, time_needed_for_tricks, false)):
 			is_active = false
 			_reset()
+			leave_trick_mode.emit()
+			wrongInputTimer.stop()
 			print("Trick Mode over")
+			return
 		
-		if (sequence_input_index >= sequence_length and not failed) or won:
-			_handle_success()
-		elif failed:
-			_handle_failure()
-		else:
-			_evaluate_input()	
+		if is_active and wrongInputTimer.time_left <= 0:
+			if (sequence_input_index >= sequence_length and not failed) or won:
+				_handle_success()
+			elif failed:
+				_handle_failure()
+			else:
+				_evaluate_input()	
+			
+	
+	if generated:
+		if not character_body.is_on_floor():
+			is_active = true
+			generated = false
+			displayTrickSequence()
+
 
 func instanciate(player: CharacterBody3D, slow_mo_factor: float) -> void:
 	character_body = player
@@ -59,13 +72,14 @@ func _handle_success() -> void:
 	is_active = false
 	_reset()
 	print("WON")
+	# \/\/ @cucu gibts da eigentlich irgendwas bevorzugtes? \/\/
 	emit_signal("trick_sequence_success")
-	getSprites
+	leave_trick_mode.emit()
+	
 func _handle_failure() -> void:
 	sequence_input_index = 0
 	failed = false
 	print("Failed sequence")
-	
 
 func _evaluate_input() -> void:
 	var input_vector = Input.get_vector("LEFT", "RIGHT", "UP", "DOWN")
@@ -81,50 +95,49 @@ func _evaluate_input() -> void:
 			trickSprites[sequence_input_index].self_modulate = Color (0, 1, 0)
 			sequence_input_index += 1
 		else:
-			print("Pressed LEFT should have been ", sequence[sequence_input_index])
-			startMistakeTimer()
-			mistakeModulate()
-			failed = true
+			_trigger_mistake("LEFT")
 	
 	if right:
 		if sequence[sequence_input_index] == "RIGHT":
 			trickSprites[sequence_input_index].self_modulate = Color (0, 1, 0)
 			sequence_input_index += 1
 		else:
-			print("Pressed RIGHT should have been ", sequence[sequence_input_index])
-			startMistakeTimer()
-			mistakeModulate()
-			failed = true
+			_trigger_mistake("RIGHT")
 			
 	if up:
 		if sequence[sequence_input_index] == "UP":
 			trickSprites[sequence_input_index].self_modulate = Color (0, 1, 0)
 			sequence_input_index += 1
 		else:
-			print("Pressed UP should have been ", sequence[sequence_input_index])
-			startMistakeTimer()
-			mistakeModulate()
-			failed = true
+			_trigger_mistake("UP")
 			
 	if down:
 		if sequence[sequence_input_index] == "DOWN":
 			trickSprites[sequence_input_index].self_modulate = Color (0, 1, 0)
 			sequence_input_index += 1
 		else:
-			print("Pressed DOWN should have been ", sequence[sequence_input_index])
-			startMistakeTimer()
-			mistakeModulate()
-			failed = true
+			_trigger_mistake("DOWN")
+
+
+func _trigger_mistake(pressed_key: String) -> void:
+	print("Pressed ", pressed_key, " should have been ", sequence[sequence_input_index])
+	startMistakeTimer()
+	mistakeModulate()
+	failed = true
+	
 
 func create_goal_sequence() -> void:
+	if is_active or generated:
+		return
+	
 	_reset()
 	for i in range(sequence_length):
 		sequence.append(input[rng.randi_range(0, 3)])
 	print(sequence)
-	is_active = true
+	is_active = false
+	generated = true
 	setSprites()
-	displayTrickSequence()
-	
+
 	
 func _reset() -> void:
 	sequence = []
@@ -167,8 +180,12 @@ func resetModulate() -> void:
 	getSprites()
 
 func startMistakeTimer() -> void:
+	trick_sequence_failure.emit()
 	wrongInputTimer.start()
 
+func deactivate() -> void:
+	is_active = false
+	_reset()
 
 func _on_wrong_input_timer_timeout() -> void:
 	for each in trickSprites:
