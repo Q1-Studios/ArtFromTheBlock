@@ -26,6 +26,7 @@ var default_font : Font = ThemeDB.fallback_font
 
 @export_group("Audio Internals")
 @export var spray_loop_sfx: AudioStreamPlayer
+@export var tagged_sfx: AudioStreamPlayer
 
 signal passPoints(points: float)
 signal drawingPhaseOver(points:int)
@@ -153,6 +154,7 @@ func checkAllPoints() -> void:
 		allPointsReached = true
 		timer.stop()
 		_on_timer_timeout()
+		tagged_sfx.play()
 		#print("YOU WIN")
 		
 

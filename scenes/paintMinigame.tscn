@@ -17,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://dlsm5846ecrtv" path="res://assets/sounds/can_shake/can_shake_9.wav" id="15_63vj4"]
 [ext_resource type="AudioStream" uid="uid://c52bfhg2jcff" path="res://assets/sounds/can_shake/can_shake_10.wav" id="16_jqnp2"]
 [ext_resource type="AudioStream" uid="uid://bukxcrobabfa1" path="res://assets/sounds/spray_loop/spray_loop.ogg" id="18_d2rc7"]
+[ext_resource type="AudioStream" uid="uid://c6h8mln7mpbyf" path="res://assets/sounds/suburb_complete/suburb_complete.ogg" id="18_lwhlo"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_54l4r"]
 streams_count = 13
@@ -34,9 +35,10 @@ stream_10/stream = ExtResource("6_0jdwt")
 stream_11/stream = ExtResource("7_16rac")
 stream_12/stream = ExtResource("8_5xwif")
 
-[node name="Node2D" type="Node2D" unique_id=973804300 node_paths=PackedStringArray("spray_loop_sfx")]
+[node name="Node2D" type="Node2D" unique_id=973804300 node_paths=PackedStringArray("spray_loop_sfx", "tagged_sfx")]
 script = ExtResource("1_sv35t")
 spray_loop_sfx = NodePath("SprayLoopSFX")
+tagged_sfx = NodePath("TaggedSFX")
 
 [node name="FollowLine" type="Sprite2D" parent="." unique_id=1566206986]
 self_modulate = Color(1, 1, 1, 0.23137255)
@@ -65,6 +67,11 @@ bus = &"SFX"
 [node name="SprayLoopSFX" type="AudioStreamPlayer" parent="." unique_id=1638856546]
 stream = ExtResource("18_d2rc7")
 volume_db = -15.0
+bus = &"SFX"
+
+[node name="TaggedSFX" type="AudioStreamPlayer" parent="." unique_id=206851647]
+stream = ExtResource("18_lwhlo")
+volume_db = -5.0
 bus = &"SFX"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
