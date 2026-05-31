@@ -151,6 +151,8 @@ func _checkPointProximity(position) -> void:
 func checkAllPoints() -> void:
 	if markerListBoolean.find(false) == -1:
 		allPointsReached = true
+		timer.stop()
+		_on_timer_timeout()
 		#print("YOU WIN")
 		
 
