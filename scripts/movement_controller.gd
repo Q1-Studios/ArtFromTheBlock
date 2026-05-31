@@ -86,11 +86,10 @@ func handle_movement(player: CharacterBody3D, delta: float) -> void:
 	
 	if not is_grinding:
 		_handle_player_turning(player, delta)
+		_handle_forward_movement(player, delta)
+		_handle_gravity(player, delta)
 	
-	_handle_forward_movement(player, delta)
-	_handle_gravity(player, delta)
 	_handle_jump(player, delta)
-
 
 func _handle_player_turning(player: CharacterBody3D, delta: float) -> void:
 	var raw_turn = Input.get_axis("move_right", "move_left") 

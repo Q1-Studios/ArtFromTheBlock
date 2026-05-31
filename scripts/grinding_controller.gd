@@ -4,7 +4,6 @@ class_name GrindingController
  
 #--RAIL GRINDING VARIABLES--
 @onready var rail_grind_node: RailFollower = null
-@onready var camera = %PlayerCamera as Camera3D
 @onready var camera_pivot = %CameraPivot as Node3D
 @onready var grind_particles_emitter = %GrindParticlesEmitter as GPUParticles3D
 
@@ -45,6 +44,7 @@ func handle_grinding():
 
 		if Input.is_action_just_pressed("jump"):
 			detach_from_rail()
+			player.velocity.z += (-rail_grind_node.grind_speed * rail_grind_node.progress_direction)
 			grind_loop_sfx.stop()
 			
 func is_colliding_with_rail() -> bool:
@@ -88,11 +88,6 @@ func start_grinding():
 	var closest_offset = grind_rail.curve.get_closest_offset(player_local_pos)
 	rail_grind_node.progress = closest_offset
 	
-	# calculate target camera yaw
-	var path_forward: Vector3 = -rail_grind_node.global_transform.basis.z
-	var travel_dir := (path_forward).normalized()
-	target_yaw = atan2(-travel_dir.x, -travel_dir.z) * rail_grind_node.progress_direction
-
 	# Update players rotation and position
 	rotate_player_for_grinding()
 	grind_particles_emitter.emitting = true
@@ -107,6 +102,8 @@ func rotate_player_for_grinding():
 	grind_particles_emitter.global_transform = grind_particles_emitter.global_transform.looking_at(particles_looking_at, Vector3.UP)
 	
 func update_player_camera():
+	var travel_dir = (rail_grind_node.global_transform.basis.x * rail_grind_node.progress_direction).normalized()
+	target_yaw = atan2(travel_dir.x, travel_dir.z)
 	camera_pivot.rotation.y = lerp_angle(camera_pivot.rotation.y, target_yaw, 0.08)
 
 func update_player_position():

@@ -17,7 +17,7 @@ var grinding: bool = false
 func _ready():
 	origin_point = progress
  
-func _process(delta):
+func _physics_process(delta: float) -> void:
 	if grinding:
 		progress += (grind_speed * delta * progress_direction)
 		

@@ -47,6 +47,7 @@ func _physics_process(delta: float) -> void:
 	grindingController.handle_grinding()
 	movementController.handle_movement(self, delta)
 	move_and_slide()
+		
 	
 func _process(delta: float) -> void:
 	
