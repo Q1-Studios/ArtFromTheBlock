@@ -44,6 +44,62 @@ _data = {
 }
 point_count = 16
 
+[sub_resource type="Curve3D" id="Curve3D_458yb"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, -22, 0, 0, 0, 0, 0, 0, 1, 11, -39, 0, 0, 0, 0, 0, 0, 2, 12, -45),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="Curve3D" id="Curve3D_bbg3d"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, -13, 0, 0, 0, 0, 0, 0, 0, 0, -13, -17, 0, 0, 0, 0, 0, 0, 12, -12, -33, 0, 0, 0, 0, 0, 0, 29, -10, -42, 0, 0, 0, 0, 0, 0, 39, -11, -44),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[sub_resource type="Curve3D" id="Curve3D_66iu7"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.9077759, 0.4619503, 11.199238, 0, 0, 0, 0, 0, 0, -1.1781006, 0.36807632, 7.567173, 0, 0, 0, 0, 0, 0, 0.1000061, 0.39999962, 4.3, 0, 0, 0, 0, 0, 0, 2.9, 0.4, 1.4000001, 0, 0, 0, 0, 0, 0, 6.2, 0.4, -0.7000003, 0, 0, 0, 0, 0, 0, 9.9, 0.4, -1.1999998, 0, 0, 0, 0, 0, 0, 13.5, 0.4, 0, 0, 0, 0, 0, 0, 0, 16.599998, 0.3000002, 2.2999997, 0, 0, 0, 0, 0, 0, 19.400002, 0.3000002, 6.8, 0, 0, 0, 0, 0, 0, 18.900002, 0.3000002, 9, 0, 0, 0, 0, 0, 0, 18.699997, 0.5, 11.9, 0, 0, 0, 0, 0, 0, 15.099998, 0.3000002, 17.4, 0, 0, 0, 0, 0, 0, 11.099998, 0.39999962, 19, 0, 0, 0, 0, 0, 0, 8, 0.39999962, 19.1, 0, 0, 0, 0, 0, 0, 5.4000015, 0.39999962, 19.4, 0, 0, 0, 0, 0, 0, 3, 0.5, 17.5, 0, 0, 0, 0, 0, 0, -0.9530029, 0.40470028, 14.451698, 0, 0, 0, 0, 0, 0, -1, 0.5, 11.299999),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 18
+
+[sub_resource type="Curve3D" id="Curve3D_143lm"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.19999695, 3, -1.5999994, 0, 0, 0, 0, 0, 0, -2.399994, 2.8000002, -1.5, 0, 0, 0, 0, 0, 0, -7.100006, 0, -1.5999994, 0, 0, 0, 0, 0, 0, -7.100006, 0, -1.5999994, 0, 0, 0, 0, 0, 0, -12.100006, -3.1999998, -1.5, 0, 0, 0, 0, 0, 0, -16.167557, -3.3127213, -1.5285225, 0, 0, 0, 0, 0, 0, -26, -9, -1.6000004),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 7
+
+[sub_resource type="Curve3D" id="Curve3D_j3elx"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.19999695, 3, -1.5999994, 0, 0, 0, 0, 0, 0, -2.399994, 2.8000002, -1.5, 0, 0, 0, 0, 0, 0, -7.100006, 0, -1.5999994, 0, 0, 0, 0, 0, 0, -7.100006, 0, -1.5999994, 0, 0, 0, 0, 0, 0, -12.100006, -3.1999998, -1.5, 0, 0, 0, 0, 0, 0, -16.167557, -3.3127213, -1.5285225, 0, 0, 0, 0, 0, 0, -26, -9, -1),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 7
+
+[sub_resource type="Curve3D" id="Curve3D_j1fq8"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.19999695, 3, -1.5999994, 0, 0, 0, 0, 0, 0, -2.399994, 2.8000002, -1.5, 0, 0, 0, 0, 0, 0, -7.100006, 0, -1.5999994, 0, 0, 0, 0, 0, 0, -7.100006, 0, -1.5999994, 0, 0, 0, 0, 0, 0, -12.100006, -3.1999998, -1.5, 0, 0, 0, 0, 0, 0, -16.167557, -3.3127213, -1.5285225, 0, 0, 0, 0, 0, 0, -26, -9, -1.6000004),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 7
+
+[sub_resource type="Curve3D" id="Curve3D_rfr25"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 13.399994, -0.3000002, 0.20000076, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -16.600006, -1.1000004, 0.19999886, 0, 0, 0, 0, 0, 0, -35.300003, -2.3000002, 0.19999695),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="Curve3D" id="Curve3D_natem"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -18.600006, -1.4000006, 0.19999981, 0, 0, 0, 0, 0, 0, -35.300003, -2.3000002, 0.19999695),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
 [node name="GameLevel" type="Node2D" unique_id=1256743737]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=934446392]
@@ -1344,37 +1400,10 @@ transform = Transform3D(-4, 0, -3.496911e-07, 0, 4, 0, 3.496911e-07, 0, -4, 19.2
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -17.05608, 12.103577, -93.67162)
 
 [node name="mini_ramp8" parent="." unique_id=618391695 instance=ExtResource("17_y0apw")]
-transform = Transform3D(-5, 0, -4.371139e-07, 0, 5, 0, 4.371139e-07, 0, -5, 4.94392, 122.10358, -20.67163)
+transform = Transform3D(-2.1855695e-07, 0, 5, 0, 5, 0, -5, 0, -2.1855695e-07, -65.056076, 122.10358, -92.67163)
 
 [node name="mini_ramp9" parent="." unique_id=391113100 instance=ExtResource("17_y0apw")]
 transform = Transform3D(-2.1855695e-07, 0, 5, 0, 5, 0, -5, 0, -2.1855695e-07, -53.05608, 61.103577, 18.32837)
-
-[node name="mini_rail16" parent="." unique_id=1890169994 instance=ExtResource("18_3dw6s")]
-transform = Transform3D(1.7484555e-07, 4, -3.496911e-07, 4, -1.7484555e-07, 0, -1.5285484e-14, -3.496911e-07, -4, 16.259842, 26.312683, -69.25717)
-
-[node name="mini_rail17" parent="." unique_id=162788631 instance=ExtResource("18_3dw6s")]
-transform = Transform3D(1.7484555e-07, 4, -3.496911e-07, 4, -1.7484555e-07, 0, -1.5285484e-14, -3.496911e-07, -4, 16.259842, 48.312683, -54.25717)
-
-[node name="mini_rail18" parent="." unique_id=1355094496 instance=ExtResource("18_3dw6s")]
-transform = Transform3D(1.7484555e-07, 4, -3.496911e-07, 4, -1.7484555e-07, 0, -1.5285484e-14, -3.496911e-07, -4, 16.259842, 74.31268, -54.25717)
-
-[node name="mini_rail19" parent="." unique_id=1515727024 instance=ExtResource("18_3dw6s")]
-transform = Transform3D(1.7484555e-07, 4, -3.496911e-07, 4, -1.7484555e-07, 0, -1.5285484e-14, -3.496911e-07, -4, 16.259842, 99.31268, -70.25717)
-
-[node name="mini_rail20" parent="." unique_id=1221381887 instance=ExtResource("18_3dw6s")]
-transform = Transform3D(-1.7484555e-07, -4, 0, 4, -1.7484555e-07, 0, 0, 0, 4, 58.259842, 26.312683, -168.25717)
-
-[node name="mini_rail21" parent="." unique_id=1353006441 instance=ExtResource("18_3dw6s")]
-transform = Transform3D(-1.7484555e-07, -4, 0, -1.7484555e-07, 7.642742e-15, -4, 4, -1.7484555e-07, -1.7484555e-07, 58.259842, 88.31268, -123.25717)
-
-[node name="mini_rail22" parent="." unique_id=842171092 instance=ExtResource("18_3dw6s")]
-transform = Transform3D(-1.7484555e-07, -4, 0, 4, -1.7484555e-07, 0, 0, 0, 4, 58.259842, 58.312683, -140.25717)
-
-[node name="mini_rail23" parent="." unique_id=922516849 instance=ExtResource("18_3dw6s")]
-transform = Transform3D(-1.7484555e-07, -4, 0, 4, -1.7484555e-07, 0, 0, 0, 4, 58.259842, 80.31268, -146.25717)
-
-[node name="mini_rail24" parent="." unique_id=250814335 instance=ExtResource("18_3dw6s")]
-transform = Transform3D(-1.7484555e-07, -4, 0, -1.7484555e-07, 7.642742e-15, -4, 4, -1.7484555e-07, -1.7484555e-07, 58.259842, 141.31268, -130.25717)
 
 [node name="mini_rail25" parent="." unique_id=274926219 instance=ExtResource("18_3dw6s")]
 transform = Transform3D(7.642742e-15, 1.7484555e-07, 4, 4, -1.7484555e-07, 0, 1.7484555e-07, 4, -1.7484555e-07, 9.259842, 80.31268, -154.25717)
@@ -1845,6 +1874,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 807.8124, 37.936996, -653.355
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, -37)
 curve = SubResource("Curve3D_b3owo")
 
+[node name="Node3D2" type="Node3D" parent="." unique_id=1472067460]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.866333, 2.1252098, 56.75891)
+
 [node name="MiniMap" parent="." unique_id=833663843 node_paths=PackedStringArray("target") instance=ExtResource("29_458yb")]
 offset_left = -3.0
 offset_top = 3.0
@@ -1852,3 +1884,35 @@ offset_right = 365.0
 offset_bottom = 231.0
 target = NodePath("../Sealskater")
 metadata/_edit_use_anchors_ = true
+
+[node name="Rail2" parent="." unique_id=507240409 instance=ExtResource("28_etdju")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 120, -117)
+curve = SubResource("Curve3D_458yb")
+
+[node name="Rail3" parent="." unique_id=2140866153 instance=ExtResource("28_etdju")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62, 120, -117)
+curve = SubResource("Curve3D_bbg3d")
+
+[node name="Rail4" parent="." unique_id=67530613 instance=ExtResource("28_etdju")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -133, 11, 5)
+curve = SubResource("Curve3D_66iu7")
+
+[node name="Rail5" parent="." unique_id=1707711330 instance=ExtResource("28_etdju")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -186, 11, 15)
+curve = SubResource("Curve3D_143lm")
+
+[node name="Rail6" parent="." unique_id=663326125 instance=ExtResource("28_etdju")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -186, 11, 18.7)
+curve = SubResource("Curve3D_j3elx")
+
+[node name="Rail7" parent="." unique_id=824227379 instance=ExtResource("28_etdju")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -186, 11, 22.7)
+curve = SubResource("Curve3D_j1fq8")
+
+[node name="Rail8" parent="." unique_id=1184207434 instance=ExtResource("28_etdju")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -166.6, 13.3, -16.8)
+curve = SubResource("Curve3D_rfr25")
+
+[node name="Rail9" parent="." unique_id=194351943 instance=ExtResource("28_etdju")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -165.6, 13.3, -5.799999)
+curve = SubResource("Curve3D_natem")
