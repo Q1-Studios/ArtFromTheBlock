@@ -51,6 +51,7 @@
 [ext_resource type="AudioStream" uid="uid://bhiiwee5wh310" path="res://assets/sounds/skate_land_soft/skate_land_soft_6.wav" id="49_vhs13"]
 [ext_resource type="AudioStream" uid="uid://dfyakh0v0jgwg" path="res://assets/sounds/skate_land_soft/skate_land_soft_7.wav" id="50_g3ii4"]
 [ext_resource type="AudioStream" uid="uid://bn0a7bckn3ihs" path="res://assets/sounds/skate_land_soft/skate_land_soft_8.wav" id="51_1ooe7"]
+[ext_resource type="AudioStream" uid="uid://c2u1016nijflq" path="res://assets/sounds/wind_loop/wind_loop.ogg" id="52_pxy6x"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_n4d43"]
 radius = 1.1640625
@@ -183,12 +184,13 @@ environment = SubResource("Environment_6w6d5")
 
 [node name="Controller" type="Node" parent="." unique_id=1823345731]
 
-[node name="MovementController" type="Node" parent="Controller" unique_id=1305322326 node_paths=PackedStringArray("skate_loop_sfx", "skate_land_sfx", "jump_sfx")]
+[node name="MovementController" type="Node" parent="Controller" unique_id=1305322326 node_paths=PackedStringArray("skate_loop_sfx", "skate_land_sfx", "jump_sfx", "wind_sfx")]
 unique_name_in_owner = true
 script = ExtResource("3_6give")
 skate_loop_sfx = NodePath("../../SkatingLoopSFX")
 skate_land_sfx = NodePath("../../SkatingLandSFX")
 jump_sfx = NodePath("../../JumpSFX")
+wind_sfx = NodePath("../../WindSFX")
 
 [node name="GrindingController" type="Node" parent="Controller" unique_id=1515660716 node_paths=PackedStringArray("grind_ray", "player", "player_model", "grind_start_sfx", "grind_loop_sfx")]
 unique_name_in_owner = true
@@ -289,6 +291,13 @@ bus = &"SFX"
 stream = SubResource("AudioStreamRandomizer_h78gc")
 volume_db = -15.0
 bus = &"SFX"
+
+[node name="WindSFX" type="AudioStreamPlayer" parent="." unique_id=1798711760]
+stream = ExtResource("52_pxy6x")
+volume_db = -5.0
+autoplay = true
+bus = &"SFX"
+parameters/looping = true
 
 [connection signal="landed" from="Controller/MovementController" to="." method="_on_movement_controller_landed"]
 [connection signal="toggle_grinding" from="Controller/GrindingController" to="." method="_on_toggle_grinding"]
