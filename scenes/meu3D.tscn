@@ -2170,7 +2170,7 @@ bus = &"SFX"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1869081301]
 stream = ExtResource("43_o70v3")
-volume_db = -10.0
+volume_db = -15.0
 autoplay = true
 bus = &"Music"
 parameters/looping = true
