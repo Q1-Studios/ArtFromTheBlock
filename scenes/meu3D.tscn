@@ -40,6 +40,8 @@
 [ext_resource type="Material" uid="uid://c8v47cdlwjhpl" path="res://assets/skateboard/skemtboard.tres" id="38_weeit"]
 [ext_resource type="PackedScene" uid="uid://c5hl0wna16l0g" path="res://scenes/rail.tscn" id="39_d7psy"]
 [ext_resource type="PackedScene" uid="uid://dy2ssres8kaye" path="res://scenes/mini_map.tscn" id="40_ed2jm"]
+[ext_resource type="PackedScene" uid="uid://dhhb3ewm8j0im" path="res://scenes/controllerCursor.tscn" id="41_huein"]
+[ext_resource type="Script" uid="uid://c0hlpsejd24kq" path="res://scripts/menu_controller_cursor.gd" id="42_3q7l0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uuqsn"]
 bg_color = Color(0, 0, 0.003921569, 0.31764707)
@@ -2132,6 +2134,9 @@ omni_range = 4096.0
 transform = Transform3D(1, 0, 0, 0, -0.9659258, 0.25881907, 0, -0.25881907, -0.9659258, -6.3505993, 127.10782, -38.302002)
 light_color = Color(1, 0.6862745, 0.5686275, 1)
 light_energy = 0.429
+
+[node name="Node2D" parent="." unique_id=1290096127 instance=ExtResource("41_huein")]
+script = ExtResource("42_3q7l0")
 
 [connection signal="pressed" from="Control/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Control/SandboxButton" to="." method="_on_sandbox_button_pressed"]
