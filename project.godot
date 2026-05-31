@@ -10,7 +10,8 @@ config_version=5
 
 [application]
 
-config/name="KlagenfurtGSEJamSS2026"
+config/name="Art From The Block"
+config/tags=PackedStringArray("game", "jam")
 run/main_scene="uid://cbcus7pe5vr8r"
 config/features=PackedStringArray("4.6", "Forward Plus")
 boot_splash/image="uid://mao5ymdilpi1"
@@ -157,3 +158,4 @@ change_spray_color={
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+textures/vram_compression/import_etc2_astc=true

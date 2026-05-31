@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://hq0f1qks8l3w"
 path.s3tc="res://.godot/imported/antennatext.png-05586720b46fa4dee13a38cbd286972e.s3tc.ctex"
+path.etc2="res://.godot/imported/antennatext.png-05586720b46fa4dee13a38cbd286972e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/bertenna/antennatext.png"
-dest_files=["res://.godot/imported/antennatext.png-05586720b46fa4dee13a38cbd286972e.s3tc.ctex"]
+dest_files=["res://.godot/imported/antennatext.png-05586720b46fa4dee13a38cbd286972e.s3tc.ctex", "res://.godot/imported/antennatext.png-05586720b46fa4dee13a38cbd286972e.etc2.ctex"]
 
 [params]
 

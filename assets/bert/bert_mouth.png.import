@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d34i2nseq53fs"
 path.s3tc="res://.godot/imported/bert_mouth.png-73de66b1e341064504f95df97a6b8998.s3tc.ctex"
+path.etc2="res://.godot/imported/bert_mouth.png-73de66b1e341064504f95df97a6b8998.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/bert/bert_mouth.png"
-dest_files=["res://.godot/imported/bert_mouth.png-73de66b1e341064504f95df97a6b8998.s3tc.ctex"]
+dest_files=["res://.godot/imported/bert_mouth.png-73de66b1e341064504f95df97a6b8998.s3tc.ctex", "res://.godot/imported/bert_mouth.png-73de66b1e341064504f95df97a6b8998.etc2.ctex"]
 
 [params]
 

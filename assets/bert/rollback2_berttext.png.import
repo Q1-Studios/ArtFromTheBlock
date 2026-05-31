@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dsk7ws7deodgb"
 path.s3tc="res://.godot/imported/rollback2_berttext.png-420f69b8521781546e2c1dc5934d852b.s3tc.ctex"
+path.etc2="res://.godot/imported/rollback2_berttext.png-420f69b8521781546e2c1dc5934d852b.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/bert/rollback2_berttext.png"
-dest_files=["res://.godot/imported/rollback2_berttext.png-420f69b8521781546e2c1dc5934d852b.s3tc.ctex"]
+dest_files=["res://.godot/imported/rollback2_berttext.png-420f69b8521781546e2c1dc5934d852b.s3tc.ctex", "res://.godot/imported/rollback2_berttext.png-420f69b8521781546e2c1dc5934d852b.etc2.ctex"]
 
 [params]
 
