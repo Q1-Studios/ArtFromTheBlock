@@ -67,7 +67,7 @@ var imgDictionary = {
 
 func prepareMarkerPoints() -> void:
 	var currentImg = imgDictionary.keys()[rng.rand_weighted(weights)]
-	print("Current Image to trace: ", currentImg)
+	#print("Current Image to trace: ", currentImg)
 	markerList = imgDictionary.get(currentImg)
 	for each in markerList:
 		marker2DArrayVector.append(each)
@@ -121,7 +121,7 @@ func _input(event: InputEvent) -> void:
 		_checkPointProximity(event.global_position)
 	else:
 		_checkPointProximity(cursorImg.global_position)
-	print("cursor distance: ", totalDistanceCursor, "total distance allowed: ", totalDistancePoints)
+	#print("cursor distance: ", totalDistanceCursor, "total distance allowed: ", totalDistancePoints)
 
 
 # this is for drawin the circles at where user input is being recorded
@@ -151,14 +151,14 @@ func _checkPointProximity(position) -> void:
 func checkAllPoints() -> void:
 	if markerListBoolean.find(false) == -1:
 		allPointsReached = true
-		print("YOU WIN")
+		#print("YOU WIN")
 		
 
 
 func printBooleans() -> void:
 	var i = 0
 	for x in markerListBoolean.size():
-		print("position ", i, ": ", markerListBoolean[i])
+		#print("position ", i, ": ", markerListBoolean[i])
 		i = i+1
 
 func calctotalDistancePoints() -> void:
@@ -176,7 +176,7 @@ func trackCursorDistance() -> void:
 
 
 func _on_timer_timeout() -> void:
-	print("on timer timeout reached")
+	#print("on timer timeout reached")
 	canDraw = false
 
 	var pointsReached = 0
