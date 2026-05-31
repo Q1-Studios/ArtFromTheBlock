@@ -23,7 +23,7 @@ func _input(event: InputEvent) -> void:
 
 
 func _on_sealskater_graffiti_fuel_updated(amount: float) -> void:
-	print("Updated spray can amount trough grinding: {0}".format([amount]))
+	pass
 
 
 func _on_sealskater_spray_can_amount_consumed_for_points(points: float) -> void:
