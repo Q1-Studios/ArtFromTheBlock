@@ -13,7 +13,9 @@ config_version=5
 config/name="KlagenfurtGSEJamSS2026"
 run/main_scene="uid://cbcus7pe5vr8r"
 config/features=PackedStringArray("4.6", "Forward Plus")
+boot_splash/image="uid://mao5ymdilpi1"
 config/icon="uid://bwluoci6hn2jd"
+boot_splash/minimum_display_time=1000
 
 [autoload]
 
