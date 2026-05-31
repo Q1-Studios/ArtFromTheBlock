@@ -1,7 +1,7 @@
 shader_type spatial;
 render_mode blend_mix, depth_draw_never, cull_disabled, unshaded;
 
-uniform sampler2D paint_texture : source_color, hint_default_transparent;
+uniform sampler2D paint_texture : source_color, hint_default_transparent, repeat_disable;
 uniform vec2 world_size = vec2(440.0, 300.0);
 uniform vec2 world_center = vec2(0.0, -40.573303);
 
@@ -11,6 +11,9 @@ void fragment() {
 		(world_pos.x - world_center.x + world_size.x * 0.5) / world_size.x,
 		(world_pos.z - world_center.y + world_size.y * 0.5) / world_size.y
 	);
+	if (paint_uv.x < 0.0 || paint_uv.x > 1.0 || paint_uv.y < 0.0 || paint_uv.y > 1.0) {
+		discard;
+	}
 	vec4 paint_col = texture(paint_texture, paint_uv);
 	ALBEDO = paint_col.rgb;
 	ALPHA = paint_col.a;
