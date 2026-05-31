@@ -144,10 +144,10 @@ func _trigger_mistake(pressed_key: String) -> void:
 
 func play_success_sound(input_index: int) -> void:
 	match input_index:
-		1: trick1_sfx.play()
-		2: trick2_sfx.play()
-		3: trick3_sfx.play()
-		4: trick_done_sfx.play()
+		0: trick1_sfx.play()
+		1: trick2_sfx.play()
+		2: trick3_sfx.play()
+		3: trick_done_sfx.play()
 
 func create_goal_sequence() -> void:
 	if is_active or generated:
