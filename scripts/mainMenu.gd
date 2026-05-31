@@ -39,6 +39,10 @@ func _on_play_button_pressed() -> void:
 
 func _on_sandbox_button_pressed() -> void:
 	GameManger.is_sandbox = true
+	if username_input.text == "":
+		username_input.text = GameManger.default_username
+	
+	GameManger.username = username_input.text
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
 
 

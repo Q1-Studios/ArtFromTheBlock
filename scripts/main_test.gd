@@ -17,6 +17,8 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if  Input.is_key_pressed(KEY_ESCAPE):
+		ScoreManager.fetch_online_scoreboard()
+		GameManger.last_score = -1.0
 		get_tree().change_scene_to_file("res://scenes/meu3D.tscn")
 
 
