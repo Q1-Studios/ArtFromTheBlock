@@ -3,6 +3,7 @@
 [ext_resource type="AudioStream" uid="uid://cescxuswuctkh" path="res://assets/music/main_theme_loop.ogg" id="1_458yb"]
 [ext_resource type="Script" uid="uid://8emk0fh3xi4d" path="res://scripts/main_test.gd" id="1_bbg3d"]
 [ext_resource type="PackedScene" uid="uid://dro4faqsft6sa" path="res://assets/3DModles_ENV/house4.tscn" id="1_u3x7g"]
+[ext_resource type="AudioStream" uid="uid://hc6g5mro02w0" path="res://assets/sounds/city_ambience/city_ambience_game.ogg" id="2_j3elx"]
 [ext_resource type="PackedScene" uid="uid://dodkyb8bh41gx" path="res://assets/3DModles_ENV/AAU.tscn" id="2_oiyxv"]
 [ext_resource type="PackedScene" uid="uid://ul7ls8r6exsn" path="res://scenes/pointsHUD.tscn" id="3_143lm"]
 [ext_resource type="PackedScene" uid="uid://cd7dnrfk5yynk" path="res://assets/3DModles_ENV/house1.tscn" id="3_mdcd8"]
@@ -180,6 +181,13 @@ offset_right = 225.0
 offset_bottom = 402.0
 theme_override_font_sizes/font_size = 40
 text = "Time left: "
+
+[node name="CityAmbience" type="AudioStreamPlayer" parent="." unique_id=1169938334]
+stream = ExtResource("2_j3elx")
+volume_db = -15.0
+autoplay = true
+bus = &"SFX"
+parameters/looping = true
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1391134174]
 stream = ExtResource("1_458yb")

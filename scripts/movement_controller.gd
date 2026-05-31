@@ -35,6 +35,11 @@ signal landed
 
 @onready var player_model: Node3D = %PlayerModel
 
+@export_group("Audio Internals")
+@export var skate_loop_sfx: AudioStreamPlayer
+@export var skate_land_sfx: AudioStreamPlayer
+@export var jump_sfx: AudioStreamPlayer
+
 # config var - no export
 var ahead = Vector3.RIGHT # Front of player, change es necessary
 
@@ -54,16 +59,25 @@ func handle_movement(player: CharacterBody3D, delta: float) -> void:
 	if player.is_on_floor():
 		if !was_on_floor:
 			player_model.land()
+			skate_land_sfx.play()
 			landed.emit()
 			was_on_floor = true
 		is_grounded = true
 		coyote_timer = coyote_time
+		if current_speed > 1:
+			skate_loop_sfx.volume_db = clamp(-20 + (0.2 * current_speed), -20, -5)
+			if not skate_loop_sfx.playing:
+				skate_loop_sfx.play()
+		else:
+			skate_loop_sfx.stop()
 		
 	elif coyote_time > 0.0:
 		coyote_time -= delta
+		skate_loop_sfx.stop()
 	else:
 		is_grounded = false
 		was_on_floor = false
+		skate_loop_sfx.stop()
 	
 	if not is_grinding:
 		_handle_player_turning(player, delta)
@@ -128,6 +142,7 @@ func _handle_forward_movement(player: CharacterBody3D, delta: float) -> void:
 func _handle_jump(player: CharacterBody3D, _delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and is_grounded:
 		player_model.start_jump()
+		jump_sfx.play()
 		player.velocity.y = jump_force
 
 func _handle_gravity(player: CharacterBody3D, delta: float) -> void:
