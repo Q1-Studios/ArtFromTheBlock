@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" path="res://assets/3DModles_ENV/skate_features/flower_pit.tscn" id="25_e8pkn"]
 [ext_resource type="Material" uid="uid://c8v47cdlwjhpl" path="res://assets/skateboard/skemtboard.tres" id="27_kc7oj"]
 [ext_resource type="PackedScene" uid="uid://c5hl0wna16l0g" path="res://scenes/rail.tscn" id="28_etdju"]
+[ext_resource type="PackedScene" uid="uid://dy2ssres8kaye" path="res://scenes/mini_map.tscn" id="29_458yb"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_bggjr"]
 
@@ -1843,3 +1844,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 807.8124, 37.936996, -653.355
 [node name="Rail" parent="." unique_id=261477281 instance=ExtResource("28_etdju")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, -37)
 curve = SubResource("Curve3D_b3owo")
+
+[node name="MiniMap" parent="." unique_id=833663843 node_paths=PackedStringArray("target") instance=ExtResource("29_458yb")]
+offset_left = 514.0
+offset_top = 507.0
+offset_right = 882.0
+offset_bottom = 735.0
+target = NodePath("../Sealskater")
+metadata/_edit_use_anchors_ = true

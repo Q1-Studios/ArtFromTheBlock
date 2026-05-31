@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dwvfoe6b1lusu" path="res://scenes/FuelBarScene2.tscn" id="6_vuft4"]
 [ext_resource type="PackedScene" uid="uid://bpj7o4myywyq7" path="res://scenes/bertmodel.tscn" id="7_n4d43"]
 [ext_resource type="PackedScene" uid="uid://beikiclpngb51" path="res://scenes/trick_sequence_display.tscn" id="8_ew7ux"]
+[ext_resource type="Texture2D" uid="uid://cydyk5wtccnix" path="res://assets/sprites/pollen_sprite.png" id="10_6w6d5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_n4d43"]
 radius = 1.1640625
@@ -161,6 +162,12 @@ texture = SubResource("ViewportTexture_ew7ux")
 [node name="PlayerModel" parent="." unique_id=966477376 instance=ExtResource("7_n4d43")]
 unique_name_in_owner = true
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=682095456]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 11, 0)
+layers = 4
+modulate = Color(0.84040874, 0, 0.10566748, 1)
+texture = ExtResource("10_6w6d5")
 
 [connection signal="landed" from="Controller/MovementController" to="." method="_on_movement_controller_landed"]
 [connection signal="toggle_grinding" from="Controller/GrindingController" to="." method="_on_toggle_grinding"]

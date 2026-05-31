@@ -1,5 +1,7 @@
 [gd_scene format=4 uid="uid://cgbmouts7vxiv"]
 
+[ext_resource type="Texture2D" uid="uid://btx6fa3plpfim" path="res://assets/bert/rollback2_bertclaw.png" id="1_liofq"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yudh7"]
 resource_name = "Material"
 vertex_color_use_as_albedo = true
@@ -51,3 +53,9 @@ mesh = SubResource("ArrayMesh_hnwj6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=2104250417]
 shape = SubResource("ConcavePolygonShape3D_xwpgw")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1340536171]
+transform = Transform3D(0.002, 0, 0, 0, 0.002, 0, 0, 0, 1.025, 0, 0, 0)
+layers = 4
+modulate = Color(0.3317111, 0.61052674, 0.58507323, 1)
+texture = ExtResource("1_liofq")
