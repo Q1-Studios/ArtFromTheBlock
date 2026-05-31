@@ -4,7 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://d4i0ohf5l8pfx" path="res://assets/menu/Start2.png" id="2_o70v3"]
 [ext_resource type="Texture2D" uid="uid://c4t2bg3jvmyda" path="res://assets/menu/Start3.png" id="3_th1j8"]
 [ext_resource type="Texture2D" uid="uid://if41656u351j" path="res://assets/menu/Start1.png" id="4_2l2sg"]
-[ext_resource type="PackedScene" path="res://scenes/button_sound_player.tscn" id="4_3q7l0"]
+[ext_resource type="PackedScene" uid="uid://csnbpivbucnh2" path="res://scenes/button_sound_player.tscn" id="4_3q7l0"]
+[ext_resource type="Script" uid="uid://t4cj4aroqrjv" path="res://scripts/button.gd" id="5_2l2sg"]
 [ext_resource type="Texture2D" uid="uid://t2n8umyeeyco" path="res://assets/menu/Sandbox.png" id="6_cw8cn"]
 [ext_resource type="Texture2D" uid="uid://42m68pg1onjs" path="res://assets/menu/Snandbox3.png" id="7_t7kks"]
 [ext_resource type="Texture2D" uid="uid://dea3smp1b2iio" path="res://assets/menu/Sandbox1.png" id="8_spu5p"]
@@ -177,9 +178,12 @@ offset_top = 347.0
 offset_right = 2363.0
 offset_bottom = 1987.0
 scale = Vector2(0.2, 0.2)
+focus_neighbor_bottom = NodePath("../SandboxButton")
 texture_normal = ExtResource("2_o70v3")
 texture_pressed = ExtResource("3_th1j8")
 texture_hover = ExtResource("4_2l2sg")
+script = ExtResource("5_2l2sg")
+init_grab_focus = true
 
 [node name="ButtonSoundPlayer" parent="Control/PlayButton" unique_id=907668814 instance=ExtResource("4_3q7l0")]
 
@@ -190,9 +194,12 @@ offset_top = 484.0
 offset_right = 2379.0
 offset_bottom = 2124.0
 scale = Vector2(0.2, 0.2)
+focus_neighbor_top = NodePath("../PlayButton")
+focus_neighbor_bottom = NodePath("../Quit")
 texture_normal = ExtResource("6_cw8cn")
 texture_pressed = ExtResource("7_t7kks")
 texture_hover = ExtResource("8_spu5p")
+script = ExtResource("5_2l2sg")
 
 [node name="ButtonSoundPlayer" parent="Control/SandboxButton" unique_id=789196122 instance=ExtResource("4_3q7l0")]
 
@@ -203,9 +210,12 @@ offset_top = 692.0
 offset_right = 2296.0
 offset_bottom = 2332.0
 scale = Vector2(0.2, 0.2)
+focus_neighbor_top = NodePath("../SandboxButton")
+focus_neighbor_bottom = NodePath("../username")
 texture_normal = ExtResource("9_hjnej")
 texture_pressed = ExtResource("10_f5myi")
 texture_hover = ExtResource("11_j8a1k")
+script = ExtResource("5_2l2sg")
 
 [node name="ButtonSoundPlayer" parent="Control/Quit" unique_id=2039420264 instance=ExtResource("4_3q7l0")]
 
@@ -216,6 +226,7 @@ offset_left = 411.0
 offset_top = 911.0
 offset_right = 811.0
 offset_bottom = 1002.0
+focus_neighbor_top = NodePath("../Quit")
 theme_override_font_sizes/font_size = 60
 placeholder_text = "Username"
 alignment = 1
