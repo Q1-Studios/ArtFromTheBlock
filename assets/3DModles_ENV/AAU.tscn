@@ -135,7 +135,7 @@ data = PackedVector3Array(-0.0056, 0.0016999999, -0.04, -0.0056, 0.0016999999, 0
 [node name="AAU" unique_id=527573990 instance=ExtResource("1_1")]
 
 [node name="Sprite3D" type="Sprite3D" parent="." index="0" unique_id=513683953]
-transform = Transform3D(10, 0, 0, 0, -6.556708e-07, 15, 0, -15, -6.556708e-07, -11, 5, -36)
+transform = Transform3D(10, 0, 0, 0, -6.556708e-07, 15, 0, -15, -6.556708e-07, -11, -13, -36)
 layers = 4
 modulate = Color(0.12671542, 0.12538496, 0.12736478, 1)
 texture = ExtResource("2_068vb")
