@@ -270,12 +270,10 @@ texture = ExtResource("10_6w6d5")
 [node name="GrindStartSFX" type="AudioStreamPlayer" parent="." unique_id=565467190]
 stream = SubResource("AudioStreamRandomizer_7xfmw")
 volume_db = -20.0
-bus = &"SFX"
 
 [node name="GrindLoopSFX" type="AudioStreamPlayer" parent="." unique_id=389018670]
 stream = ExtResource("24_ee5s1")
 volume_db = -15.0
-bus = &"SFX"
 
 [node name="SkatingLoopSFX" type="AudioStreamPlayer" parent="." unique_id=864112689]
 stream = ExtResource("25_ufesw")
@@ -299,6 +297,7 @@ autoplay = true
 bus = &"SFX"
 parameters/looping = true
 
+[connection signal="spray_can_changed_color" from="." to="SprayFuelSubviewPort/ProgressBar" method="_on_sealskater_spray_can_changed_color"]
 [connection signal="landed" from="Controller/MovementController" to="." method="_on_movement_controller_landed"]
 [connection signal="toggle_grinding" from="Controller/GrindingController" to="." method="_on_toggle_grinding"]
 [connection signal="toggle_grinding" from="Controller/GrindingController" to="Controller/MovementController" method="_on_toggle_grinding"]
