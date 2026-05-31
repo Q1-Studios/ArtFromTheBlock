@@ -219,13 +219,6 @@ theme_override_font_sizes/font_size = 60
 placeholder_text = "Username"
 alignment = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1246877616]
-visible = false
-z_index = 10
-position = Vector2(962.24994, 540.125)
-scale = Vector2(0.6506454, 0.6145419)
-texture = ExtResource("10_rbirm")
-
 [node name="Leaderboard" type="Control" parent="." unique_id=774526505]
 layout_mode = 3
 anchors_preset = 0
@@ -319,6 +312,15 @@ offset_top = 601.0
 offset_right = 1880.0
 offset_bottom = 1059.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_uuqsn")
+
+[node name="TutorialSprite" type="TextureRect" parent="." unique_id=2112669938]
+visible = false
+z_index = 1
+offset_right = 2944.0
+offset_bottom = 1757.0
+scale = Vector2(0.6506454, 0.6145419)
+mouse_filter = 0
+texture = ExtResource("10_rbirm")
 
 [node name="PlayerModel" parent="." unique_id=966477376 instance=ExtResource("11_m7j83")]
 unique_name_in_owner = true
