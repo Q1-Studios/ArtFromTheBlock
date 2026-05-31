@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dev6alusgym1v"
-path="res://.godot/imported/spray_loop_start.wav-b8e8f40027fcf67d5aff9fa703d235f5.sample"
+path="res://.godot/imported/spray_loop_start.wav-44d8da87d9e3487b7ad3a75997ed0f12.sample"
 
 [deps]
 
-source_file="res://assets/sounds/spray_long/spray_loop/spray_loop_start.wav"
-dest_files=["res://.godot/imported/spray_loop_start.wav-b8e8f40027fcf67d5aff9fa703d235f5.sample"]
+source_file="res://assets/sounds/spray_loop/spray_loop_start.wav"
+dest_files=["res://.godot/imported/spray_loop_start.wav-44d8da87d9e3487b7ad3a75997ed0f12.sample"]
 
 [params]
 

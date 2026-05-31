@@ -19,9 +19,10 @@ boot_splash/minimum_display_time=1000
 
 [autoload]
 
-ScoreManager="*uid://j8t84ltgxkwp"
-FloorPainter="*res://scripts/floor_painter.gd"
 GameManger="*uid://buiefn4ulvuf6"
+ScoreManager="*uid://j8t84ltgxkwp"
+Draw3D="*uid://dtifbqlxmp4i"
+FloorPainter="*res://scripts/floor_painter.gd"
 
 [display]
 
