@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://8emk0fh3xi4d" path="res://scripts/main_test.gd" id="1_bbg3d"]
 [ext_resource type="PackedScene" uid="uid://dro4faqsft6sa" path="res://assets/3DModles_ENV/house4.tscn" id="1_u3x7g"]
 [ext_resource type="PackedScene" uid="uid://dodkyb8bh41gx" path="res://assets/3DModles_ENV/AAU.tscn" id="2_oiyxv"]
+[ext_resource type="PackedScene" uid="uid://ul7ls8r6exsn" path="res://scenes/pointsHUD.tscn" id="3_143lm"]
 [ext_resource type="PackedScene" uid="uid://cd7dnrfk5yynk" path="res://assets/3DModles_ENV/house1.tscn" id="3_mdcd8"]
 [ext_resource type="PackedScene" uid="uid://b15jx3roy5s5y" path="res://assets/3DModles_ENV/house2.tscn" id="4_xd5kv"]
 [ext_resource type="PackedScene" uid="uid://dmyqa4uwusbvy" path="res://assets/3DModles_ENV/house3.tscn" id="5_ruh5v"]
@@ -32,6 +33,13 @@
 [ext_resource type="PackedScene" uid="uid://c5hl0wna16l0g" path="res://scenes/rail.tscn" id="28_etdju"]
 [ext_resource type="PackedScene" uid="uid://dy2ssres8kaye" path="res://scenes/mini_map.tscn" id="29_458yb"]
 [ext_resource type="Texture2D" uid="uid://butrv7t3x2ugw" path="res://assets/menu/tutorial.png" id="30_458yb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j3elx"]
+bg_color = Color(0, 0, 0.003921569, 0.31764707)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_bggjr"]
 
@@ -141,12 +149,47 @@ size = Vector2(1.92, 1.08)
 [node name="GameLevel" type="Node2D" unique_id=1256743737]
 script = ExtResource("1_bbg3d")
 
+[node name="GameTimer" type="Timer" parent="." unique_id=644943869]
+unique_name_in_owner = true
+wait_time = 300.0
+one_shot = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="GameTimer" unique_id=543707934]
+
+[node name="BackgroundHUD" type="Panel" parent="GameTimer/CanvasLayer" unique_id=1598918910]
+offset_left = 17.0
+offset_top = 330.0
+offset_right = 395.0
+offset_bottom = 425.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_j3elx")
+
+[node name="timerLabel" type="Label" parent="GameTimer/CanvasLayer" unique_id=1069440332]
+unique_name_in_owner = true
+offset_left = 275.0
+offset_top = 350.0
+offset_right = 341.0
+offset_bottom = 405.0
+theme_override_font_sizes/font_size = 40
+text = "∞"
+
+[node name="timer_static" type="Label" parent="GameTimer/CanvasLayer" unique_id=684239925]
+unique_name_in_owner = true
+offset_left = 34.0
+offset_top = 347.0
+offset_right = 225.0
+offset_bottom = 402.0
+theme_override_font_sizes/font_size = 40
+text = "Time left: "
+
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1391134174]
 stream = ExtResource("1_458yb")
 volume_db = -10.0
 autoplay = true
-bus = &"Music"
 parameters/looping = true
+
+[node name="HUD" parent="." unique_id=785558833 instance=ExtResource("3_143lm")]
+offset = Vector2(-17, 200)
+transform = Transform2D(1, 0, 0, 1, -17, 200)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=934446392 groups=["Paintable"]]
 transform = Transform3D(220, 0, 0, 0, 1, 0, 0, 0, 150, 0, 0, -40.573303)
@@ -1955,4 +1998,3 @@ curve = SubResource("Curve3D_r1v6r")
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=1167729493]
 transform = Transform3D(17.32, 0, 0, 0, 17.32, 0, 0, 0, 17.32, 5.2626095, 29.910278, 20.855902)
 mesh = SubResource("QuadMesh_66iu7")
-

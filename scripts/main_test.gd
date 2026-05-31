@@ -3,6 +3,7 @@ extends Node2D
 var playerPoints = 0
 @onready var pointsHUD = $HUD/PointsAmount
 @onready var game_timer = %GameTimer
+@onready var game_timer_label = %timerLabel
 
 var sandbox = false
 
@@ -10,10 +11,14 @@ var sandbox = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	sandbox = GameManger.is_sandbox
+	game_timer_label.text = "∞"
 	if not sandbox:
 		game_timer.start(GameManger.game_time)
 		
-	
+func _process(_delta: float) -> void:
+	if not sandbox:
+		game_timer_label.text = str(int(round(game_timer.time_left)))
+		
 
 func _input(event: InputEvent) -> void:
 	if  Input.is_key_pressed(KEY_ESCAPE):
