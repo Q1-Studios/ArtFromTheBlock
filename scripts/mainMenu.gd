@@ -15,9 +15,6 @@ func _input(event: InputEvent) -> void:
 		tutorialSprite.hide()
 
 func _update_leaderboard() -> void:
-	print("changes?!")
-	print(ScoreManager.scoreboard["scores"])
-	print(typeof(ScoreManager.scoreboard["scores"]))
 	var score_board = ScoreManager.scoreboard["scores"]
 	var leaderboard_text = ""
 	var displayed_score_count = min(5, score_board.size())
