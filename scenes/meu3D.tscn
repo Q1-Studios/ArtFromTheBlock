@@ -44,6 +44,7 @@
 [ext_resource type="PackedScene" uid="uid://dhhb3ewm8j0im" path="res://scenes/controllerCursor.tscn" id="41_huein"]
 [ext_resource type="Script" uid="uid://c0hlpsejd24kq" path="res://scripts/menu_controller_cursor.gd" id="42_3q7l0"]
 [ext_resource type="AudioStream" uid="uid://ehws38amj4s3" path="res://assets/sounds/city_ambience/city_ambience_menu.ogg" id="42_v7ffv"]
+[ext_resource type="AudioStream" uid="uid://bttubrovkop0y" path="res://assets/music/main_theme_menu_loop.ogg" id="43_o70v3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uuqsn"]
 bg_color = Color(0, 0, 0.003921569, 0.31764707)
@@ -2150,6 +2151,13 @@ stream = ExtResource("42_v7ffv")
 volume_db = -10.0
 autoplay = true
 bus = &"SFX"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1869081301]
+stream = ExtResource("43_o70v3")
+volume_db = -10.0
+autoplay = true
+bus = &"Music"
+parameters/looping = true
 
 [node name="Node2D" parent="." unique_id=1290096127 instance=ExtResource("41_huein")]
 script = ExtResource("42_3q7l0")
