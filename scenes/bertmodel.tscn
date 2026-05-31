@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bpj7o4myywyq7"]
 
-[ext_resource type="PackedScene" uid="uid://cgaffi0rppyqx" path="res://assets/bert/bert.glb" id="1_covau"]
+[ext_resource type="PackedScene" uid="uid://dwql681j0w72w" path="res://assets/bert/bert.tscn" id="1_covau"]
 [ext_resource type="Animation" uid="uid://muyw5b32ttqx" path="res://assets/bert/bertAnimations/BoardSteerLeft.res" id="2_qtmog"]
 [ext_resource type="Animation" uid="uid://b4u1jkgdrawi0" path="res://assets/bert/bertAnimations/BoardSteerRight.res" id="3_tybpf"]
 [ext_resource type="Animation" uid="uid://8jmiy0x4afv8" path="res://assets/bert/bertAnimations/BoardSteerStraight.res" id="4_s00k6"]
@@ -65,7 +65,6 @@ animation = &"bertLibrary/BoardSteerLeft"
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_1xn5g"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_ypo84"]
-graph_offset = Vector2(-627.7329, 176.71944)
 nodes/boardBlendMichael/node = SubResource("AnimationNodeBlend2_1xn5g")
 nodes/boardBlendMichael/position = Vector2(27.275482, 202.18683)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_hvwgq")
@@ -81,7 +80,7 @@ node_connections = [&"output", 0, &"Add2", &"boardBlendMichael", 0, &"Animation"
 [node name="Bertmodel" type="Node3D" unique_id=966477376]
 script = SubResource("GDScript_6pu0d")
 
-[node name="bert" parent="." unique_id=1376347749 instance=ExtResource("1_covau")]
+[node name="bert" parent="." unique_id=751518164 instance=ExtResource("1_covau")]
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="bert" unique_id=201788050]
 libraries/bertLibrary = SubResource("AnimationLibrary_8r73l")
