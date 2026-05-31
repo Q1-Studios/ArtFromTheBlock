@@ -54,6 +54,7 @@ func _on_minigame_orb_signal_game_level() -> void:
 	
 	
 
-# Todo add points to counter
 func _on_painting_minigame_pass_points_to_parent_signal(pointsRecieved: int) -> void:
-	pass # Replace with function body.
+	print("Points have arrived!!!!!!!!")
+	playerPoints += pointsRecieved
+	pointsHUD.text = str(int(playerPoints))

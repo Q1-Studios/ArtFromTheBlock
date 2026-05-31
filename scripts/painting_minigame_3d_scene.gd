@@ -26,7 +26,7 @@ func removeMinigameScene() -> void:
 func passPointsToParent(pointsReached: int) -> void:
 	print("recieved from 3d minigame in main: ", pointsReached)
 	passPointsToParentSignal.emit(pointsReached)
-	print("sending to parent in main: ", pointsReached)
+	print("sending to parent in main new: ", pointsReached)
 	
 
 

@@ -41,7 +41,6 @@
 [ext_resource type="Material" uid="uid://c8v47cdlwjhpl" path="res://assets/skateboard/skemtboard.tres" id="38_weeit"]
 [ext_resource type="PackedScene" uid="uid://c5hl0wna16l0g" path="res://scenes/rail.tscn" id="39_d7psy"]
 [ext_resource type="PackedScene" uid="uid://dy2ssres8kaye" path="res://scenes/mini_map.tscn" id="40_ed2jm"]
-[ext_resource type="AudioStream" uid="uid://ehws38amj4s3" path="res://assets/sounds/city_ambience/city_ambience_menu.ogg" id="41_huein"]
 [ext_resource type="PackedScene" uid="uid://dhhb3ewm8j0im" path="res://scenes/controllerCursor.tscn" id="41_huein"]
 [ext_resource type="Script" uid="uid://c0hlpsejd24kq" path="res://scripts/menu_controller_cursor.gd" id="42_3q7l0"]
 
@@ -2146,12 +2145,11 @@ light_color = Color(1, 0.6862745, 0.5686275, 1)
 light_energy = 0.429
 
 [node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=1045963743]
-stream = ExtResource("41_huein")
 volume_db = -10.0
 autoplay = true
 bus = &"SFX"
 
-[node name="Node2D" parent="." unique_id=1290096127 instance=ExtResource("41_huein")]
+[node name="Cursor" parent="." unique_id=1290096127 instance=ExtResource("41_huein")]
 script = ExtResource("42_3q7l0")
 
 [connection signal="pressed" from="Control/PlayButton" to="." method="_on_play_button_pressed"]
