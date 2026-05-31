@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://denrg47s3u5ga"]
 
+[ext_resource type="AudioStream" uid="uid://cescxuswuctkh" path="res://assets/music/main_theme_loop.ogg" id="1_458yb"]
 [ext_resource type="PackedScene" uid="uid://dro4faqsft6sa" path="res://assets/3DModles_ENV/house4.tscn" id="1_u3x7g"]
 [ext_resource type="PackedScene" uid="uid://dodkyb8bh41gx" path="res://assets/3DModles_ENV/AAU.tscn" id="2_oiyxv"]
 [ext_resource type="PackedScene" uid="uid://cd7dnrfk5yynk" path="res://assets/3DModles_ENV/house1.tscn" id="3_mdcd8"]
@@ -129,6 +130,13 @@ _data = {
 point_count = 4
 
 [node name="GameLevel" type="Node2D" unique_id=1256743737]
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1391134174]
+stream = ExtResource("1_458yb")
+volume_db = -10.0
+autoplay = true
+bus = &"Music"
+parameters/looping = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=934446392 groups=["Paintable"]]
 transform = Transform3D(220, 0, 0, 0, 1, 0, 0, 0, 150, 0, 0, -40.573303)
