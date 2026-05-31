@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwluoci6hn2jd"
-path="res://.godot/imported/appicon.jpg-b862aacded097411c0e1f356c4d0f502.ctex"
+uid="uid://brd3j447kofp2"
+path="res://.godot/imported/appicon.png-14f36e8e1f2f7fe3d0b39a6cae833514.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/appicon.jpg"
-dest_files=["res://.godot/imported/appicon.jpg-b862aacded097411c0e1f356c4d0f502.ctex"]
+source_file="res://assets/appicon.png"
+dest_files=["res://.godot/imported/appicon.png-14f36e8e1f2f7fe3d0b39a6cae833514.ctex"]
 
 [params]
 
