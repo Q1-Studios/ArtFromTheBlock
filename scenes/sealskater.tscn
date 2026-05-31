@@ -4,11 +4,17 @@
 [ext_resource type="Script" uid="uid://dgnaomu2hn4qf" path="res://scripts/movement_controller.gd" id="3_6give"]
 [ext_resource type="Script" uid="uid://ch2f2vldy5q0l" path="res://scripts/grinding_controller.gd" id="4_xwg03"]
 [ext_resource type="Script" uid="uid://bsp1lsaj5rlrg" path="res://scripts/vibration_controller.gd" id="5_ew7ux"]
+[ext_resource type="AudioStream" uid="uid://brqi6wnd7gmgu" path="res://assets/sounds/trick_jingle/trick_1.ogg" id="5_in2ot"]
 [ext_resource type="Script" uid="uid://caegxoxovyfi4" path="res://scripts/camera_controller.gd" id="6_ew7ux"]
+[ext_resource type="AudioStream" uid="uid://bx422rvw264b0" path="res://assets/sounds/trick_jingle/trick_2.ogg" id="6_g3ii4"]
 [ext_resource type="Script" uid="uid://cgkvem2x6eets" path="res://scripts/trick_mode_controller.gd" id="6_n4d43"]
 [ext_resource type="PackedScene" uid="uid://dwvfoe6b1lusu" path="res://scenes/FuelBarScene2.tscn" id="6_vuft4"]
+[ext_resource type="AudioStream" uid="uid://yc6dcbdvcfg6" path="res://assets/sounds/trick_jingle/trick_4.ogg" id="7_1ooe7"]
 [ext_resource type="PackedScene" uid="uid://bpj7o4myywyq7" path="res://scenes/bertmodel.tscn" id="7_n4d43"]
 [ext_resource type="PackedScene" uid="uid://beikiclpngb51" path="res://scenes/trick_sequence_display.tscn" id="8_ew7ux"]
+[ext_resource type="AudioStream" uid="uid://c3hkgaddkenrg" path="res://assets/sounds/trick_jingle/trick_4_final.ogg" id="8_h78gc"]
+[ext_resource type="AudioStream" uid="uid://d3igwi63eaibj" path="res://assets/sounds/trick_jingle/trick_mistake.ogg" id="9_fjdj0"]
+[ext_resource type="AudioStream" uid="uid://cgf54i5fb1i8d" path="res://assets/sounds/trick_jingle/trick_failed.ogg" id="10_1ooe7"]
 [ext_resource type="Texture2D" uid="uid://cydyk5wtccnix" path="res://assets/sprites/pollen_sprite.png" id="10_6w6d5"]
 [ext_resource type="AudioStream" uid="uid://psuil7yca5ah" path="res://assets/sounds/railing_land/railing_land_1.wav" id="11_b3ste"]
 [ext_resource type="AudioStream" uid="uid://dfd7kcwgmdn5b" path="res://assets/sounds/railing_land/railing_land_2.wav" id="12_ee5s1"]
@@ -24,6 +30,34 @@
 [ext_resource type="AudioStream" uid="uid://dxhokbfr0sn7j" path="res://assets/sounds/railing_land/railing_land_9.wav" id="22_2f11n"]
 [ext_resource type="AudioStream" uid="uid://dl7lp43oadkq3" path="res://assets/sounds/railing_land/railing_land_10.wav" id="23_vn52w"]
 [ext_resource type="AudioStream" uid="uid://m5bf6nh7eg48" path="res://assets/sounds/grind_active/grind_active_loop_2.ogg" id="24_ee5s1"]
+[ext_resource type="AudioStream" uid="uid://bosh252rcliv8" path="res://assets/sounds/skate_active/skate_active_loop_1.ogg" id="25_ufesw"]
+[ext_resource type="AudioStream" uid="uid://gbqofbox8ga0" path="res://assets/sounds/skate_land_hard/skate_land_hard_1.wav" id="26_4dup7"]
+[ext_resource type="AudioStream" uid="uid://c5kywx7h2gk57" path="res://assets/sounds/skate_land_hard/skate_land_hard_2.wav" id="27_27ydv"]
+[ext_resource type="AudioStream" uid="uid://be0csdae0r55g" path="res://assets/sounds/skate_land_hard/skate_land_hard_11.wav" id="28_xxg3j"]
+[ext_resource type="AudioStream" uid="uid://bdxvu2xwrge4k" path="res://assets/sounds/skate_land_hard/skate_land_hard_12.wav" id="29_5nmqu"]
+[ext_resource type="AudioStream" uid="uid://cuq08fkmdw567" path="res://assets/sounds/skate_land_hard/skate_land_hard_13.wav" id="30_pa40b"]
+[ext_resource type="AudioStream" uid="uid://bq4jhtju2y7da" path="res://assets/sounds/skate_land_hard/skate_land_hard_14.wav" id="31_swhxy"]
+[ext_resource type="AudioStream" uid="uid://bkr8pquji4rjy" path="res://assets/sounds/skate_land_hard/skate_land_hard_15.wav" id="32_2pxbl"]
+[ext_resource type="AudioStream" uid="uid://dbxt3ty2f5yx8" path="res://assets/sounds/skate_land_hard/skate_land_hard_16.wav" id="33_eh4c8"]
+[ext_resource type="AudioStream" uid="uid://d1ev2wsn3tq7y" path="res://assets/sounds/skate_land_hard/skate_land_hard_17.wav" id="34_pxy6x"]
+[ext_resource type="AudioStream" uid="uid://dwj5b1gpbt8w6" path="res://assets/sounds/skate_land_hard/skate_land_hard_18.wav" id="35_in2ot"]
+[ext_resource type="AudioStream" uid="uid://8sxppjh0rlgg" path="res://assets/sounds/skate_land_hard/skate_land_hard_3.wav" id="36_7mcdm"]
+[ext_resource type="AudioStream" uid="uid://exjg7d66kltl" path="res://assets/sounds/skate_land_hard/skate_land_hard_4.wav" id="37_qejgm"]
+[ext_resource type="AudioStream" uid="uid://c8r1glevstmkl" path="res://assets/sounds/skate_land_hard/skate_land_hard_5.wav" id="38_vhs13"]
+[ext_resource type="AudioStream" uid="uid://cad6380uhfvkk" path="res://assets/sounds/skate_land_hard/skate_land_hard_6.wav" id="39_g3ii4"]
+[ext_resource type="AudioStream" uid="uid://nhwbm3jsvva0" path="res://assets/sounds/skate_land_hard/skate_land_hard_7.wav" id="40_1ooe7"]
+[ext_resource type="AudioStream" uid="uid://brpfvxs7mrdcy" path="res://assets/sounds/skate_land_hard/skate_land_hard_8.wav" id="41_h78gc"]
+[ext_resource type="AudioStream" uid="uid://drqas258ujnv4" path="res://assets/sounds/skate_land_hard/skate_land_hard_9.wav" id="42_fjdj0"]
+[ext_resource type="AudioStream" uid="uid://h8ae1f3ptt0i" path="res://assets/sounds/skate_land_hard/skate_land_hard_10.wav" id="43_xas7y"]
+[ext_resource type="AudioStream" uid="uid://cp7ju15nvwqar" path="res://assets/sounds/skate_land_soft/skate_land_soft_1.wav" id="44_eh4c8"]
+[ext_resource type="AudioStream" uid="uid://cbgad00ci7tin" path="res://assets/sounds/skate_land_soft/skate_land_soft_2.wav" id="45_pxy6x"]
+[ext_resource type="AudioStream" uid="uid://b0e0ca0am7w2s" path="res://assets/sounds/skate_land_soft/skate_land_soft_3.wav" id="46_in2ot"]
+[ext_resource type="AudioStream" uid="uid://bihi52wrkf2o6" path="res://assets/sounds/skate_land_soft/skate_land_soft_4.wav" id="47_7mcdm"]
+[ext_resource type="AudioStream" uid="uid://c5u7ypyoi1hhx" path="res://assets/sounds/skate_land_soft/skate_land_soft_5.wav" id="48_qejgm"]
+[ext_resource type="AudioStream" uid="uid://bhiiwee5wh310" path="res://assets/sounds/skate_land_soft/skate_land_soft_6.wav" id="49_vhs13"]
+[ext_resource type="AudioStream" uid="uid://dfyakh0v0jgwg" path="res://assets/sounds/skate_land_soft/skate_land_soft_7.wav" id="50_g3ii4"]
+[ext_resource type="AudioStream" uid="uid://bn0a7bckn3ihs" path="res://assets/sounds/skate_land_soft/skate_land_soft_8.wav" id="51_1ooe7"]
+[ext_resource type="AudioStream" uid="uid://c2u1016nijflq" path="res://assets/sounds/wind_loop/wind_loop.ogg" id="52_pxy6x"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_n4d43"]
 radius = 1.1640625
@@ -91,6 +125,38 @@ stream_10/stream = ExtResource("13_mm3nn")
 stream_11/stream = ExtResource("14_1mdmx")
 stream_12/stream = ExtResource("15_x1tm1")
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_s2v0j"]
+streams_count = 18
+stream_0/stream = ExtResource("26_4dup7")
+stream_1/stream = ExtResource("27_27ydv")
+stream_2/stream = ExtResource("36_7mcdm")
+stream_3/stream = ExtResource("37_qejgm")
+stream_4/stream = ExtResource("38_vhs13")
+stream_5/stream = ExtResource("39_g3ii4")
+stream_6/stream = ExtResource("40_1ooe7")
+stream_7/stream = ExtResource("41_h78gc")
+stream_8/stream = ExtResource("42_fjdj0")
+stream_9/stream = ExtResource("43_xas7y")
+stream_10/stream = ExtResource("28_xxg3j")
+stream_11/stream = ExtResource("29_5nmqu")
+stream_12/stream = ExtResource("30_pa40b")
+stream_13/stream = ExtResource("31_swhxy")
+stream_14/stream = ExtResource("32_2pxbl")
+stream_15/stream = ExtResource("33_eh4c8")
+stream_16/stream = ExtResource("34_pxy6x")
+stream_17/stream = ExtResource("35_in2ot")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_h78gc"]
+streams_count = 8
+stream_0/stream = ExtResource("44_eh4c8")
+stream_1/stream = ExtResource("45_pxy6x")
+stream_2/stream = ExtResource("46_in2ot")
+stream_3/stream = ExtResource("47_7mcdm")
+stream_4/stream = ExtResource("48_qejgm")
+stream_5/stream = ExtResource("49_vhs13")
+stream_6/stream = ExtResource("50_g3ii4")
+stream_7/stream = ExtResource("51_1ooe7")
+
 [node name="Sealskater" type="CharacterBody3D" unique_id=833053730]
 script = ExtResource("1_vef6s")
 
@@ -124,9 +190,13 @@ environment = SubResource("Environment_6w6d5")
 
 [node name="Controller" type="Node" parent="." unique_id=1823345731]
 
-[node name="MovementController" type="Node" parent="Controller" unique_id=1305322326]
+[node name="MovementController" type="Node" parent="Controller" unique_id=1305322326 node_paths=PackedStringArray("skate_loop_sfx", "skate_land_sfx", "jump_sfx", "wind_sfx")]
 unique_name_in_owner = true
 script = ExtResource("3_6give")
+skate_loop_sfx = NodePath("../../SkatingLoopSFX")
+skate_land_sfx = NodePath("../../SkatingLandSFX")
+jump_sfx = NodePath("../../JumpSFX")
+wind_sfx = NodePath("../../WindSFX")
 
 [node name="GrindingController" type="Node" parent="Controller" unique_id=1515660716 node_paths=PackedStringArray("grind_ray", "player", "player_model", "grind_start_sfx", "grind_loop_sfx")]
 unique_name_in_owner = true
@@ -137,9 +207,44 @@ player_model = NodePath("../../PlayerModel")
 grind_start_sfx = NodePath("../../GrindStartSFX")
 grind_loop_sfx = NodePath("../../GrindLoopSFX")
 
-[node name="TrickModeController" type="Node" parent="Controller" unique_id=643593822]
+[node name="TrickModeController" type="Node" parent="Controller" unique_id=643593822 node_paths=PackedStringArray("trick1_sfx", "trick2_sfx", "trick3_sfx", "trick_done_sfx", "mistake_sfx", "failed_sfx")]
 unique_name_in_owner = true
 script = ExtResource("6_n4d43")
+trick1_sfx = NodePath("Trick1SFX")
+trick2_sfx = NodePath("Trick2SFX")
+trick3_sfx = NodePath("Trick3SFX")
+trick_done_sfx = NodePath("TrickDoneSFX")
+mistake_sfx = NodePath("MistakeSFX")
+failed_sfx = NodePath("FailedSFX")
+
+[node name="Trick1SFX" type="AudioStreamPlayer" parent="Controller/TrickModeController" unique_id=660175062]
+stream = ExtResource("5_in2ot")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="Trick2SFX" type="AudioStreamPlayer" parent="Controller/TrickModeController" unique_id=21419054]
+stream = ExtResource("6_g3ii4")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="Trick3SFX" type="AudioStreamPlayer" parent="Controller/TrickModeController" unique_id=1605303799]
+stream = ExtResource("7_1ooe7")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="TrickDoneSFX" type="AudioStreamPlayer" parent="Controller/TrickModeController" unique_id=1023492853]
+stream = ExtResource("8_h78gc")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="MistakeSFX" type="AudioStreamPlayer" parent="Controller/TrickModeController" unique_id=108208105]
+stream = ExtResource("9_fjdj0")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="FailedSFX" type="AudioStreamPlayer" parent="Controller/TrickModeController" unique_id=1522335497]
+stream = ExtResource("10_1ooe7")
+volume_db = -5.0
 
 [node name="WrongInputTimer" type="Timer" parent="Controller" unique_id=1057629774]
 unique_name_in_owner = true
@@ -206,18 +311,36 @@ texture = ExtResource("10_6w6d5")
 [node name="GrindStartSFX" type="AudioStreamPlayer" parent="." unique_id=565467190]
 stream = SubResource("AudioStreamRandomizer_7xfmw")
 volume_db = -20.0
-bus = &"SFX"
 
 [node name="GrindLoopSFX" type="AudioStreamPlayer" parent="." unique_id=389018670]
 stream = ExtResource("24_ee5s1")
 volume_db = -15.0
-bus = &"SFX"
 
+[node name="SkatingLoopSFX" type="AudioStreamPlayer" parent="." unique_id=864112689]
+stream = ExtResource("25_ufesw")
+volume_db = -15.0
+
+[node name="SkatingLandSFX" type="AudioStreamPlayer" parent="." unique_id=756771138]
+stream = SubResource("AudioStreamRandomizer_s2v0j")
+volume_db = -15.0
+
+[node name="JumpSFX" type="AudioStreamPlayer" parent="." unique_id=1341494006]
+stream = SubResource("AudioStreamRandomizer_h78gc")
+volume_db = -15.0
+
+[node name="WindSFX" type="AudioStreamPlayer" parent="." unique_id=1798711760]
+stream = ExtResource("52_pxy6x")
+volume_db = -5.0
+autoplay = true
+parameters/looping = true
+
+[connection signal="spray_can_changed_color" from="." to="SprayFuelSubviewPort/ProgressBar" method="_on_sealskater_spray_can_changed_color"]
 [connection signal="landed" from="Controller/MovementController" to="." method="_on_movement_controller_landed"]
 [connection signal="toggle_grinding" from="Controller/GrindingController" to="." method="_on_toggle_grinding"]
 [connection signal="toggle_grinding" from="Controller/GrindingController" to="Controller/MovementController" method="_on_toggle_grinding"]
 [connection signal="toggle_grinding" from="Controller/GrindingController" to="Controller/VibrationController" method="_on_toggle_grinding"]
 [connection signal="leave_trick_mode" from="Controller/TrickModeController" to="." method="_on_trick_mode_controller_leave_trick_mode"]
+[connection signal="trick_sequence_failure" from="Controller/TrickModeController" to="Controller/VibrationController" method="_on_trick_mode_controller_trick_sequence_failure"]
 [connection signal="trick_sequence_success" from="Controller/TrickModeController" to="." method="_on_trick_sequence_success"]
 [connection signal="trick_sequence_success" from="Controller/TrickModeController" to="Controller/VibrationController" method="_on_trick_mode_controller_trick_sequence_success"]
 [connection signal="trick_sequence_success_time_info" from="Controller/TrickModeController" to="Controller/CameraController" method="_on_trick_mode_controller_trick_sequence_success_time_info"]

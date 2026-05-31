@@ -3,6 +3,15 @@ extends Node
 
 @export var time_for_tricks := 2.0
 
+@export_group("Audio Internals")
+@export var trick1_sfx: AudioStreamPlayer
+@export var trick2_sfx: AudioStreamPlayer
+@export var trick3_sfx: AudioStreamPlayer
+@export var trick_done_sfx: AudioStreamPlayer
+@export var mistake_sfx: AudioStreamPlayer
+@export var failed_sfx: AudioStreamPlayer
+
+
 @onready var movementController := %MovementController
 var character_body: CharacterBody3D
 var slow_mo: float
@@ -80,6 +89,7 @@ func _handle_success() -> void:
 func _handle_failure() -> void:
 	sequence_input_index = 0
 	failed = false
+	failed_sfx.play()
 	print("Failed sequence")
 
 func _evaluate_input() -> void:
@@ -94,6 +104,7 @@ func _evaluate_input() -> void:
 	if left:
 		if sequence[sequence_input_index] == "LEFT":
 			trickSprites[sequence_input_index].self_modulate = Color (0, 1, 0)
+			play_success_sound(sequence_input_index)
 			sequence_input_index += 1
 		else:
 			_trigger_mistake("LEFT")
@@ -101,6 +112,7 @@ func _evaluate_input() -> void:
 	if right:
 		if sequence[sequence_input_index] == "RIGHT":
 			trickSprites[sequence_input_index].self_modulate = Color (0, 1, 0)
+			play_success_sound(sequence_input_index)
 			sequence_input_index += 1
 		else:
 			_trigger_mistake("RIGHT")
@@ -108,6 +120,7 @@ func _evaluate_input() -> void:
 	if up:
 		if sequence[sequence_input_index] == "UP":
 			trickSprites[sequence_input_index].self_modulate = Color (0, 1, 0)
+			play_success_sound(sequence_input_index)
 			sequence_input_index += 1
 		else:
 			_trigger_mistake("UP")
@@ -115,6 +128,7 @@ func _evaluate_input() -> void:
 	if down:
 		if sequence[sequence_input_index] == "DOWN":
 			trickSprites[sequence_input_index].self_modulate = Color (0, 1, 0)
+			play_success_sound(sequence_input_index)
 			sequence_input_index += 1
 		else:
 			_trigger_mistake("DOWN")
@@ -124,8 +138,16 @@ func _trigger_mistake(pressed_key: String) -> void:
 	print("Pressed ", pressed_key, " should have been ", sequence[sequence_input_index])
 	startMistakeTimer()
 	mistakeModulate()
+	mistake_sfx.play()
 	failed = true
 	
+
+func play_success_sound(input_index: int) -> void:
+	match input_index:
+		1: trick1_sfx.play()
+		2: trick2_sfx.play()
+		3: trick3_sfx.play()
+		4: trick_done_sfx.play()
 
 func create_goal_sequence() -> void:
 	if is_active or generated:

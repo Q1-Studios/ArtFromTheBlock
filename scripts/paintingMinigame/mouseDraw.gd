@@ -24,6 +24,9 @@ var canDraw: bool = true
 @onready var timer: Timer = $Timer
 var default_font : Font = ThemeDB.fallback_font
 
+@export_group("Audio Internals")
+@export var spray_loop_sfx: AudioStreamPlayer
+
 signal passPoints(points: float)
 signal drawingPhaseOver(points:int)
 
@@ -89,7 +92,7 @@ func _ready() -> void:
 	calctotalDistancePoints()	
 	timer.start()
 	setCursorPosition()
-	pass # Replace with function body.
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -101,7 +104,11 @@ func _input(event: InputEvent) -> void:
 	#if not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) || totalDistanceCursor > totalDistancePoints*2 || allPointsReached:
 		#return
 	if not Input.is_action_pressed("LMB") || totalDistanceCursor > totalDistancePoints*2 || allPointsReached || !canDraw:
+		spray_loop_sfx.stop()
 		return
+		
+	if not spray_loop_sfx.playing:
+		spray_loop_sfx.play()
 	
 	trackCursorDistance()
 	if (typeof(event) != typeof(InputEventJoypadButton)):

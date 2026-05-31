@@ -14,6 +14,7 @@
 [ext_resource type="Animation" uid="uid://bd3wqagtsujak" path="res://assets/bert/bertAnimations/Trick1.res" id="12_m6v64"]
 [ext_resource type="Animation" uid="uid://85ftlf55fipd" path="res://assets/bert/bertAnimations/Trick2.res" id="13_uuim4"]
 [ext_resource type="Animation" uid="uid://ln0om2vqjejj" path="res://assets/bert/bertAnimations/TrickPose1.res" id="14_qieh0"]
+[ext_resource type="Animation" uid="uid://clev2mku86mcx" path="res://assets/bert/bertAnimations/Trick3.res" id="14_qtmog"]
 [ext_resource type="Animation" uid="uid://0xeei75t42xu" path="res://assets/bert/bertAnimations/TrickPose2.res" id="15_bgmnx"]
 [ext_resource type="Animation" uid="uid://bggs647ju1ig1" path="res://assets/bert/bertAnimations/TrickPose3.res" id="16_iicyg"]
 
@@ -86,6 +87,9 @@ func do_trick_1() -> void:
 	
 func do_trick_2() -> void:
 	_playback().start(\"trick2\")
+
+func do_trick_3() -> void:
+	_playback().start(\"trick3\")
 "
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8r73l"]
@@ -102,6 +106,7 @@ _data = {
 &"TPose": ExtResource("11_vnfsl"),
 &"Trick1": ExtResource("12_m6v64"),
 &"Trick2": ExtResource("13_uuim4"),
+&"Trick3": ExtResource("14_qtmog"),
 &"TrickPose1": ExtResource("14_qieh0"),
 &"TrickPose2": ExtResource("15_bgmnx"),
 &"TrickPose3": ExtResource("16_iicyg")
@@ -178,11 +183,25 @@ animation = &"bertLibrary/Trick2"
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_m6v64"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_uuim4"]
+graph_offset = Vector2(-110.702515, -42.65291)
 nodes/output/position = Vector2(700, 170)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_vnfsl")
 nodes/Animation/position = Vector2(120, 130)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_m6v64")
 nodes/TimeScale/position = Vector2(440, 120)
+node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"Animation"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_m6v64"]
+animation = &"bertLibrary/Trick3"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_uuim4"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_qieh0"]
+nodes/output/position = Vector2(780, 200)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_m6v64")
+nodes/Animation/position = Vector2(220, 160)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_uuim4")
+nodes/TimeScale/position = Vector2(498.18198, 160.90913)
 node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"Animation"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vnfsl"]
@@ -240,6 +259,14 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2vb87"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hvwgq"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1o7ov"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1xn5g"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_tybpf"]
 states/IdleStanding/node = SubResource("AnimationNodeAnimation_2vb87")
 states/IdleStanding/position = Vector2(282.5, 109.36133)
@@ -247,19 +274,21 @@ states/Start/position = Vector2(70, 99.5)
 states/grindRail/node = SubResource("AnimationNodeAnimation_t45of")
 states/grindRail/position = Vector2(547, 225.5)
 states/inAir/node = SubResource("AnimationNodeAnimation_1o7ov")
-states/inAir/position = Vector2(847.916, 438.75)
+states/inAir/position = Vector2(945.916, 462.75)
 states/jumpEnd/node = SubResource("AnimationNodeAnimation_a4cmt")
 states/jumpEnd/position = Vector2(751.5, 275)
 states/jumpStart/node = SubResource("AnimationNodeAnimation_si1ny")
-states/jumpStart/position = Vector2(359.375, 287)
+states/jumpStart/position = Vector2(321.375, 316)
 states/locomotion/node = SubResource("AnimationNodeBlendTree_si1ny")
 states/locomotion/position = Vector2(526.65625, 109.319824)
 states/trick1/node = SubResource("AnimationNodeBlendTree_3km1t")
-states/trick1/position = Vector2(534.5, 430.33237)
+states/trick1/position = Vector2(658, 462.75)
 states/trick2/node = SubResource("AnimationNodeBlendTree_uuim4")
-states/trick2/position = Vector2(480.5, 561.3324)
-transitions = ["locomotion", "jumpStart", SubResource("AnimationNodeStateMachineTransition_vnfsl"), "grindRail", "jumpStart", SubResource("AnimationNodeStateMachineTransition_iicyg"), "Start", "IdleStanding", SubResource("AnimationNodeStateMachineTransition_8r73l"), "IdleStanding", "locomotion", SubResource("AnimationNodeStateMachineTransition_ye60r"), "locomotion", "IdleStanding", SubResource("AnimationNodeStateMachineTransition_covau"), "jumpStart", "grindRail", SubResource("AnimationNodeStateMachineTransition_qtmog"), "jumpEnd", "locomotion", SubResource("AnimationNodeStateMachineTransition_uuim4"), "jumpEnd", "grindRail", SubResource("AnimationNodeStateMachineTransition_bgmnx"), "jumpStart", "inAir", SubResource("AnimationNodeStateMachineTransition_m6v64"), "inAir", "jumpEnd", SubResource("AnimationNodeStateMachineTransition_qieh0"), "inAir", "grindRail", SubResource("AnimationNodeStateMachineTransition_tybpf"), "inAir", "trick1", SubResource("AnimationNodeStateMachineTransition_s00k6"), "trick1", "inAir", SubResource("AnimationNodeStateMachineTransition_3km1t"), "inAir", "trick2", SubResource("AnimationNodeStateMachineTransition_t45of"), "trick2", "inAir", SubResource("AnimationNodeStateMachineTransition_a4cmt"), "jumpStart", "trick2", SubResource("AnimationNodeStateMachineTransition_si1ny"), "jumpStart", "trick1", SubResource("AnimationNodeStateMachineTransition_2vb87")]
-graph_offset = Vector2(-6, 327.16275)
+states/trick2/position = Vector2(668, 547.3324)
+states/trick3/node = SubResource("AnimationNodeBlendTree_qieh0")
+states/trick3/position = Vector2(668, 713.1627)
+transitions = ["locomotion", "jumpStart", SubResource("AnimationNodeStateMachineTransition_vnfsl"), "grindRail", "jumpStart", SubResource("AnimationNodeStateMachineTransition_iicyg"), "Start", "IdleStanding", SubResource("AnimationNodeStateMachineTransition_8r73l"), "IdleStanding", "locomotion", SubResource("AnimationNodeStateMachineTransition_ye60r"), "locomotion", "IdleStanding", SubResource("AnimationNodeStateMachineTransition_covau"), "jumpStart", "grindRail", SubResource("AnimationNodeStateMachineTransition_qtmog"), "jumpEnd", "locomotion", SubResource("AnimationNodeStateMachineTransition_uuim4"), "jumpEnd", "grindRail", SubResource("AnimationNodeStateMachineTransition_bgmnx"), "jumpStart", "inAir", SubResource("AnimationNodeStateMachineTransition_m6v64"), "inAir", "jumpEnd", SubResource("AnimationNodeStateMachineTransition_qieh0"), "inAir", "grindRail", SubResource("AnimationNodeStateMachineTransition_tybpf"), "inAir", "trick1", SubResource("AnimationNodeStateMachineTransition_s00k6"), "trick1", "inAir", SubResource("AnimationNodeStateMachineTransition_3km1t"), "inAir", "trick2", SubResource("AnimationNodeStateMachineTransition_t45of"), "trick2", "inAir", SubResource("AnimationNodeStateMachineTransition_a4cmt"), "jumpStart", "trick2", SubResource("AnimationNodeStateMachineTransition_si1ny"), "jumpStart", "trick1", SubResource("AnimationNodeStateMachineTransition_2vb87"), "jumpStart", "trick3", SubResource("AnimationNodeStateMachineTransition_hvwgq"), "trick3", "inAir", SubResource("AnimationNodeStateMachineTransition_1o7ov"), "inAir", "trick3", SubResource("AnimationNodeStateMachineTransition_1xn5g")]
+graph_offset = Vector2(-91, 238.16275)
 
 [node name="Bertmodel" type="Node3D" unique_id=966477376]
 script = SubResource("GDScript_6pu0d")
@@ -282,3 +311,4 @@ parameters/locomotion/Add2/add_amount = 1.0
 parameters/locomotion/Sub2/sub_amount = 1.0
 parameters/trick1/TimeScale/scale = 4.0
 parameters/trick2/TimeScale/scale = 4.0
+parameters/trick3/TimeScale/scale = 4.0

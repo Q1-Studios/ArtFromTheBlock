@@ -1,11 +1,42 @@
-[gd_scene format=3 uid="uid://bahem50vx1k2y"]
+[gd_scene format=3 uid="uid://kr63tnrx6nbw"]
 
 [ext_resource type="Texture2D" uid="uid://7cshfl85f1va" path="res://assets/paintingMinigame/backdrop.jpg" id="1_dta0m"]
 [ext_resource type="Script" uid="uid://7i0fdm1vah4f" path="res://scripts/paintingMinigame/mouseDraw.gd" id="1_sv35t"]
 [ext_resource type="PackedScene" uid="uid://dhhb3ewm8j0im" path="res://scenes/controllerCursor.tscn" id="3_r8pki"]
+[ext_resource type="AudioStream" uid="uid://chsvi0l2ry5k7" path="res://assets/sounds/can_shake/can_shake_1.wav" id="4_lwhlo"]
+[ext_resource type="AudioStream" uid="uid://cb1swx7uvrxuc" path="res://assets/sounds/can_shake/can_shake_2.wav" id="5_3u52v"]
+[ext_resource type="AudioStream" uid="uid://kwf0ia2tecgy" path="res://assets/sounds/can_shake/can_shake_11.wav" id="6_0jdwt"]
+[ext_resource type="AudioStream" uid="uid://nyspb103taon" path="res://assets/sounds/can_shake/can_shake_12.wav" id="7_16rac"]
+[ext_resource type="AudioStream" uid="uid://lui84m42ver8" path="res://assets/sounds/can_shake/can_shake_13.wav" id="8_5xwif"]
+[ext_resource type="AudioStream" uid="uid://cphdffckfnrcb" path="res://assets/sounds/can_shake/can_shake_3.wav" id="9_wck4i"]
+[ext_resource type="AudioStream" uid="uid://be3ee0qrtfs68" path="res://assets/sounds/can_shake/can_shake_4.wav" id="10_ly4ey"]
+[ext_resource type="AudioStream" uid="uid://bxm1jmubkqif5" path="res://assets/sounds/can_shake/can_shake_5.wav" id="11_b0ok8"]
+[ext_resource type="AudioStream" uid="uid://dhb283jasyyr0" path="res://assets/sounds/can_shake/can_shake_6.wav" id="12_ihfk1"]
+[ext_resource type="AudioStream" uid="uid://ceqwixbsup8ep" path="res://assets/sounds/can_shake/can_shake_7.wav" id="13_hpnys"]
+[ext_resource type="AudioStream" uid="uid://cr5mn7hantglp" path="res://assets/sounds/can_shake/can_shake_8.wav" id="14_pfpog"]
+[ext_resource type="AudioStream" uid="uid://dlsm5846ecrtv" path="res://assets/sounds/can_shake/can_shake_9.wav" id="15_63vj4"]
+[ext_resource type="AudioStream" uid="uid://c52bfhg2jcff" path="res://assets/sounds/can_shake/can_shake_10.wav" id="16_jqnp2"]
+[ext_resource type="AudioStream" uid="uid://bukxcrobabfa1" path="res://assets/sounds/spray_loop/spray_loop.ogg" id="18_d2rc7"]
 
-[node name="Node2D" type="Node2D" unique_id=973804300]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_54l4r"]
+streams_count = 13
+stream_0/stream = ExtResource("4_lwhlo")
+stream_1/stream = ExtResource("5_3u52v")
+stream_2/stream = ExtResource("9_wck4i")
+stream_3/stream = ExtResource("10_ly4ey")
+stream_4/stream = ExtResource("11_b0ok8")
+stream_5/stream = ExtResource("12_ihfk1")
+stream_6/stream = ExtResource("13_hpnys")
+stream_7/stream = ExtResource("14_pfpog")
+stream_8/stream = ExtResource("15_63vj4")
+stream_9/stream = ExtResource("16_jqnp2")
+stream_10/stream = ExtResource("6_0jdwt")
+stream_11/stream = ExtResource("7_16rac")
+stream_12/stream = ExtResource("8_5xwif")
+
+[node name="Node2D" type="Node2D" unique_id=973804300 node_paths=PackedStringArray("spray_loop_sfx")]
 script = ExtResource("1_sv35t")
+spray_loop_sfx = NodePath("SprayLoopSFX")
 
 [node name="FollowLine" type="Sprite2D" parent="." unique_id=1566206986]
 self_modulate = Color(1, 1, 1, 0.23137255)
@@ -24,5 +55,16 @@ texture = ExtResource("1_dta0m")
 [node name="Timer" type="Timer" parent="." unique_id=197796071]
 wait_time = 10.0
 one_shot = true
+
+[node name="CanShakeSFX" type="AudioStreamPlayer" parent="." unique_id=1739860119]
+stream = SubResource("AudioStreamRandomizer_54l4r")
+volume_db = -15.0
+autoplay = true
+bus = &"SFX"
+
+[node name="SprayLoopSFX" type="AudioStreamPlayer" parent="." unique_id=1638856546]
+stream = ExtResource("18_d2rc7")
+volume_db = -15.0
+bus = &"SFX"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
