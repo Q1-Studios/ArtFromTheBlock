@@ -1,5 +1,6 @@
 class_name Bert
 extends CharacterBody3D
+
 @onready var movementController := %MovementController
 @onready var grindingController := %GrindingController
 @onready var trick_mode_controller := %TrickModeController
@@ -24,9 +25,13 @@ signal spray_can_amount_consumed_for_points(points: float)
 
 var slow_mo = false
 var slow_mo_factor: float = 4.0
+var can_trick = true
 var is_grinding: bool = false
+var base_wrong_input_time: float 
 
 func _ready() -> void:
+	base_wrong_input_time = wrong_input_timer.wait_time 
+	
 	spray_can_amount_updated.emit(spray_can_amount)
 	healthBar.value = 0
 	healthBar.max_value = max_spray_can_amount
@@ -46,8 +51,9 @@ func _process(delta: float) -> void:
 		_update_fuel_ui()
 		spray_can_amount_consumed_for_points.emit(spray_drain_per_second * delta)
 		
-	if Input.is_action_just_pressed("enter_trick_mode"):
+	if Input.is_action_just_pressed("enter_trick_mode") and can_trick:
 		enter_trick_mode()
+		can_trick = false
 
 func _can_spray_paint() -> bool:
 	return Input.is_action_pressed("spray") and !is_grinding and is_on_floor() and spray_can_amount > 0.0
@@ -70,18 +76,28 @@ func _update_fuel_ui() -> void:
 	healthBar.value = spray_can_amount
 
 func _enter_slow_mode():
+	if slow_mo: 
+		return 
+	slow_mo = true
+	
 	Engine.time_scale = 1.0 / slow_mo_factor 
 	# trickAnimationPlayer.speed_scale = slow_mo_factor 
 	# animationPlayerForStuffNotRelatedToTricks.speed_scale = 1.0 
 	trick_mode_controller.toggle_slow_mo(true)
-	wrong_input_timer.wait_time /= slow_mo_factor
+	
+	wrong_input_timer.wait_time = base_wrong_input_time / slow_mo_factor
 
 func _exit_slow_mode():
+	if not slow_mo: 
+		return 
+	slow_mo = false
+	
 	Engine.time_scale = 1.0
 	# trickAnimationPlayer.speed_scale = 1.0
 	# animationPlayerForStuffNotRelatedToTricks.speed_scale = 1.0 
 	trick_mode_controller.toggle_slow_mo(false)
-	wrong_input_timer.wait_time *= slow_mo_factor
+	
+	wrong_input_timer.wait_time = base_wrong_input_time
 	
 func enter_trick_mode():
 	_enter_slow_mode()
@@ -93,6 +109,7 @@ func leave_trick_mode():
 
 func _on_movement_controller_landed() -> void:
 	leave_trick_mode()
+	can_trick = true
 	
 func _on_trick_mode_controller_leave_trick_mode() -> void:
 	_exit_slow_mode()
