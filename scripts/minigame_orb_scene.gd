@@ -14,3 +14,4 @@ func _process(delta: float) -> void:
 func _on_static_body_3d_body_entered(body: Node3D) -> void:
 	print("area entered")
 	signalGameLevel.emit()
+	queue_free()
