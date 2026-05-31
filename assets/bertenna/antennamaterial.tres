@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b57lchwn2u3v6"]
+
+[ext_resource type="Texture2D" uid="uid://hq0f1qks8l3w" path="res://assets/bertenna/antennatext.png" id="1_5o6xc"]
+
+[resource]
+transparency = 1
+cull_mode = 2
+diffuse_mode = 3
+specular_mode = 1
+disable_fog = true
+albedo_texture = ExtResource("1_5o6xc")
