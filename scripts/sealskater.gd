@@ -19,6 +19,9 @@ extends CharacterBody3D
 @export_category("Tricks")
 @export_range(1.0, 100.0, 1.0) var spray_can_trick_reward: float = 25.0
 
+@export_category("Audio Internals")
+@export var spray_loop_sfx: AudioStreamPlayer
+
 var available_colors: Array[Color] = [Color.RED, Color.BLUE, Color.GREEN, Color.ORANGE, Color.DEEP_PINK, Color.DODGER_BLUE, Color.AQUA]
 var spray_can_amount: float = 0.0
 
@@ -61,6 +64,11 @@ func _process(delta: float) -> void:
 		_update_fuel_ui()
 		spray_can_amount_consumed_for_points.emit(spray_drain_per_second * delta)
 		
+		if not spray_loop_sfx.playing:
+			spray_loop_sfx.play()
+	else:
+		spray_loop_sfx.stop()
+	
 	if Input.is_action_just_pressed("enter_trick_mode") and can_trick:
 		enter_trick_mode()
 		can_trick = false

@@ -58,6 +58,7 @@
 [ext_resource type="AudioStream" uid="uid://dfyakh0v0jgwg" path="res://assets/sounds/skate_land_soft/skate_land_soft_7.wav" id="50_g3ii4"]
 [ext_resource type="AudioStream" uid="uid://bn0a7bckn3ihs" path="res://assets/sounds/skate_land_soft/skate_land_soft_8.wav" id="51_1ooe7"]
 [ext_resource type="AudioStream" uid="uid://c2u1016nijflq" path="res://assets/sounds/wind_loop/wind_loop.ogg" id="52_pxy6x"]
+[ext_resource type="AudioStream" uid="uid://bukxcrobabfa1" path="res://assets/sounds/spray_loop/spray_loop.ogg" id="59_h78gc"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_n4d43"]
 radius = 1.1640625
@@ -157,8 +158,9 @@ stream_5/stream = ExtResource("49_vhs13")
 stream_6/stream = ExtResource("50_g3ii4")
 stream_7/stream = ExtResource("51_1ooe7")
 
-[node name="Sealskater" type="CharacterBody3D" unique_id=833053730]
+[node name="Sealskater" type="CharacterBody3D" unique_id=833053730 node_paths=PackedStringArray("spray_loop_sfx")]
 script = ExtResource("1_vef6s")
+spray_loop_sfx = NodePath("SprayLoopSFX")
 
 [node name="SkaterCollisionShape" type="CollisionShape3D" parent="." unique_id=832542508]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7928467, 0)
@@ -333,6 +335,11 @@ stream = ExtResource("52_pxy6x")
 volume_db = -5.0
 autoplay = true
 parameters/looping = true
+
+[node name="SprayLoopSFX" type="AudioStreamPlayer" parent="." unique_id=770105272]
+stream = ExtResource("59_h78gc")
+volume_db = -20.0
+bus = &"SFX"
 
 [connection signal="spray_can_changed_color" from="." to="SprayFuelSubviewPort/ProgressBar" method="_on_sealskater_spray_can_changed_color"]
 [connection signal="landed" from="Controller/MovementController" to="." method="_on_movement_controller_landed"]
