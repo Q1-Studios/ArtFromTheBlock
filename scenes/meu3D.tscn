@@ -53,6 +53,15 @@ corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o70v3"]
+
+[sub_resource type="Sky" id="Sky_th1j8"]
+sky_material = SubResource("ProceduralSkyMaterial_o70v3")
+
+[sub_resource type="Environment" id="Environment_2l2sg"]
+background_mode = 2
+sky = SubResource("Sky_th1j8")
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_bggjr"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ykfqv"]
@@ -329,6 +338,7 @@ transform = Transform3D(-0.6659727, 0, -0.74597603, 0, 1, 0, 0.74597603, 0, -0.6
 [node name="Camera3D" type="Camera3D" parent="." unique_id=61138064]
 transform = Transform3D(-0.99951226, -0.006570038, -0.030529961, -0.013570695, 0.9718663, 0.2351421, 0.028126145, 0.23544173, -0.97148144, -11.511675, 126.100494, -54.67095)
 cull_mask = 1048571
+environment = SubResource("Environment_2l2sg")
 
 [node name="GameLevel" type="Node2D" parent="." unique_id=1256743737]
 
