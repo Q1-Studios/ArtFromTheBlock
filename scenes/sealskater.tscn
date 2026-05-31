@@ -270,40 +270,36 @@ texture = ExtResource("10_6w6d5")
 [node name="GrindStartSFX" type="AudioStreamPlayer" parent="." unique_id=565467190]
 stream = SubResource("AudioStreamRandomizer_7xfmw")
 volume_db = -20.0
-bus = &"SFX"
 
 [node name="GrindLoopSFX" type="AudioStreamPlayer" parent="." unique_id=389018670]
 stream = ExtResource("24_ee5s1")
 volume_db = -15.0
-bus = &"SFX"
 
 [node name="SkatingLoopSFX" type="AudioStreamPlayer" parent="." unique_id=864112689]
 stream = ExtResource("25_ufesw")
 volume_db = -15.0
-bus = &"SFX"
 
 [node name="SkatingLandSFX" type="AudioStreamPlayer" parent="." unique_id=756771138]
 stream = SubResource("AudioStreamRandomizer_s2v0j")
 volume_db = -15.0
-bus = &"SFX"
 
 [node name="JumpSFX" type="AudioStreamPlayer" parent="." unique_id=1341494006]
 stream = SubResource("AudioStreamRandomizer_h78gc")
 volume_db = -15.0
-bus = &"SFX"
 
 [node name="WindSFX" type="AudioStreamPlayer" parent="." unique_id=1798711760]
 stream = ExtResource("52_pxy6x")
 volume_db = -5.0
 autoplay = true
-bus = &"SFX"
 parameters/looping = true
 
+[connection signal="spray_can_changed_color" from="." to="SprayFuelSubviewPort/ProgressBar" method="_on_sealskater_spray_can_changed_color"]
 [connection signal="landed" from="Controller/MovementController" to="." method="_on_movement_controller_landed"]
 [connection signal="toggle_grinding" from="Controller/GrindingController" to="." method="_on_toggle_grinding"]
 [connection signal="toggle_grinding" from="Controller/GrindingController" to="Controller/MovementController" method="_on_toggle_grinding"]
 [connection signal="toggle_grinding" from="Controller/GrindingController" to="Controller/VibrationController" method="_on_toggle_grinding"]
 [connection signal="leave_trick_mode" from="Controller/TrickModeController" to="." method="_on_trick_mode_controller_leave_trick_mode"]
+[connection signal="trick_sequence_failure" from="Controller/TrickModeController" to="Controller/VibrationController" method="_on_trick_mode_controller_trick_sequence_failure"]
 [connection signal="trick_sequence_success" from="Controller/TrickModeController" to="." method="_on_trick_sequence_success"]
 [connection signal="trick_sequence_success" from="Controller/TrickModeController" to="Controller/VibrationController" method="_on_trick_mode_controller_trick_sequence_success"]
 [connection signal="trick_sequence_success_time_info" from="Controller/TrickModeController" to="Controller/CameraController" method="_on_trick_mode_controller_trick_sequence_success_time_info"]

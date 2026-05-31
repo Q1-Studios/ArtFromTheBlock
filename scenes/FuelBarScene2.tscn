@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dwvfoe6b1lusu"]
 
+[ext_resource type="Script" uid="uid://crqepquubj12f" path="res://scripts/spray_can_fuel_bar.gd" id="1_f2pik"]
 [ext_resource type="Texture2D" uid="uid://cydyk5wtccnix" path="res://assets/sprites/pollen_sprite.png" id="1_ottwj"]
 [ext_resource type="Script" uid="uid://oswifvis47vt" path="res://scripts/cpu_particles_2d.gd" id="2_slrn2"]
 
@@ -26,8 +27,10 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/background = SubResource("StyleBoxFlat_slrn2")
 theme_override_styles/fill = SubResource("StyleBoxFlat_f2pik")
+value = 50.0
 fill_mode = 2
 show_percentage = false
+script = ExtResource("1_f2pik")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1942288419]
 position = Vector2(24.000051, 212.99997)

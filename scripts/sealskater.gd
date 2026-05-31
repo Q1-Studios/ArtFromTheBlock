@@ -19,10 +19,12 @@ extends CharacterBody3D
 @export_category("Tricks")
 @export_range(1.0, 100.0, 1.0) var spray_can_trick_reward: float = 25.0
 
+var available_colors: Array[Color] = [Color.RED, Color.BLUE, Color.GREEN, Color.ORANGE, Color.DEEP_PINK, Color.DODGER_BLUE, Color.AQUA]
 var spray_can_amount: float = 0.0
 
 signal spray_can_amount_updated(amount: float)
 signal spray_can_amount_consumed_for_points(points: float)
+signal spray_can_changed_color(color: Color)
 
 var slow_mo = false
 var slow_mo_factor: float = 4.0
@@ -39,6 +41,7 @@ func _ready() -> void:
 	healthBar.max_value = max_spray_can_amount
 	spray_can_amount = 0
 	trick_mode_controller.instanciate(self, slow_mo_factor)
+	spray_can_changed_color.emit(spray_color)
 
 func _physics_process(delta: float) -> void:
 	grindingController.handle_grinding()
@@ -46,6 +49,10 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 func _process(delta: float) -> void:
+	
+	if Input.is_action_just_pressed("change_spray_color"):
+		_change_spray_color()
+	
 	if _can_spray_paint():
 		FloorPainter.paint(global_position, spray_color, spray_brush_radius)
 		spray_can_amount = max(0.0, spray_can_amount - spray_drain_per_second * delta)
@@ -73,6 +80,13 @@ func _on_grind_update_graffiti_timer_timeout() -> void:
 	spray_can_amount = new_amount
 	spray_can_amount_updated.emit(spray_can_amount)
 	_update_fuel_ui()
+	
+func _change_spray_color() -> void:
+	var currentIndex: int = available_colors.find(spray_color)
+	var nextIndex = (currentIndex + 1) % available_colors.size()
+	print("Size: {0}, nextIndex: {1}, currentIndex: {2}".format([available_colors.size(), nextIndex, currentIndex]))
+	spray_color = available_colors[nextIndex]
+	spray_can_changed_color.emit(spray_color)
 
 func _update_fuel_ui() -> void:
 	healthBar.value = spray_can_amount
@@ -123,10 +137,14 @@ func _on_trick_sequence_success() -> void:
 	spray_can_amount_updated.emit(spray_can_amount)
 	_update_fuel_ui()
 	# play animation
-	if (rng.rand_weighted([1, 1]) == 0):
+	var rng_val = rng.rand_weighted([1, 1, 1])
+	if (rng_val == 0):
 		bert.do_trick_1()
 		print("Trick 1")
-	else: 
+	elif (rng_val == 1):
 		bert.do_trick_2()	
 		print("Trick 2")
+	else:
+		bert.do_trick_3()	
+		print("Trick 3")
 	
