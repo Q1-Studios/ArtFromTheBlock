@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bf8auo6wa3n7f"]
+
+[ext_resource type="Script" uid="uid://ckb1swnoekbya" path="res://scripts/minigame_orb_scene.gd" id="1_m2p6k"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_nvhpp"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_twswg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m2p6k"]
+metallic = 1.0
+
+[node name="minigameOrb" type="Node3D" unique_id=2139912438]
+script = ExtResource("1_m2p6k")
+
+[node name="StaticBody3D" type="Area3D" parent="." unique_id=595957550]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0.32570297, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1410761172]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.013486914, 0)
+shape = SubResource("SphereShape3D_nvhpp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1538862524]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0.43318892, 0)
+mesh = SubResource("SphereMesh_twswg")
+surface_material_override/0 = SubResource("StandardMaterial3D_m2p6k")
+
+[connection signal="signalGameLevel" from="." to="." method="_on_signal_game_level"]
+[connection signal="body_entered" from="StaticBody3D" to="." method="_on_static_body_3d_body_entered"]

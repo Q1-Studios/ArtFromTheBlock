@@ -9,10 +9,10 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("spawnSceneDeleteLater"):
-		addMinigameScene()
-	pass
+#func _process(delta: float) -> void:
+	#if Input.is_action_just_pressed("spawnSceneDeleteLater"):
+		#addMinigameScene()
+	#pass
 
 func addMinigameScene() -> void:
 	tempScene = minigameScene.instantiate()
@@ -28,3 +28,7 @@ func passPointsToParent(pointsReached: int) -> void:
 	passPointsToParentSignal.emit(pointsReached)
 	print("sending to parent in main: ", pointsReached)
 	
+
+
+func _on_minigame_orb_signal_game_level() -> void:
+	addMinigameScene()

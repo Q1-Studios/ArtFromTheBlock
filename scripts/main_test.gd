@@ -47,3 +47,13 @@ func _on_game_timer_timeout() -> void:
 	get_tree().change_scene_to_file("res://scenes/meu3D.tscn")
 	GameManger.last_score = playerPoints
 	ScoreManager.add_score(GameManger.username, playerPoints)
+
+
+func _on_minigame_orb_signal_game_level() -> void:
+	print("signal recieved in game level")
+	
+	
+
+# Todo add points to counter
+func _on_painting_minigame_pass_points_to_parent_signal(pointsRecieved: int) -> void:
+	pass # Replace with function body.
