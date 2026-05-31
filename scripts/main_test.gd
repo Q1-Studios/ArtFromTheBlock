@@ -1,4 +1,4 @@
-extends Node3D
+extends Node2D
 
 var playerPoints = 0
 @onready var pointsHUD = $HUD/PointsAmount
