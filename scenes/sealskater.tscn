@@ -10,6 +10,20 @@
 [ext_resource type="PackedScene" uid="uid://bpj7o4myywyq7" path="res://scenes/bertmodel.tscn" id="7_n4d43"]
 [ext_resource type="PackedScene" uid="uid://beikiclpngb51" path="res://scenes/trick_sequence_display.tscn" id="8_ew7ux"]
 [ext_resource type="Texture2D" uid="uid://cydyk5wtccnix" path="res://assets/sprites/pollen_sprite.png" id="10_6w6d5"]
+[ext_resource type="AudioStream" uid="uid://psuil7yca5ah" path="res://assets/sounds/railing_land/railing_land_1.wav" id="11_b3ste"]
+[ext_resource type="AudioStream" uid="uid://dfd7kcwgmdn5b" path="res://assets/sounds/railing_land/railing_land_2.wav" id="12_ee5s1"]
+[ext_resource type="AudioStream" uid="uid://v52u3kiwrwv3" path="res://assets/sounds/railing_land/railing_land_11.wav" id="13_mm3nn"]
+[ext_resource type="AudioStream" uid="uid://13dty0dkpviu" path="res://assets/sounds/railing_land/railing_land_12.wav" id="14_1mdmx"]
+[ext_resource type="AudioStream" uid="uid://qmadox513sb8" path="res://assets/sounds/railing_land/railing_land_13.wav" id="15_x1tm1"]
+[ext_resource type="AudioStream" uid="uid://gg10c4o51wf4" path="res://assets/sounds/railing_land/railing_land_3.wav" id="16_erf1o"]
+[ext_resource type="AudioStream" uid="uid://dmbh7se5lqnrx" path="res://assets/sounds/railing_land/railing_land_4.wav" id="17_pguj0"]
+[ext_resource type="AudioStream" uid="uid://dku45wwvl6pme" path="res://assets/sounds/railing_land/railing_land_5.wav" id="18_j58we"]
+[ext_resource type="AudioStream" uid="uid://bud5n2yytyu8o" path="res://assets/sounds/railing_land/railing_land_6.wav" id="19_3obju"]
+[ext_resource type="AudioStream" uid="uid://c7e0muh6563x" path="res://assets/sounds/railing_land/railing_land_7.wav" id="20_tnfeh"]
+[ext_resource type="AudioStream" uid="uid://clrh17j4sbjps" path="res://assets/sounds/railing_land/railing_land_8.wav" id="21_k3m5m"]
+[ext_resource type="AudioStream" uid="uid://dxhokbfr0sn7j" path="res://assets/sounds/railing_land/railing_land_9.wav" id="22_2f11n"]
+[ext_resource type="AudioStream" uid="uid://dl7lp43oadkq3" path="res://assets/sounds/railing_land/railing_land_10.wav" id="23_vn52w"]
+[ext_resource type="AudioStream" uid="uid://m5bf6nh7eg48" path="res://assets/sounds/grind_active/grind_active_loop_2.ogg" id="24_ee5s1"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_n4d43"]
 radius = 1.1640625
@@ -61,6 +75,22 @@ size = Vector2(0.4, 0.03)
 [sub_resource type="ViewportTexture" id="ViewportTexture_ew7ux"]
 viewport_path = NodePath("TrickInputSubviewPort")
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7xfmw"]
+streams_count = 13
+stream_0/stream = ExtResource("11_b3ste")
+stream_1/stream = ExtResource("12_ee5s1")
+stream_2/stream = ExtResource("16_erf1o")
+stream_3/stream = ExtResource("17_pguj0")
+stream_4/stream = ExtResource("18_j58we")
+stream_5/stream = ExtResource("19_3obju")
+stream_6/stream = ExtResource("20_tnfeh")
+stream_7/stream = ExtResource("21_k3m5m")
+stream_8/stream = ExtResource("22_2f11n")
+stream_9/stream = ExtResource("23_vn52w")
+stream_10/stream = ExtResource("13_mm3nn")
+stream_11/stream = ExtResource("14_1mdmx")
+stream_12/stream = ExtResource("15_x1tm1")
+
 [node name="Sealskater" type="CharacterBody3D" unique_id=833053730]
 script = ExtResource("1_vef6s")
 
@@ -98,12 +128,14 @@ environment = SubResource("Environment_6w6d5")
 unique_name_in_owner = true
 script = ExtResource("3_6give")
 
-[node name="GrindingController" type="Node" parent="Controller" unique_id=1515660716 node_paths=PackedStringArray("grind_ray", "player", "player_model")]
+[node name="GrindingController" type="Node" parent="Controller" unique_id=1515660716 node_paths=PackedStringArray("grind_ray", "player", "player_model", "grind_start_sfx", "grind_loop_sfx")]
 unique_name_in_owner = true
 script = ExtResource("4_xwg03")
 grind_ray = NodePath("../../GrindShapeCast")
 player = NodePath("../..")
 player_model = NodePath("../../PlayerModel")
+grind_start_sfx = NodePath("../../GrindStartSFX")
+grind_loop_sfx = NodePath("../../GrindLoopSFX")
 
 [node name="TrickModeController" type="Node" parent="Controller" unique_id=643593822]
 unique_name_in_owner = true
@@ -170,6 +202,16 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 1
 layers = 4
 modulate = Color(0.84040874, 0, 0.10566748, 1)
 texture = ExtResource("10_6w6d5")
+
+[node name="GrindStartSFX" type="AudioStreamPlayer" parent="." unique_id=565467190]
+stream = SubResource("AudioStreamRandomizer_7xfmw")
+volume_db = -20.0
+bus = &"SFX"
+
+[node name="GrindLoopSFX" type="AudioStreamPlayer" parent="." unique_id=389018670]
+stream = ExtResource("24_ee5s1")
+volume_db = -15.0
+bus = &"SFX"
 
 [connection signal="landed" from="Controller/MovementController" to="." method="_on_movement_controller_landed"]
 [connection signal="toggle_grinding" from="Controller/GrindingController" to="." method="_on_toggle_grinding"]
