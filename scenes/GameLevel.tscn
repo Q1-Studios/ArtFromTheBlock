@@ -147,6 +147,23 @@ albedo_texture = ExtResource("30_458yb")
 material = SubResource("StandardMaterial3D_bbg3d")
 size = Vector2(1.92, 1.08)
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j3elx"]
+sky_top_color = Color(0.73454726, 0.8492994, 0.9689763, 1)
+sky_horizon_color = Color(0.54509807, 0.7411765, 0.9411765, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0.54509807, 0.7411765, 0.9411765, 1)
+ground_curve = 0.25992092
+
+[sub_resource type="Sky" id="Sky_j1fq8"]
+sky_material = SubResource("ProceduralSkyMaterial_j3elx")
+
+[sub_resource type="Environment" id="Environment_rfr25"]
+background_mode = 2
+sky = SubResource("Sky_j1fq8")
+glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.01
+
 [node name="GameLevel" type="Node2D" unique_id=1256743737]
 script = ExtResource("1_bbg3d")
 
@@ -2006,3 +2023,6 @@ curve = SubResource("Curve3D_r1v6r")
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=1167729493]
 transform = Transform3D(17.32, 0, 0, 0, 17.32, 0, 0, 0, 17.32, 5.2626095, 29.910278, 20.855902)
 mesh = SubResource("QuadMesh_66iu7")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1179529214]
+environment = SubResource("Environment_rfr25")

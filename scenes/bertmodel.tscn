@@ -14,6 +14,7 @@
 [ext_resource type="Animation" uid="uid://bd3wqagtsujak" path="res://assets/bert/bertAnimations/Trick1.res" id="12_m6v64"]
 [ext_resource type="Animation" uid="uid://85ftlf55fipd" path="res://assets/bert/bertAnimations/Trick2.res" id="13_uuim4"]
 [ext_resource type="Animation" uid="uid://ln0om2vqjejj" path="res://assets/bert/bertAnimations/TrickPose1.res" id="14_qieh0"]
+[ext_resource type="Animation" uid="uid://djdbexm5lyg11" path="res://assets/bert/bertAnimations/Trick3.res" id="14_qtmog"]
 [ext_resource type="Animation" uid="uid://0xeei75t42xu" path="res://assets/bert/bertAnimations/TrickPose2.res" id="15_bgmnx"]
 [ext_resource type="Animation" uid="uid://bggs647ju1ig1" path="res://assets/bert/bertAnimations/TrickPose3.res" id="16_iicyg"]
 
@@ -102,6 +103,7 @@ _data = {
 &"TPose": ExtResource("11_vnfsl"),
 &"Trick1": ExtResource("12_m6v64"),
 &"Trick2": ExtResource("13_uuim4"),
+&"Trick3": ExtResource("14_qtmog"),
 &"TrickPose1": ExtResource("14_qieh0"),
 &"TrickPose2": ExtResource("15_bgmnx"),
 &"TrickPose3": ExtResource("16_iicyg")
