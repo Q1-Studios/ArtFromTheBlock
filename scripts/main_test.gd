@@ -3,7 +3,7 @@ extends Node2D
 var playerPoints: float = 0
 var currentlyDisplayedPoints: float = 0
 
-@export var pointLabelSpeed: float = 20
+@export var pointLabelSpeed: float = 40
 
 @onready var pointsHUD = $HUD/PointsAmount
 @onready var game_timer = %GameTimer
