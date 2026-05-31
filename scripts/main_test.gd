@@ -7,7 +7,9 @@ var playerPoints = 0
 
 var sandbox = false
 
-
+func _enter_tree() -> void:
+	FloorPainter.initialize()
+	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	sandbox = GameManger.is_sandbox
