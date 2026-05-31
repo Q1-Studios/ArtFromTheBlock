@@ -31,4 +31,5 @@ func passPointsToParent(pointsReached: int) -> void:
 
 
 func _on_minigame_orb_signal_game_level() -> void:
+	print("start game")
 	addMinigameScene()
