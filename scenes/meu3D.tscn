@@ -278,17 +278,17 @@ uppercase = true
 [node name="CreditPpl" type="Label" parent="Credits" unique_id=93202893]
 layout_mode = 0
 offset_left = -1610.0
-offset_top = -889.0
+offset_top = -914.0
 offset_right = -1403.0
 offset_bottom = -486.0
 theme_override_font_sizes/font_size = 30
-text = "1
-2
-3
-4
-5
-6
-7"
+text = "W0LPHI
+SEAL
+CUCU
+TOBI
+PORTAR
+XTOPH
+THOMXS"
 vertical_alignment = 1
 uppercase = true
 
