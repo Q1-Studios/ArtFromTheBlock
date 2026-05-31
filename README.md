@@ -8,4 +8,4 @@ Featuring original SFX & OST
 
 All assets are made by us, from scratch, without AI and without sleep.
 
-You can try our game on [Itch.io](https://q1studios.itch.io/art-from-the-block)!
+You can try our game on [Itch.io](https://q1studios.itch.io/art-from-the-block) or watch the trailer on [YouTube](https://youtu.be/kMPPMgCuiBQ)!
