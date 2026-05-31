@@ -13,7 +13,7 @@ extends CharacterBody3D
 @export var max_spray_can_amount: float = 100.0
 @export_range(1.0, 100.0, 1.0) var spray_can_grind_reward: float = 5.0
 @export var spray_color: Color = Color.RED
-@export var spray_brush_radius: float = 0.5
+@export var spray_brush_radius: float = 2.0
 @export var spray_drain_per_second: float = 20.0
 
 @export_category("Tricks")
