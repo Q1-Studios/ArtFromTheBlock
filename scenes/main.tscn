@@ -37,7 +37,14 @@ _data = {
 }
 point_count = 4
 
-[node name="Node3D" type="Node3D" unique_id=1409937124]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o6xl0"]
+bg_color = Color(0, 0, 0.003921569, 0.31764707)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[node name="Node3D2" type="Node2D" unique_id=908184856]
 script = ExtResource("1_tefeu")
 
 [node name="Rail" parent="." unique_id=261477281 instance=ExtResource("2_0wfyh")]
@@ -84,6 +91,33 @@ curve = SubResource("Curve3D_rail2")
 unique_name_in_owner = true
 wait_time = 300.0
 one_shot = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1386257737]
+
+[node name="BackgroundHUD" type="Panel" parent="CanvasLayer" unique_id=685994004]
+offset_left = 17.0
+offset_top = 330.0
+offset_right = 395.0
+offset_bottom = 425.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_o6xl0")
+
+[node name="timerLabel" type="Label" parent="CanvasLayer" unique_id=436434287]
+unique_name_in_owner = true
+offset_left = 275.0
+offset_top = 350.0
+offset_right = 341.0
+offset_bottom = 405.0
+theme_override_font_sizes/font_size = 40
+text = "∞"
+
+[node name="timer_static" type="Label" parent="CanvasLayer" unique_id=1628571655]
+unique_name_in_owner = true
+offset_left = 34.0
+offset_top = 347.0
+offset_right = 225.0
+offset_bottom = 402.0
+theme_override_font_sizes/font_size = 40
+text = "Time left: "
 
 [connection signal="spray_can_amount_consumed_for_points" from="Sealskater" to="." method="_on_sealskater_spray_can_amount_consumed_for_points"]
 [connection signal="spray_can_amount_updated" from="Sealskater" to="." method="_on_sealskater_graffiti_fuel_updated"]

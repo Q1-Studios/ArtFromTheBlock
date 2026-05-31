@@ -12,6 +12,10 @@ class_name GrindingController
 @export var player: CharacterBody3D
 @export var player_model: Node3D
 
+@export_group("Audio Internals")
+@export var grind_start_sfx: AudioStreamPlayer
+@export var grind_loop_sfx: AudioStreamPlayer
+
 var initial_player_model_transform: Transform3D
 var initial_camera_pivot_rotation: Vector3
 
@@ -31,12 +35,17 @@ func handle_grinding():
 		update_player_camera()
 		update_player_position()
 		
+		if not grind_loop_sfx.playing:
+			grind_loop_sfx.play()
+		
 		if rail_grind_node.detach and grinding:
 			# jump of the rail at the ends
 			simulate_jump_off_rail()
+			grind_loop_sfx.stop()
 
 		if Input.is_action_just_pressed("jump"):
 			detach_from_rail()
+			grind_loop_sfx.stop()
 			
 func is_colliding_with_rail() -> bool:
 	if !grind_ray.is_colliding():
@@ -60,6 +69,7 @@ func start_grinding():
 	initial_camera_pivot_rotation = camera_pivot.rotation
 	grinding = true
 	player_model.start_grind()
+	grind_start_sfx.play()
 	
 	var grind_rail: Rail = grind_ray.get_collider(0).get_parent()
 	
