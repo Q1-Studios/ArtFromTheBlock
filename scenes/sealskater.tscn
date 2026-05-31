@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://beikiclpngb51" path="res://scenes/trick_sequence_display.tscn" id="8_ew7ux"]
 [ext_resource type="AudioStream" uid="uid://c3hkgaddkenrg" path="res://assets/sounds/trick_jingle/trick_4_final.ogg" id="8_h78gc"]
 [ext_resource type="AudioStream" uid="uid://d3igwi63eaibj" path="res://assets/sounds/trick_jingle/trick_mistake.ogg" id="9_fjdj0"]
+[ext_resource type="AudioStream" uid="uid://cgf54i5fb1i8d" path="res://assets/sounds/trick_jingle/trick_failed.ogg" id="10_1ooe7"]
 [ext_resource type="Texture2D" uid="uid://cydyk5wtccnix" path="res://assets/sprites/pollen_sprite.png" id="10_6w6d5"]
 [ext_resource type="AudioStream" uid="uid://psuil7yca5ah" path="res://assets/sounds/railing_land/railing_land_1.wav" id="11_b3ste"]
 [ext_resource type="AudioStream" uid="uid://dfd7kcwgmdn5b" path="res://assets/sounds/railing_land/railing_land_2.wav" id="12_ee5s1"]
@@ -206,7 +207,7 @@ player_model = NodePath("../../PlayerModel")
 grind_start_sfx = NodePath("../../GrindStartSFX")
 grind_loop_sfx = NodePath("../../GrindLoopSFX")
 
-[node name="TrickModeController" type="Node" parent="Controller" unique_id=643593822 node_paths=PackedStringArray("trick1_sfx", "trick2_sfx", "trick3_sfx", "trick_done_sfx", "mistake_sfx")]
+[node name="TrickModeController" type="Node" parent="Controller" unique_id=643593822 node_paths=PackedStringArray("trick1_sfx", "trick2_sfx", "trick3_sfx", "trick_done_sfx", "mistake_sfx", "failed_sfx")]
 unique_name_in_owner = true
 script = ExtResource("6_n4d43")
 trick1_sfx = NodePath("Trick1SFX")
@@ -214,6 +215,7 @@ trick2_sfx = NodePath("Trick2SFX")
 trick3_sfx = NodePath("Trick3SFX")
 trick_done_sfx = NodePath("TrickDoneSFX")
 mistake_sfx = NodePath("MistakeSFX")
+failed_sfx = NodePath("FailedSFX")
 
 [node name="Trick1SFX" type="AudioStreamPlayer" parent="Controller/TrickModeController" unique_id=660175062]
 stream = ExtResource("5_in2ot")
@@ -239,6 +241,10 @@ bus = &"SFX"
 stream = ExtResource("9_fjdj0")
 volume_db = -5.0
 bus = &"SFX"
+
+[node name="FailedSFX" type="AudioStreamPlayer" parent="Controller/TrickModeController" unique_id=1522335497]
+stream = ExtResource("10_1ooe7")
+volume_db = -5.0
 
 [node name="WrongInputTimer" type="Timer" parent="Controller" unique_id=1057629774]
 unique_name_in_owner = true

@@ -9,6 +9,7 @@ extends Node
 @export var trick3_sfx: AudioStreamPlayer
 @export var trick_done_sfx: AudioStreamPlayer
 @export var mistake_sfx: AudioStreamPlayer
+@export var failed_sfx: AudioStreamPlayer
 
 
 @onready var movementController := %MovementController
@@ -88,6 +89,7 @@ func _handle_success() -> void:
 func _handle_failure() -> void:
 	sequence_input_index = 0
 	failed = false
+	failed_sfx.play()
 	print("Failed sequence")
 
 func _evaluate_input() -> void:
