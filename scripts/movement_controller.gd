@@ -39,6 +39,7 @@ signal landed
 @export var skate_loop_sfx: AudioStreamPlayer
 @export var skate_land_sfx: AudioStreamPlayer
 @export var jump_sfx: AudioStreamPlayer
+@export var wind_sfx: AudioStreamPlayer
 
 # config var - no export
 var ahead = Vector3.RIGHT # Front of player, change es necessary
@@ -64,12 +65,14 @@ func handle_movement(player: CharacterBody3D, delta: float) -> void:
 			was_on_floor = true
 		is_grounded = true
 		coyote_timer = coyote_time
-		if current_speed > 1:
+		if current_speed > 0:
 			skate_loop_sfx.volume_db = clamp(-20 + (0.2 * current_speed), -20, -5)
 			if not skate_loop_sfx.playing:
 				skate_loop_sfx.play()
 		else:
-			skate_loop_sfx.stop()
+			skate_loop_sfx.volume_db -= delta * 60
+			if skate_loop_sfx.volume_db <= -80:
+				skate_loop_sfx.stop()
 		
 	elif coyote_time > 0.0:
 		coyote_time -= delta
@@ -79,13 +82,15 @@ func handle_movement(player: CharacterBody3D, delta: float) -> void:
 		was_on_floor = false
 		skate_loop_sfx.stop()
 	
+	wind_sfx.volume_db = clamp(-90 + 2.5 * current_speed, -90, -5)
+	
 	if not is_grinding:
 		_handle_player_turning(player, delta)
 	
 	_handle_forward_movement(player, delta)
 	_handle_gravity(player, delta)
 	_handle_jump(player, delta)
-	
+
 
 func _handle_player_turning(player: CharacterBody3D, delta: float) -> void:
 	var raw_turn = Input.get_axis("move_right", "move_left") 
