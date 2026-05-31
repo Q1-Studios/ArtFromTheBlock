@@ -137,10 +137,14 @@ func _on_trick_sequence_success() -> void:
 	spray_can_amount_updated.emit(spray_can_amount)
 	_update_fuel_ui()
 	# play animation
-	if (rng.rand_weighted([1, 1]) == 0):
+	var rng_val = rng.rand_weighted([1, 1, 1])
+	if (rng_val == 0):
 		bert.do_trick_1()
 		print("Trick 1")
-	else: 
+	elif (rng_val == 1):
 		bert.do_trick_2()	
 		print("Trick 2")
+	else:
+		bert.do_trick_3()	
+		print("Trick 3")
 	
