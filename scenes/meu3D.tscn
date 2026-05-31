@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bluqesp2rcmbo" path="res://assets/menu/black/BlackStartGame.png" id="2_m7j83"]
 [ext_resource type="Texture2D" uid="uid://dgk6sf0wptgsw" path="res://assets/menu/red/RedStartGame.png" id="3_h6b4j"]
 [ext_resource type="Texture2D" uid="uid://cgpkw7tsfd2kx" path="res://assets/menu/black/BlackSandboxMode.png" id="4_0g8oy"]
+[ext_resource type="PackedScene" uid="uid://csnbpivbucnh2" path="res://scenes/button_sound_player.tscn" id="4_3q7l0"]
 [ext_resource type="Texture2D" uid="uid://dfmjgtien1l57" path="res://assets/menu/red/RedSandboxMode.png" id="5_5jqxe"]
 [ext_resource type="Texture2D" uid="uid://cm3j7q1k880ji" path="res://assets/menu/black/BlackControls.png" id="6_43obh"]
 [ext_resource type="Texture2D" uid="uid://lp7dnx0xyytg" path="res://assets/menu/red/RedControls.png" id="7_8iicl"]
@@ -40,6 +41,7 @@
 [ext_resource type="Material" uid="uid://c8v47cdlwjhpl" path="res://assets/skateboard/skemtboard.tres" id="38_weeit"]
 [ext_resource type="PackedScene" uid="uid://c5hl0wna16l0g" path="res://scenes/rail.tscn" id="39_d7psy"]
 [ext_resource type="PackedScene" uid="uid://dy2ssres8kaye" path="res://scenes/mini_map.tscn" id="40_ed2jm"]
+[ext_resource type="AudioStream" uid="uid://ehws38amj4s3" path="res://assets/sounds/city_ambience/city_ambience_menu.ogg" id="41_huein"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uuqsn"]
 bg_color = Color(0, 0, 0.003921569, 0.31764707)
@@ -165,6 +167,8 @@ texture_normal = ExtResource("2_m7j83")
 texture_pressed = ExtResource("3_h6b4j")
 texture_hover = ExtResource("3_h6b4j")
 
+[node name="ButtonSoundPlayer" parent="Control/PlayButton" unique_id=907668814 instance=ExtResource("4_3q7l0")]
+
 [node name="SandboxButton" type="TextureButton" parent="Control" unique_id=2034898635]
 layout_mode = 0
 offset_left = 50.0
@@ -174,6 +178,8 @@ offset_bottom = 713.0
 texture_normal = ExtResource("4_0g8oy")
 texture_pressed = ExtResource("5_5jqxe")
 texture_hover = ExtResource("5_5jqxe")
+
+[node name="ButtonSoundPlayer" parent="Control/SandboxButton" unique_id=789196122 instance=ExtResource("4_3q7l0")]
 
 [node name="Tutorial" type="TextureButton" parent="Control" unique_id=592751469]
 layout_mode = 0
@@ -185,6 +191,8 @@ texture_normal = ExtResource("6_43obh")
 texture_pressed = ExtResource("7_8iicl")
 texture_hover = ExtResource("7_8iicl")
 
+[node name="ButtonSoundPlayer" parent="Control/Tutorial" unique_id=749148465 instance=ExtResource("4_3q7l0")]
+
 [node name="Quit" type="TextureButton" parent="Control" unique_id=897835568]
 layout_mode = 0
 offset_left = 50.0
@@ -194,6 +202,8 @@ offset_bottom = 1024.0
 texture_normal = ExtResource("8_ee28s")
 texture_pressed = ExtResource("9_mecc7")
 texture_hover = ExtResource("9_mecc7")
+
+[node name="ButtonSoundPlayer" parent="Control/Quit" unique_id=2039420264 instance=ExtResource("4_3q7l0")]
 
 [node name="username" type="LineEdit" parent="Control" unique_id=1474954011]
 unique_name_in_owner = true
@@ -2132,6 +2142,12 @@ omni_range = 4096.0
 transform = Transform3D(1, 0, 0, 0, -0.9659258, 0.25881907, 0, -0.25881907, -0.9659258, -6.3505993, 127.10782, -38.302002)
 light_color = Color(1, 0.6862745, 0.5686275, 1)
 light_energy = 0.429
+
+[node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=1045963743]
+stream = ExtResource("41_huein")
+volume_db = -10.0
+autoplay = true
+bus = &"SFX"
 
 [connection signal="pressed" from="Control/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Control/SandboxButton" to="." method="_on_sandbox_button_pressed"]

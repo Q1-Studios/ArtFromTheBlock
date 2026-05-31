@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://csnbpivbucnh2"]
+
+[ext_resource type="Script" uid="uid://6o5iw0yjb0jq" path="res://scripts/button_sound_player.gd" id="1_tbans"]
+[ext_resource type="AudioStream" uid="uid://b43jrdstdwftg" path="res://assets/sounds/spray_ultrashort/spray_ultrashort_1.wav" id="2_b5xwy"]
+[ext_resource type="AudioStream" uid="uid://b5snairoqq86x" path="res://assets/sounds/spray_ultrashort/spray_ultrashort_2.wav" id="3_dmhoc"]
+[ext_resource type="AudioStream" uid="uid://bqmt8r88bygl0" path="res://assets/sounds/spray_ultrashort/spray_ultrashort_11.wav" id="4_lwgo7"]
+[ext_resource type="AudioStream" uid="uid://d038d1l1let0q" path="res://assets/sounds/spray_ultrashort/spray_ultrashort_12.wav" id="5_a1pp4"]
+[ext_resource type="AudioStream" uid="uid://6qcf6u8vtwjy" path="res://assets/sounds/spray_ultrashort/spray_ultrashort_13.wav" id="6_gbfem"]
+[ext_resource type="AudioStream" uid="uid://ds64fwihgak2h" path="res://assets/sounds/spray_ultrashort/spray_ultrashort_14.wav" id="7_3csrs"]
+[ext_resource type="AudioStream" uid="uid://fislsdoos3no" path="res://assets/sounds/spray_ultrashort/spray_ultrashort_3.wav" id="8_qyn7v"]
+[ext_resource type="AudioStream" uid="uid://bmu8eh4ergo5r" path="res://assets/sounds/spray_ultrashort/spray_ultrashort_4.wav" id="9_557p2"]
+[ext_resource type="AudioStream" uid="uid://owlvvuctg5q5" path="res://assets/sounds/spray_ultrashort/spray_ultrashort_5.wav" id="10_dwstk"]
+[ext_resource type="AudioStream" uid="uid://cd70yyiq1drk7" path="res://assets/sounds/spray_ultrashort/spray_ultrashort_6.wav" id="11_diwoc"]
+[ext_resource type="AudioStream" uid="uid://bh8ykrkh40cpk" path="res://assets/sounds/spray_ultrashort/spray_ultrashort_7.wav" id="12_vts2w"]
+[ext_resource type="AudioStream" uid="uid://c414e8plext7b" path="res://assets/sounds/spray_ultrashort/spray_ultrashort_8.wav" id="13_ad8mq"]
+[ext_resource type="AudioStream" uid="uid://b5jaeb7iwkrtr" path="res://assets/sounds/spray_ultrashort/spray_ultrashort_9.wav" id="14_tbqku"]
+[ext_resource type="AudioStream" uid="uid://brd8wv2xs81kc" path="res://assets/sounds/spray_ultrashort/spray_ultrashort_10.wav" id="15_tq7fp"]
+[ext_resource type="AudioStream" uid="uid://bag4rcxoqulr6" path="res://assets/sounds/spray_ultashort_twice/spray_ultrashort_twice.wav" id="16_mmr63"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_h3781"]
+streams_count = 14
+stream_0/stream = ExtResource("2_b5xwy")
+stream_1/stream = ExtResource("3_dmhoc")
+stream_2/stream = ExtResource("8_qyn7v")
+stream_3/stream = ExtResource("9_557p2")
+stream_4/stream = ExtResource("10_dwstk")
+stream_5/stream = ExtResource("11_diwoc")
+stream_6/stream = ExtResource("12_vts2w")
+stream_7/stream = ExtResource("13_ad8mq")
+stream_8/stream = ExtResource("14_tbqku")
+stream_9/stream = ExtResource("15_tq7fp")
+stream_10/stream = ExtResource("4_lwgo7")
+stream_11/stream = ExtResource("5_a1pp4")
+stream_12/stream = ExtResource("6_gbfem")
+stream_13/stream = ExtResource("7_3csrs")
+
+[node name="ButtonSoundPlayer" type="Node" unique_id=907668814 node_paths=PackedStringArray("hover_sound", "click_sound")]
+script = ExtResource("1_tbans")
+hover_sound = NodePath("HoverSound")
+click_sound = NodePath("ClickSound")
+
+[node name="HoverSound" type="AudioStreamPlayer" parent="." unique_id=1930514104]
+stream = SubResource("AudioStreamRandomizer_h3781")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="." unique_id=2075937810]
+stream = ExtResource("16_mmr63")
+volume_db = -10.0
+bus = &"SFX"
