@@ -2,6 +2,7 @@ extends Node3D
 
 @onready var leaderboard_ppl_label = %LeaderboardPPL
 @onready var username_input = %username
+@onready var web_quit_info: ColorRect = %WebQuitInfo
 
 func _ready() -> void:
 	username_input.text = GameManger.username
@@ -52,4 +53,6 @@ func _on_tutorial_pressed() -> void:
 	tutorialSprite.show()
 
 func _on_quit_pressed() -> void:
+	if OS.get_name() == "Web":
+		web_quit_info.show()
 	get_tree().quit()

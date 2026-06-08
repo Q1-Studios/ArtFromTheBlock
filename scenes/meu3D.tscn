@@ -2182,6 +2182,23 @@ script = ExtResource("42_3q7l0")
 position = Vector2(1177, 229)
 texture = ExtResource("48_cw8cn")
 
+[node name="WebQuitInfo" type="ColorRect" parent="." unique_id=1222221712]
+unique_name_in_owner = true
+visible = false
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="WebQuitInfo" unique_id=1869192141]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_font_sizes/font_size = 48
+text = "You have quit the game.
+Reload the tab to restart it."
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="pressed" from="Control/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Control/SandboxButton" to="." method="_on_sandbox_button_pressed"]
 [connection signal="pressed" from="Control/Quit" to="." method="_on_quit_pressed"]
