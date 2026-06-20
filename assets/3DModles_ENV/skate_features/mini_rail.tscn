@@ -18,12 +18,12 @@ point_count = 2
 
 [node name="mini_rail" unique_id=1017700860 instance=ExtResource("1_1")]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Cube_003" parent_id_path=PackedInt32Array(200507131) index="0" unique_id=1494479563]
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube_003" parent_id_path=PackedInt32Array(1805452368) index="0" unique_id=1494479563]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_003/StaticBody3D" index="0" unique_id=690318936]
 shape = SubResource("ConcavePolygonShape3D_scmu2")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Cube_004" parent_id_path=PackedInt32Array(676403185) index="0" unique_id=590037026]
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube_004" parent_id_path=PackedInt32Array(1444450795) index="0" unique_id=590037026]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_004/StaticBody3D" index="0" unique_id=619521012]
 shape = SubResource("ConcavePolygonShape3D_cbs2v")

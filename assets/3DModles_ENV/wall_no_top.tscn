@@ -7,7 +7,7 @@ data = PackedVector3Array(0.009, -0.01, -0.009, 0.01, -0.009, -0.009, 0.009, -0.
 
 [node name="wall_no_top" unique_id=996564659 instance=ExtResource("1_1")]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Cube" parent_id_path=PackedInt32Array(1526223273) index="0" unique_id=1443264824]
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" parent_id_path=PackedInt32Array(950119791) index="0" unique_id=1443264824]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=964343931]
 shape = SubResource("ConcavePolygonShape3D_7h0sm")

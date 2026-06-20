@@ -1,5 +1,5 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene format=3 uid="uid://diunmqrk85ntf"]
 
-[ext_resource type="PackedScene" path="res://assets/3DModles_ENV/skate_features/entrance_railing.fbx" id="1_1"]
+[ext_resource type="PackedScene" uid="uid://b5yha3wggnmwx" path="res://assets/3DModles_ENV/skate_features/entrance_railing.fbx" id="1_1"]
 
-[node name="entrance_railing" instance=ExtResource("1_1")]
+[node name="entrance_railing" unique_id=437839895 instance=ExtResource("1_1")]

@@ -7,7 +7,7 @@ data = PackedVector3Array(0, 0.01, -0.005, 0, -0.01, -0.005, -0.01, -0.01, -0.01
 
 [node name="triple_quater" unique_id=397032677 instance=ExtResource("1_1")]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Cube_002" parent_id_path=PackedInt32Array(670725569) index="0" unique_id=1237167408]
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube_002" parent_id_path=PackedInt32Array(1318502795) index="0" unique_id=1237167408]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_002/StaticBody3D" index="0" unique_id=1607852665]
 shape = SubResource("ConcavePolygonShape3D_4bhtn")

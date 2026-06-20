@@ -1,5 +1,5 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene format=3 uid="uid://ghasifxxu0ts"]
 
-[ext_resource type="PackedScene" path="res://assets/3DModles_ENV/skate_features/flower_pit.fbx" id="1_1"]
+[ext_resource type="PackedScene" uid="uid://c4cev0rt66kb5" path="res://assets/3DModles_ENV/skate_features/flower_pit.fbx" id="1_1"]
 
-[node name="flower_pit" instance=ExtResource("1_1")]
+[node name="flower_pit" unique_id=1284340060 instance=ExtResource("1_1")]

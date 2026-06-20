@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cmbp6f8jrss3g"]
 
 [ext_resource type="Texture2D" uid="uid://cydyk5wtccnix" path="res://assets/sprites/pollen_sprite.png" id="1_kas85"]
-[ext_resource type="Script" uid="uid://t5f0vkvaf3gg" path="res://scripts/fuelBar.gd" id="2_44bbb"]
 
 [node name="FuelBarUI" type="Control" unique_id=33227842]
 layout_mode = 3
@@ -36,4 +35,3 @@ offset_top = 700.0
 offset_right = 1625.0
 offset_bottom = 915.0
 fill_mode = 3
-script = ExtResource("2_44bbb")

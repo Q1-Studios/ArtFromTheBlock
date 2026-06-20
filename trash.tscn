@@ -10,12 +10,12 @@ data = PackedVector3Array(-0.01, 0.01, 0.01, -0.01, -0.01, 0.01, -0.01, -0.01, -
 
 [node name="Trash" unique_id=1109770521 instance=ExtResource("1_avkd5")]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Trashcan" parent_id_path=PackedInt32Array(1051167658) index="0" unique_id=935008358]
+[node name="StaticBody3D" type="StaticBody3D" parent="Trashcan" parent_id_path=PackedInt32Array(1171906602) index="0" unique_id=935008358]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Trashcan/StaticBody3D" index="0" unique_id=1857021251]
 shape = SubResource("ConcavePolygonShape3D_43he1")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Trashcan top" parent_id_path=PackedInt32Array(1102276523) index="0" unique_id=375142171]
+[node name="StaticBody3D" type="StaticBody3D" parent="Trashcan top" parent_id_path=PackedInt32Array(356505421) index="0" unique_id=375142171]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Trashcan top/StaticBody3D" index="0" unique_id=2117234886]
 shape = SubResource("ConcavePolygonShape3D_76yqg")

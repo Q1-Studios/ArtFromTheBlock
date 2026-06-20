@@ -1,5 +1,5 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene format=3 uid="uid://dle3sac83phd4"]
 
-[ext_resource type="PackedScene" path="res://assets/3DModles_ENV/skate_features/360_rail.fbx" id="1_1"]
+[ext_resource type="PackedScene" uid="uid://ds6m7gge5jefj" path="res://assets/3DModles_ENV/skate_features/360_rail.fbx" id="1_1"]
 
-[node name="360_rail" instance=ExtResource("1_1")]
+[node name="360_rail" unique_id=1658465942 instance=ExtResource("1_1")]

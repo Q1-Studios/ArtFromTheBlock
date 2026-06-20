@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://x2skpi50lmkj" path="res://assets/trickArrows/arrowRight.png" id="4_telbk"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_37snx"]
-load_path = "res://.godot/imported/arrowRight (2).png-f05bbcd3c0bbf6faed29345533b722ce.ctex"
 
 [node name="TrickSequenceDisplay" type="Node2D" unique_id=1397633476]
 

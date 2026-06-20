@@ -18,12 +18,12 @@ point_count = 18
 
 [node name="360_blank" unique_id=1980421503 instance=ExtResource("1_1")]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Circle_001" parent_id_path=PackedInt32Array(339948894) index="0" unique_id=11581766]
+[node name="StaticBody3D" type="StaticBody3D" parent="Circle_001" parent_id_path=PackedInt32Array(189031110) index="0" unique_id=11581766]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Circle_001/StaticBody3D" index="0" unique_id=602470073]
 shape = SubResource("ConcavePolygonShape3D_nsxdj")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Circle_002" parent_id_path=PackedInt32Array(624062288) index="0" unique_id=669539659]
+[node name="StaticBody3D" type="StaticBody3D" parent="Circle_002" parent_id_path=PackedInt32Array(646764916) index="0" unique_id=669539659]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Circle_002/StaticBody3D" index="0" unique_id=1825876984]
 shape = SubResource("ConcavePolygonShape3D_35qjo")

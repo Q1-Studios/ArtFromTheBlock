@@ -4,13 +4,13 @@
 
 [node name="bert" unique_id=751518164 instance=ExtResource("1_1bn65")]
 
-[node name="SkateBert" parent="Base" parent_id_path=PackedInt32Array(514814567) index="0" unique_id=849193975]
+[node name="SkateBert" parent="Base" parent_id_path=PackedInt32Array(826770026) index="0" unique_id=608970473]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
 
-[node name="board" parent="Base/SkateBert" index="0" unique_id=543611561]
+[node name="board" parent="Base/SkateBert" index="0" unique_id=1144897276]
 transform = Transform3D(1, 0, 0, 0, 0.9848077, 0.17364818, 0, -0.17364818, 0.9848077, 0.008074284, 0.41745842, 0.0032007098)
 
-[node name="Skeleton3D" parent="Base/SkateBert/board/BertRig" parent_id_path=PackedInt32Array(515804092) index="0" unique_id=1873090134]
+[node name="Skeleton3D" parent="Base/SkateBert/board/BertRig" parent_id_path=PackedInt32Array(903257974) index="0" unique_id=925498253]
 bones/12/rotation = Quaternion(0.009911557, -0.0035650532, 0.020877792, 0.9997266)
 bones/15/rotation = Quaternion(0.040846005, -0.0027030027, -0.06468382, 0.99706596)
 bones/16/rotation = Quaternion(0.2437814, 0.06386508, -0.16246293, 0.95399046)
@@ -24,8 +24,8 @@ bones/45/rotation = Quaternion(-0.024791801, 0.0041624024, -0.010507784, 0.99962
 bones/47/rotation = Quaternion(-0.022411572, 0.0032783407, 0.008260596, 0.99970937)
 bones/49/rotation = Quaternion(-0.09929025, 0.011811088, 0.013284765, 0.9948998)
 
-[node name="firstachse" parent="Base/SkateBert" index="1" unique_id=701477264]
+[node name="firstachse" parent="Base/SkateBert" index="1" unique_id=223207831]
 transform = Transform3D(0.9659258, 0, 0.25881907, 0, 1, 0, -0.25881907, 0, 0.9659258, 1.1110541, 0.43463552, -0.00343135)
 
-[node name="secondachse" parent="Base/SkateBert" index="2" unique_id=702074823]
+[node name="secondachse" parent="Base/SkateBert" index="2" unique_id=1904138950]
 transform = Transform3D(0.9659258, 0, -0.25881907, 0, 1, 0, 0.25881907, 0, 0.9659258, -1.0949056, 0.4346354, -0.003431365)
